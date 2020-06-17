@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+</head>
+<style>
+    table>tbody>tr>td {
+        text-align: left;
+        padding: 4px;
+        padding-left: 10px;
+    }
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+    }
+    table {
+        margin: 0 auto;
+    }
+    .leftCell {
+        background-color: antiquewhite;
+    }
+</style>
+
+<body>
+   <!--form Tag에 submet이 눌리는순간-->
+    <form action="#" name="inputForm" onsubmit="check()">
+        <table border="1 solid">
+            <tr>
+                <td class="leftCell">이름</td>
+                <td><input type="text" name="name" size="3"></td>
+            </tr>
+            <tr>
+                <td style="width: 120px;" class="leftCell">주민번호</td>
+                <td style="width: 280px;"><input type="text" name = "no1" maxlength="6" size="6">-<input type="password"  name="no2" maxlength="6" size="6"></td>
+            </tr>
+            <tr>
+                <td class="leftCell">아이디</td>
+                <td><input type="text" name="id" size="10">
+                    <input type="button" name="checkId" value="중복검사"></td>
+            </tr>
+            <tr>
+                <td class="leftCell">비밀번호</td>
+                <td><input type="password" name="pw"></td>
+            </tr>
+            <tr>
+                <td class="leftCell">비밀번호확인</td>
+                <td><input type="password" name="checkPw"></td>
+            </tr>
+            <tr>
+                <td class="leftCell">이메일</td>
+                <td><input type="text" name="emailFirst" size="10">@<select>
+                        <option value="1">naver.com</option>
+                        <option value="2">google.com</option>
+                        <option value="3">daum.net</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="leftCell">집전화</td>
+                <td>
+                    <select>
+                        <option value="1">02</option>
+                        <option value="2">070</option>
+                        <option value="3">032</option>
+                    </select>-<input type="text" name="home1" size="4" maxlength="4">-<input type="text" name="home2" size="4" maxlength="4"></td>
+            </tr>
+            <tr>
+                <td class="leftCell">휴대전화</td>
+                <td><select>
+                        <option value="1">010</option>
+                        <option value="2">011</option>
+                        <option value="3">018</option>
+                    </select>-<input type="text" name="mobile1" size="4" maxlength="4">-<input type="text" name="mobile2" size="4" maxlength="4"></td>
+            </tr>
+            <tr>
+                <td class="leftCell">주소검색</td>
+                <td><input type="text" name="addressForSerch" size="15"> <input type="button" value="주소검색"></td>
+            </tr>
+            <tr>
+                <td class="leftCell">주소</td>
+                <td><input type="text" name="address"></td>
+            </tr>
+            <tr>
+                <td class="leftCell">상세주소</td>
+                <td><input type="text" name="addressDetail" size="30"></td>
+            </tr>
+            <tr>
+                <td class="leftCell">메일수신</td>
+                <td><input type="checkbox" name="checkForMail" >정보메일 수신에 동의합니다.</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="align-items: center">
+                    <div style="text-align: center"><input type="submit" value="회원가입"> <input type="reset" value="다시쓰기"> <input type="button" onclick="valueTest()" value="TEST"></div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+<script>
+    //유효성 검사
+    function check(){
+        /*var inputs = document.getElementsByName("inputForm");
+        console.log(inputs);*/
+        
+        var inputs = document.inputForm;
+        console.log(inputs.id.value);
+        
+        /*
+        논리연산자의 피연산자는 논리값(t/f)이 아니어도 된다.
+        피 연산자가 논리값이 아니면 필요에 따라 타입을 변환한다.
+            피연산자                                        평가값
+            ------------------------------------------------------------
+            0,-0,빈문자열(""),NaN,null,undefinded           false
+            0을 제외한 숫자, 모든 문자열, 모든 객체         true
+        */
+        //!false > return false
+        if(!inputs.id.value){
+            alert("아이디를 입력하세요");
+            return false;
+        }
+        if(!inputs.no1.value||!inputs.no2.value){
+            alert("주민번호를 입력하세요");
+            return false;
+        }
+        if(!inputs.pw.value){
+            alert("비밀번호를 입력하세요");
+            return false;
+        }
+        if(!inputs.checkPw.value){
+            alert("비밀번호확인을 입력하세요");
+            return false;
+        }
+        if(!inputs.emailFirst.value){
+            alert("이메일을 입력하세요");
+            return false;
+        }
+        if(!inputs.home1.value||!inputs.home2.value){
+            alert("집전화를 입력하세요");
+            return false;
+        }
+        if(!inputs.mobile1.value||!inputs.mobile2.value){
+            alert("휴대전화를 입력하세요");
+            return false;
+        }
+        if(!inputs.address.value){
+            alert("주소를 입력하세요");
+            return false;
+        }
+        if(!inputs.addressDetail.value){
+            alert("상세주소 입력하세요");
+            return false;
+        }
+        if(!inputs.checkForMail.checked){
+            alert("메일수신을 체크해주세요");
+            return false;
+        }
+    }
+    function valueTest(){
+        var inputs = document.inputForm;
+        console.log(inputs.checkForMail.checked);
+    }
+</script>
+</html>
