@@ -7,7 +7,7 @@
 <body>
 	<h1>
 		Hello world!<br>
-		Hello GitHub<br>
+		Hello GitHub<br> 
 	</h1>
 
 	<h2>The time on the server is ${serverTime}.</h2>
