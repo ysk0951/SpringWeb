@@ -41,7 +41,7 @@ public class ProjectController {
 		logger.warn("404 Error");
 		model.addAttribute("content", "1");
 		return "board/error";
-	}
+	} 
 	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String projectList(Model model, HttpServletRequest request) {
 		//pager를 위한것
