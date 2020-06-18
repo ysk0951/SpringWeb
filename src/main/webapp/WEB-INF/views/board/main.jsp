@@ -118,16 +118,6 @@ a:hover {text-decoration: underline; color:blue;}
 			<img src="/resources/img/homeIndex.jpg" class="img-fluid"
 				style="max-height: 100%; min-width: 100%" />
 		</div>
-		<div class="row" align="center" style="margin-left: 20px;">
-			currentPage(17/7) : ${pageData.currentPage}</br>
-			startPage(시작) : ${pageData.startPage}</br>
-			pageCount(한번에나타낼페이저) : ${pageData.pageCount}</br>
-			displayRow(한페이저당 게시물수) : ${pageData.displayRow}</br>
-			endPage(마지막 페이지 11~15면 15): ${pageData.endPage}</br>
-			lastPage(완전마지막페이지) : ${pageData.lastPage}</br>
-			rowCount(게시물총갯수) : ${pageData.rowCount}</br>
-			offset(현재게시물시작위치-1) : ${pageData.offset}</br>
-		</div>
 		<!--  row overflow Container-->
 		<div class="row" align="center">
 			<div class="col-sm-12"
@@ -149,7 +139,7 @@ a:hover {text-decoration: underline; color:blue;}
 			<div class="col-sm-12">ImageContainerWillbehere</div>
 		</div>
 		<div class="row" align="center">
-			<table class="table table-bordered"
+			<%-- <table class="table table-bordered"
 				style="text-align: center; margin: 15px; height: 90%;">
 				<thead>
 					<tr>
@@ -160,18 +150,8 @@ a:hover {text-decoration: underline; color:blue;}
 					</tr>
 				</thead>
 				<tbody>
-					<%-- 같은소스
-					<c:forEach var="index" begin="0" end="${list.size()}">
-						<tr>
-							<td>${list[index].getNum()}</td>
-							<td>${list[index].getProjectName()}</td>
-							<td>${list[index].getContent()}</td>
-							<td>${list[index].getRegdate()}</td>
-						<tr>
-					</c:forEach> --%>
 					<c:forEach var="index"  items="${list}">
 						<tr>
-							<%--<a href="test.jsp?a=<%= previousA %> --%>							
 							<td><a href="main/detail?num=${index.num}">${index.num}</a></td>
 							<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
 							<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
@@ -179,17 +159,34 @@ a:hover {text-decoration: underline; color:blue;}
 						<tr>
 					</c:forEach>
 				</tbody>
-			</table>
-			<div style="margin: 0 auto; margin-top: 20">
+			</table> --%>
+			<div style="margin: 0 auto;">
 				<input type="text">&nbsp;
 				<input type="button" value="검색">&nbsp;
 				<Input type="button" value="새글">&nbsp;
 				<Input type="button" value="삭제">&nbsp;</br>
 				<div style="text-align: center; height: 10%;">
-					
-					<%-- <c:if test="${page }"></c:if> --%>
-					${rowCount}
-					<Input type="button" value="이전">12345Pager<Input type="button" value="다음">
+					<Input type="button" value="이전">
+					<%--
+					currentPage(17/7) : ${pageData.currentPage}</br>
+					startPage(시작) : ${pageData.startPage}</br>
+					pageCount(한번에나타낼페이저) : ${pageData.pageCount}</br>
+					displayRow(한페이저당 게시물수) : ${pageData.displayRow}</br>
+					endPage(마지막 페이지 11~15면 15): ${pageData.endPage}</br>
+					lastPage(완전마지막페이지) : ${pageData.lastPage}</br>
+					rowCount(게시물총갯수) : ${pageData.rowCount}</br>
+					offset(현재게시물시작위치-1) : ${pageData.offset}</br>
+					--%>
+					<c:forEach begin="1" end="${pageData.lastPage}" var="i">
+						<c:choose>
+							<c:when test="${i eq param.currentPage}">
+								<a href="main?currentPage=${i}" style="color: red;">${i}</a>
+							</c:when>
+							<c:otherwise><a href="main?currentPage=${i}">${i}</a></c:otherwise>
+						</c:choose>
+					</c:forEach>					
+					<%-- <c:if test="${pageData.currentPage}==3}">12345</c:if> --%>
+					<Input type="button" value="다음">
 					
 				</div>
 			</div>

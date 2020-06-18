@@ -55,7 +55,6 @@ public class ProjectController {
 			//PageVO의 형태로 VIEW로 전송
 			Pager pager = new Pager(rowCount);
 			pageData = pager.pageCal();
-			
 			List<ProjectVO> list = service.listSearch();//NULLPOINT
 			model.addAttribute("list", list);
 			model.addAttribute("pageData",pageData);
