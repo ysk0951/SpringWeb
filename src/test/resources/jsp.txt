@@ -1,0 +1,33 @@
+[jsp]
+	웹 어플리케이션 서버 WAS(웹서버[정적] + 웹컨테이너[동적])
+	JSP생명주기 Hello.jsp > Hello_jsp.java > Hello_jsp.class > jspIninit() > jspService()
+			      > Browser Request > HTML Rendering > jspDestroy()
+	디렉티브 	<%@ %> 설정관련 		
+	스크립트릿 	<%! %> 클래스 영역
+			<% %>  메서드 영역	
+			<%= %> 프린트 함수 == OUT객체
+	표현언어 	EL
+	내장객체 	request/response/out/ 			[name = data]
+			application/				web.XML <countext-param>
+			session Cookies/pageContext/page/
+			config/exception
+	JSTL		
+	Action Tag      directive include : 단순코드복사 
+                    action include : 외부파일실행후(처리결과포함) 현재 JSP페이지로 제어 변환
+                    useBean(생성)/setProperty/getProperty : DTO,VO를 JSP에서 사용
+	Custom Tag/	
+	파라미터 인코딩 Server >> Client 	<%@ page charSet%>
+		     디코딩 Server << Client	POST 	request.setCharacterEncoding("UTF-8")/ServletFilter(java/xml);
+						               GET	   Tomcat server.xml에 설정 63LINE
+	페이지 이동 	리다이렉트		       response.sendRedirect();
+			     포워딩(출력버퍼지움)	RequestDispatcher dispatcher = application.getRequestDispatcher("/hello");
+						                                   dispatcher.forward(request, response);
+	예외처리	  try-catch/JSPDirectiveTag/web.xml
+	데이터이동	 param(StringValueOnly)/
+			      pageContext<request<session(browser)<application .Attribute
+                  
+                
+            
+            
+            
+            
