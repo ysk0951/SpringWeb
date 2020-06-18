@@ -14,7 +14,8 @@
 	JSTL		
 	Action Tag      directive include : 단순코드복사 
                     action include : 외부파일실행후(처리결과포함) 현재 JSP페이지로 제어 변환
-                    useBean(생성)/setProperty/getProperty : DTO,VO를 JSP에서 사용
+                    useBean(생성)/setProperty/getProperty : DTO,VO를 JSP에서 사용 property같으면 자동매칭
+                    <jsp:setProperty property="*" name="vo" />
 	Custom Tag/	
 	파라미터 인코딩 Server >> Client 	<%@ page charSet%>
 		     디코딩 Server << Client	POST 	request.setCharacterEncoding("UTF-8")/ServletFilter(java/xml);
