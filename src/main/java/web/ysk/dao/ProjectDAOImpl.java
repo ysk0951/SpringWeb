@@ -23,7 +23,6 @@ public class ProjectDAOImpl implements ProjectDAO {
 	}
 	@Override
 	public void create(ProjectVO vo) throws Exception {
-		// TODO Auto-generated method stub
 	}
 	@Override
 	public void update(ProjectVO vo) throws Exception {
@@ -31,7 +30,6 @@ public class ProjectDAOImpl implements ProjectDAO {
 	}
 	@Override
 	public void delete(int bno) throws Exception {
-
 	}
 	@Override
 	public ProjectVO listDetail(int no) {

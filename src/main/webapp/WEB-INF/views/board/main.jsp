@@ -118,6 +118,16 @@ a:hover {text-decoration: underline; color:blue;}
 			<img src="/resources/img/homeIndex.jpg" class="img-fluid"
 				style="max-height: 100%; min-width: 100%" />
 		</div>
+		<div class="row" align="center" style="margin-left: 20px;">
+			currentPage(17/7) : ${pageData.currentPage}</br>
+			startPage(시작) : ${pageData.startPage}</br>
+			pageCount(한번에나타낼페이저) : ${pageData.pageCount}</br>
+			displayRow(한페이저당 게시물수) : ${pageData.displayRow}</br>
+			endPage(마지막 페이지 11~15면 15): ${pageData.endPage}</br>
+			lastPage(완전마지막페이지) : ${pageData.lastPage}</br>
+			rowCount(게시물총갯수) : ${pageData.rowCount}</br>
+			offset(현재게시물시작위치-1) : ${pageData.offset}</br>
+		</div>
 		<!--  row overflow Container-->
 		<div class="row" align="center">
 			<div class="col-sm-12"

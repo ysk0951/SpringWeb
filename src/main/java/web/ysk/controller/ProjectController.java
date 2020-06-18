@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import web.ysk.dao.Pager;
 import web.ysk.service.ProjectService;
+import web.ysk.vo.PageVO;
 import web.ysk.vo.ProjectVO;
 @Controller
 public class ProjectController {
@@ -46,17 +47,22 @@ public class ProjectController {
 	public String projectList(Model model, HttpServletRequest request) {
 		//pager를 위한것
 		int rowCount =0;
+		PageVO pageData = null;
 		try {
+			//DB접속해서 총게시물의 갯수를 가져옴
 			rowCount = service.selectRowCount();
+			//총게시물의 갯수를 기준으로 Pager에 대한 데이터를
+			//PageVO의 형태로 VIEW로 전송
 			Pager pager = new Pager(rowCount);
-			pager.getPage();
+			pageData = pager.pageCal();
 			
 			List<ProjectVO> list = service.listSearch();//NULLPOINT
 			model.addAttribute("list", list);
-			model.addAttribute("rowCount",rowCount);
+			model.addAttribute("pageData",pageData);
 			for(int i=0;i<list.size();i++) {
 				System.out.println("Data : "+list.get(i));
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
