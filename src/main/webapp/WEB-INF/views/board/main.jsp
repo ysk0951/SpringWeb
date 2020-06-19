@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -183,7 +184,6 @@ a:hover {
 				<div style="text-align: center; height: 10%;">
 					
 					<%-- 이전버튼 누를시 기능 구현 --%>
-					<Input type="button" value="이전">
 						<%--
 							currentPage(17/7) : ${pageData.currentPage}</br>
 							startPage(시작) : ${pageData.startPage}</br>
@@ -193,14 +193,27 @@ a:hover {
 							lastPage(완전마지막페이지) : ${pageData.lastPage}</br>
 							rowCount(게시물총갯수) : ${pageData.rowCount}</br>
 							offset(현재게시물시작위치-1) : ${pageData.offset}</br>
-						--%>
-						<c:set value="${pageData.indexOfPage}" var="ii" />${ii}
-						<c:forEach begin="${pageData.startPage}" end="${pageData.endPage}" var="i">
+						--%> 
+						<c:set value="${pageData.indexOfPage}" var="pageIndex" />
+						<c:choose>
+							<c:when test="${empty param.nowLevel}">
+								<c:set var="nowLevel" value="0"/>
+							</c:when>
+							<c:when test="${!empty param.nowLevel}">
+								<c:set var="nowLevel" value="${param.nowLevel}"/>
+							</c:when>
+						</c:choose>
+						[ LowLevel : ${nowLevel} : 페이저TestZONE ]
+						<c:if test="${nowLevel>0}">
+							<a href="/main?nowLevel=${nowLevel-1}">이전</a>
+						</c:if>
+											<%--0		5								 --%>
+						<c:forEach begin="${(nowLevel*pageData.pageCount)+1}" end="${(nowLevel+1)*pageData.pageCount}" var="i">
 							<c:choose>
 								<c:when test="${i eq param.currentPage}">
 									<a href="main?currentPage=${i}" style="color: red;">${i}</a>
 								</c:when>
-								<c:when test="${i eq pageData.startPage and empty param.currentPage}">
+								<c:when test="${i eq ((nowLevel*pageData.pageCount)+1) and empty param.currentPage}">
 									<a href="main?currentPage=${i}" style="color: red;">${i}</a>
 								</c:when>
 								<c:otherwise>
@@ -208,11 +221,14 @@ a:hover {
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
-					<Input type="button" value="다음">
+						<c:if test="${nowLevel<pageIndex}">
+							<a href="/main?nowLevel=${nowLevel+1}">다음</a>
+						</c:if>
+						<%-- <h:commandButton value="Submit" action="#{bean.submit}"> --%>
 				</div>
 				</div>
 				</div>
-				</form>
+				</form>	
 				<div class="row" align="center">CONTACT</div>
 				</div>
 </body>
