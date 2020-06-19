@@ -27,8 +27,8 @@
 	데이터이동	 param(StringValueOnly)/
 			      pageContext<request<session(browser)<application .Attribute
                   
+    JDBC        Drive로딩/DBConnect/Statement/Resultset/Close
                 
-            
             
             
             

@@ -56,6 +56,7 @@ public class ProjectController {
 			Pager pager = new Pager(rowCount);
 			pageData = pager.pageCal();
 			List<ProjectVO> list = service.listSearch();//NULLPOINT
+			
 			model.addAttribute("list", list);
 			model.addAttribute("pageData",pageData);
 			for(int i=0;i<list.size();i++) {
@@ -72,6 +73,7 @@ public class ProjectController {
 	public String projectDetail(Model model, HttpServletRequest request) {
 		try {
 			ProjectVO vo = null;
+
 			String num = request.getParameter("num");
 			System.out.println("LOG NUM : "+num);
 			System.out.println("LOG vo : "+vo);

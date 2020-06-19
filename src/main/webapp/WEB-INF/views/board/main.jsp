@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,11 +80,25 @@ body {
 	vertical-align: middle;
 }
 
-a:link {text-decoration: none; color: black;}
-a:visited {text-decoration: none; color: black;}
-a:active {text-decoration: none; color: black;}
-a:hover {text-decoration: underline; color:blue;}
+a:link {
+	text-decoration: none;
+	color: black;
+}
 
+a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+a:active {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: blue;
+}
 </style>
 <%-------------------------------------------------[ToDo List]----------------------------------------------------%>
 <%---------------------------------[MappingChange >> JS/CSS import Check]--------------------------------------------%>
@@ -160,39 +174,45 @@ a:hover {text-decoration: underline; color:blue;}
 					</c:forEach>
 				</tbody>
 			</table> --%>
-			<div style="margin: 0 auto;">
-				<input type="text">&nbsp;
-				<input type="button" value="검색">&nbsp;
-				<Input type="button" value="새글">&nbsp;
-				<Input type="button" value="삭제">&nbsp;</br>
+				<div style="margin: 0 auto;">
+					<input type="text">&nbsp; 
+					<input type="button" value="검색">&nbsp;
+					<Input type="button" value="새글">&nbsp; 
+					<Input type="button" value="삭제">&nbsp;</br>
+				
 				<div style="text-align: center; height: 10%;">
-					<Input type="button" value="이전">
-					<%--
-					currentPage(17/7) : ${pageData.currentPage}</br>
-					startPage(시작) : ${pageData.startPage}</br>
-					pageCount(한번에나타낼페이저) : ${pageData.pageCount}</br>
-					displayRow(한페이저당 게시물수) : ${pageData.displayRow}</br>
-					endPage(마지막 페이지 11~15면 15): ${pageData.endPage}</br>
-					lastPage(완전마지막페이지) : ${pageData.lastPage}</br>
-					rowCount(게시물총갯수) : ${pageData.rowCount}</br>
-					offset(현재게시물시작위치-1) : ${pageData.offset}</br>
-					--%>
-					<c:forEach begin="1" end="${pageData.lastPage}" var="i">
-						<c:choose>
-							<c:when test="${i eq param.currentPage}">
-								<a href="main?currentPage=${i}" style="color: red;">${i}</a>
-							</c:when>
-							<c:otherwise><a href="main?currentPage=${i}">${i}</a></c:otherwise>
-						</c:choose>
-					</c:forEach>					
-					<%-- <c:if test="${pageData.currentPage}==3}">12345</c:if> --%>
-					<Input type="button" value="다음">
 					
+					<%-- 이전버튼 누를시 기능 구현 --%>
+					<Input type="button" value="이전">
+						<%--
+							currentPage(17/7) : ${pageData.currentPage}</br>
+							startPage(시작) : ${pageData.startPage}</br>
+							pageCount(한번에나타낼페이저) : ${pageData.pageCount}</br>
+							displayRow(한페이저당 게시물수) : ${pageData.displayRow}</br>
+							endPage(마지막 페이지 11~15면 15): ${pageData.endPage}</br>
+							lastPage(완전마지막페이지) : ${pageData.lastPage}</br>
+							rowCount(게시물총갯수) : ${pageData.rowCount}</br>
+							offset(현재게시물시작위치-1) : ${pageData.offset}</br>
+						--%>
+						<c:forEach begin="${pageData.startPage}" end="${pageData.lastPage}" var="i">
+							<c:choose>
+								<c:when test="${i eq param.currentPage}">
+									<a href="main?currentPage=${i}" style="color: red;">${i}</a>
+								</c:when>
+								<c:when test="${i eq pageData.startPage}">
+									<a href="main?currentPage=${i}" style="color: red;">${i}</a>
+								</c:when>
+								<c:otherwise>
+									<a href="main?currentPage=${i}">${i}</a>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+					<Input type="button" value="다음">
 				</div>
-			</div>
-		</div>
-		</form>
-		<div class="row" align="center">CONTACT</div>
-	</div>
+				</div>
+				</div>
+				</form>
+				<div class="row" align="center">CONTACT</div>
+				</div>
 </body>
 </html>
