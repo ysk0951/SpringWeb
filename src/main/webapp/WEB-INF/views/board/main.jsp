@@ -189,29 +189,29 @@ a:hover {
  					</tr>
 				</thead>
 				<tbody>
-						<%--첫메인값 예외처리 --%>
-						<c:choose>
-							<c:when test="${empty param.currentPage}">
-								<c:set var="beginTd" value="0" />
-								<c:set var="endTd" value="${pageData.displayRow-1}" /> 
-							</c:when>
-							<c:when test="${!empty param.currentPage}">
-								<c:set var="beginTd" value="${(param.currentPage-1)*pageData.displayRow}" />
-								<c:set var="endTd" value="${(param.currentPage*pageData.displayRow)-1}" />
-							</c:when>
-						</c:choose>
-						<c:if test="${endTd ge (pageData.rowCount-1)}">
-							<c:set var="endTd" value="${pageData.rowCount-1}" />
-						</c:if>
-							<%--TD zone --%>
-							<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}">
-							<tr>
-								<td><a href="main/detail?num=${index.num}">${index.num}</a></td>
-								<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
-								<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
-								<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
-							</tr>	
-							</c:forEach>
+					<%--첫메인값 예외처리 --%>
+					<c:choose>
+						<c:when test="${empty param.currentPage}">
+							<c:set var="beginTd" value="0" />
+							<c:set var="endTd" value="${pageData.displayRow-1}" /> 
+						</c:when>
+						<c:when test="${!empty param.currentPage}">
+							<c:set var="beginTd" value="${(param.currentPage-1)*pageData.displayRow}" />
+							<c:set var="endTd" value="${(param.currentPage*pageData.displayRow)-1}" />
+						</c:when>
+					</c:choose>
+					<c:if test="${endTd ge (pageData.rowCount-1)}">
+						<c:set var="endTd" value="${pageData.rowCount-1}" />
+					</c:if>
+						<%--TD zone --%>
+						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}">
+						<tr>
+							<td><a href="main/detail?num=${index.num}">${index.num}</a></td>
+							<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
+							<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
+							<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
+						</tr>	
+						</c:forEach>
 				</tbody>
 			</table>
 			<div style="margin: 0 auto;">
