@@ -175,61 +175,65 @@ a:hover {
 					</c:forEach>
 				</tbody>
 			</table> --%>
-				<div style="margin: 0 auto;">
-					<input type="text">&nbsp; 
-					<input type="button" value="검색">&nbsp;
-					<Input type="button" value="새글">&nbsp; 
-					<Input type="button" value="삭제">&nbsp;</br>
-				
+			<div style="margin: 0 auto;">
+				<input type="text">&nbsp; <input type="button" value="검색">&nbsp;
+				<Input type="button" value="새글">&nbsp; <Input type="button"
+					value="삭제">&nbsp;</br>
 				<div style="text-align: center; height: 10%;">
-					
-					<%-- 이전버튼 누를시 기능 구현 --%>
-						<%--
-							currentPage(17/7) : ${pageData.currentPage}</br>
-							startPage(시작) : ${pageData.startPage}</br>
-							pageCount(한번에나타낼페이저) : ${pageData.pageCount}</br>
-							displayRow(한페이저당 게시물수) : ${pageData.displayRow}</br>
-							endPage(마지막 페이지 11~15면 15): ${pageData.endPage}</br>
-							lastPage(완전마지막페이지) : ${pageData.lastPage}</br>
-							rowCount(게시물총갯수) : ${pageData.rowCount}</br>
-							offset(현재게시물시작위치-1) : ${pageData.offset}</br>
-						--%> 
-						<c:set value="${pageData.indexOfPage}" var="pageIndex" />
+					<c:set value="${pageData.indexOfPage}" var="pageIndex" />
+					<c:set var="nowLevel" value="0" />
+					<c:choose>
+						<c:when test="${empty param.nowLevel}">
+							<c:set var="nowLevel" value="0" />
+						</c:when>
+						<c:when test="${!empty param.nowLevel}">
+							<c:set var="nowLevel" value="${param.nowLevel}" />
+						</c:when>
+					</c:choose>
+					[ LowLevel : ${nowLevel} : pageIndex : ${pageIndex} ]
+					<c:if test="${nowLevel>0}">
+						<a href="/main?nowLevel=${nowLevel-1}">이전</a>
+					</c:if>
+
+					<%--End변수 설정--%>
+					<c:choose>
+						<c:when
+							test="${((nowLevel+1)*pageData.pageCount)>pageData.lastPage}">
+							<c:set var="end" value="${pageData.lastPage}" />
+						</c:when>
+						<c:when
+							test="${((nowLevel+1)*pageData.pageCount)<pageData.lastPage}">
+							<c:set var="end" value="${((nowLevel+1)*pageData.pageCount)}" />
+						</c:when>
+					</c:choose>
+
+					<%--페이지 시작~끝설정	 --%>
+					<c:forEach begin="${(nowLevel*pageData.pageCount)+1}" end="${end}"
+						var="i">
 						<c:choose>
-							<c:when test="${empty param.nowLevel}">
-								<c:set var="nowLevel" value="0"/>
+							<c:when test="${i eq param.currentPage}">
+								<a href="main?currentPage=${i}&nowLevel=${nowLevel}"
+									style="color: red;">${i}</a>
 							</c:when>
-							<c:when test="${!empty param.nowLevel}">
-								<c:set var="nowLevel" value="${param.nowLevel}"/>
+							<c:when
+								test="${i eq ((nowLevel*pageData.pageCount)+1) and empty param.currentPage}">
+								<a href="main?currentPage=${i}&nowLevel=${nowLevel}"
+									style="color: red;">${i}</a>
 							</c:when>
+							<c:otherwise>
+								<a href="main?currentPage=${i}&nowLevel=${nowLevel}">${i}</a>
+							</c:otherwise>
 						</c:choose>
-						[ LowLevel : ${nowLevel} : 페이저TestZONE ]
-						<c:if test="${nowLevel>0}">
-							<a href="/main?nowLevel=${nowLevel-1}">이전</a>
-						</c:if>
-											<%--0		5								 --%>
-						<c:forEach begin="${(nowLevel*pageData.pageCount)+1}" end="${(nowLevel+1)*pageData.pageCount}" var="i">
-							<c:choose>
-								<c:when test="${i eq param.currentPage}">
-									<a href="main?currentPage=${i}" style="color: red;">${i}</a>
-								</c:when>
-								<c:when test="${i eq ((nowLevel*pageData.pageCount)+1) and empty param.currentPage}">
-									<a href="main?currentPage=${i}" style="color: red;">${i}</a>
-								</c:when>
-								<c:otherwise>
-									<a href="main?currentPage=${i}">${i}</a>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-						<c:if test="${nowLevel<pageIndex}">
-							<a href="/main?nowLevel=${nowLevel+1}">다음</a>
-						</c:if>
-						<%-- <h:commandButton value="Submit" action="#{bean.submit}"> --%>
+					</c:forEach>
+					<c:if test="${nowLevel<pageIndex}">
+						<a href="/main?nowLevel=${nowLevel+1}">다음</a>
+					</c:if>
+					<%-- <h:commandButton value="Submit" action="#{bean.submit}"> --%>
 				</div>
-				</div>
-				</div>
-				</form>	
-				<div class="row" align="center">CONTACT</div>
-				</div>
+			</div>
+		</div>
+		</form>
+		<div class="row" align="center">CONTACT</div>
+	</div>
 </body>
 </html>
