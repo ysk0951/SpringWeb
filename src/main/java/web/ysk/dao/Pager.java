@@ -41,6 +41,9 @@ public class Pager {
 		if(endPage > lastPage){
 			endPage = lastPage;
 		}
+		
+		int indexOfPage = endPage / pageCount ;
+		
 		PageVO pagerData = new PageVO();
 		pagerData.setCurrentPage(currentPage);
 		pagerData.setEndPage(endPage);
@@ -50,6 +53,9 @@ public class Pager {
 		pagerData.setRowCount(rowCount);
 		pagerData.setDisplayRow(displayRow);
 		pagerData.setOffset(offset);
-		return pagerData; 
+		pagerData.setIndexOfPage(indexOfPage);
+		return pagerData;
+		
+		//13/5
 	}
 }

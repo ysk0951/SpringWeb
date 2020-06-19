@@ -194,12 +194,13 @@ a:hover {
 							rowCount(게시물총갯수) : ${pageData.rowCount}</br>
 							offset(현재게시물시작위치-1) : ${pageData.offset}</br>
 						--%>
-						<c:forEach begin="${pageData.startPage}" end="${pageData.lastPage}" var="i">
+						<c:set value="${pageData.indexOfPage}" var="ii" />${ii}
+						<c:forEach begin="${pageData.startPage}" end="${pageData.endPage}" var="i">
 							<c:choose>
 								<c:when test="${i eq param.currentPage}">
 									<a href="main?currentPage=${i}" style="color: red;">${i}</a>
 								</c:when>
-								<c:when test="${i eq pageData.startPage}">
+								<c:when test="${i eq pageData.startPage and empty param.currentPage}">
 									<a href="main?currentPage=${i}" style="color: red;">${i}</a>
 								</c:when>
 								<c:otherwise>
