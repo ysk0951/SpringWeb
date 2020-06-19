@@ -154,7 +154,31 @@ a:hover {
 			<div class="col-sm-12">ImageContainerWillbehere</div>
 		</div>
 		<div class="row" align="center">
-			<%-- <table class="table table-bordered"
+			<%--pageIndex 설정--%>
+			<c:set value="${pageData.indexOfPage}" var="pageIndex" />
+			<%--nowLevel 설정--%>
+			<c:set var="nowLevel" value="0" />
+			<%--이전/다음버튼관련 param값으로 nowLevel 재할당--%>
+			<c:choose>
+				<c:when test="${empty param.nowLevel}">
+					<c:set var="nowLevel" value="0" />
+				</c:when>
+				<c:when test="${!empty param.nowLevel}">
+					<c:set var="nowLevel" value="${param.nowLevel}" />
+				</c:when>
+			</c:choose>
+			<%--End변수 설정--%>
+			<c:choose>
+				<c:when
+					test="${((nowLevel+1)*pageData.pageCount)>pageData.lastPage}">
+					<c:set var="end" value="${pageData.lastPage}" />
+				</c:when>
+				<c:when
+					test="${((nowLevel+1)*pageData.pageCount)<pageData.lastPage}">
+					<c:set var="end" value="${((nowLevel+1)*pageData.pageCount)}" />
+				</c:when>
+			</c:choose>
+			<table class="table table-bordered"
 				style="text-align: center; margin: 15px; height: 90%;">
 				<thead>
 					<tr>
@@ -162,51 +186,42 @@ a:hover {
 						<th>프로젝트 이름</th>
 						<th>컨텐트</th>
 						<th>등록일</th>
-					</tr>
+ 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="index"  items="${list}">
-						<tr>
-							<td><a href="main/detail?num=${index.num}">${index.num}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
-						<tr>
-					</c:forEach>
+						<%--첫메인값 예외처리 --%>
+						<c:choose>
+							<c:when test="${empty param.currentPage}">
+								<c:set var="beginTd" value="0" />
+								<c:set var="endTd" value="${pageData.displayRow-1}" /> 
+							</c:when>
+							<c:when test="${!empty param.currentPage}">
+								<c:set var="beginTd" value="${(param.currentPage-1)*pageData.displayRow}" />
+								<c:set var="endTd" value="${(param.currentPage*pageData.displayRow)-1}" />
+							</c:when>
+						</c:choose>
+						<c:if test="${endTd ge (pageData.rowCount-1)}">
+							<c:set var="endTd" value="${pageData.rowCount-1}" />
+						</c:if>
+							<%--TD zone --%>
+							<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}">
+							<tr>
+								<td><a href="main/detail?num=${index.num}">${index.num}</a></td>
+								<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
+								<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
+								<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
+							</tr>	
+							</c:forEach>
 				</tbody>
-			</table> --%>
+			</table>
 			<div style="margin: 0 auto;">
 				<input type="text">&nbsp; <input type="button" value="검색">&nbsp;
 				<Input type="button" value="새글">&nbsp; <Input type="button"
 					value="삭제">&nbsp;</br>
 				<div style="text-align: center; height: 10%;">
-					<c:set value="${pageData.indexOfPage}" var="pageIndex" />
-					<c:set var="nowLevel" value="0" />
-					<c:choose>
-						<c:when test="${empty param.nowLevel}">
-							<c:set var="nowLevel" value="0" />
-						</c:when>
-						<c:when test="${!empty param.nowLevel}">
-							<c:set var="nowLevel" value="${param.nowLevel}" />
-						</c:when>
-					</c:choose>
-					[ LowLevel : ${nowLevel} : pageIndex : ${pageIndex} ]
 					<c:if test="${nowLevel>0}">
-						<a href="/main?nowLevel=${nowLevel-1}">이전</a>
+						<a href="/main?nowLevel=${nowLevel-1}&currentPage=${(nowLevel-1)*pageData.pageCount+1}">이전</a>
 					</c:if>
-
-					<%--End변수 설정--%>
-					<c:choose>
-						<c:when
-							test="${((nowLevel+1)*pageData.pageCount)>pageData.lastPage}">
-							<c:set var="end" value="${pageData.lastPage}" />
-						</c:when>
-						<c:when
-							test="${((nowLevel+1)*pageData.pageCount)<pageData.lastPage}">
-							<c:set var="end" value="${((nowLevel+1)*pageData.pageCount)}" />
-						</c:when>
-					</c:choose>
-
 					<%--페이지 시작~끝설정	 --%>
 					<c:forEach begin="${(nowLevel*pageData.pageCount)+1}" end="${end}"
 						var="i">
@@ -226,9 +241,8 @@ a:hover {
 						</c:choose>
 					</c:forEach>
 					<c:if test="${nowLevel<pageIndex}">
-						<a href="/main?nowLevel=${nowLevel+1}">다음</a>
+						<a href="/main?nowLevel=${nowLevel+1}&currentPage=${(nowLevel+1)*pageData.pageCount+1}">다음</a>
 					</c:if>
-					<%-- <h:commandButton value="Submit" action="#{bean.submit}"> --%>
 				</div>
 			</div>
 		</div>
