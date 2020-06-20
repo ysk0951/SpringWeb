@@ -100,6 +100,7 @@ a:hover {
 
 .skillHeader {
 	display: flex;
+	flex-shrink : 1;
 	align-items: center;
 	justify-content: center;
 	font-family: 'Lobster', cursive;
@@ -110,6 +111,7 @@ a:hover {
 
 .skillItems {
 	display: flex;
+	flex-shrink : 1;
 	align-items: center;
 	justify-content: center;
 	font-family: 'Lobster', cursive;
@@ -121,10 +123,21 @@ a:hover {
 	height: 100vh;
 	width: 100vw;
 	display: flex;
+	flex-wrap:wrap;
 	align-items: center;
 	justify-content: center;
 	margin: 0 auto;
 	border: 1px solid black;
+}
+.contact{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-wrap:wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	border: 1px solid black;	
 }
 </style>
 <%-------------------------------------------------[ToDo List]----------------------------------------------------%>
@@ -172,13 +185,14 @@ a:hover {
 				<div class="skillItems">ImageContainerWillbehere</div>
 				<div class="skillItems">ETC</div>
 				<div class="skillItems">ImageContainerWillbehere</div>
-			</div>
+				<div class="skillItems">ETC</div>
+				<div class="skillItems">ImageContainerWillbehere</div>
+			</div> 
 		</div>
 		<div class="row" align="center" ><!--수정 -->
 			<div class="tableView">
-				<div style="height:90%; width: 100%; display: block; border: 1px solid black;">
-				<table border="1px solid #333333;" >
-					<thead>
+				<table border="1px solid #333333;" style="height:90%; width: 90%; margin-top: 20px; margin-bottom: 20px;" >
+					<thead> 
 						<tr>
 			 				<th>NO</th>
 							<th>프로젝트 이름</th>
@@ -195,8 +209,7 @@ a:hover {
 						</tr>
 					</tbody>
 				</table>
-				</div>
-				<div style="height:10%; width: 100%; display: block; border: 1px solid black;" >
+				<div style="height:8%; width: 100%; border : 1px solid #333333;">
 					<input type="text">&nbsp;
 					<input type="button" value="검색">&nbsp;
 					<Input type="button" value="새글">&nbsp;
@@ -204,7 +217,9 @@ a:hover {
 				</div>
 			</div>
 		</div>
-		<div class="row" align="center">CONTACT</div>
+		<div class="row" align="center">
+			<div class="contact">CONTACT</div>
+		</div>
 	</div>
 </body>
 </html>
