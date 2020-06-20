@@ -68,14 +68,16 @@ html, body {
 	overflow: hidden;
 }
 
-.table>tbody>tr>td {
-	vertical-align: middle;
+table>tbody>tr>td {
+	vertical-align: middle; 
+	text-align: center;
 }
 
 .table>thead>tr>th {
 	vertical-align: middle;
+	text-align: center;
 }
-
+ 
 a:link {
 	text-decoration: none;
 	color: black;
@@ -113,6 +115,15 @@ a:hover {
 	font-family: 'Lobster', cursive;
 	font-size: medium;
 	height: 8%;
+	border: 1px solid black;
+}
+.tableView{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
 	border: 1px solid black;
 }
 </style>
@@ -163,100 +174,35 @@ a:hover {
 				<div class="skillItems">ImageContainerWillbehere</div>
 			</div>
 		</div>
-		<div class="row" align="center">
-			<%--pageIndex 설정--%>
-			<c:set value="${pageData.indexOfPage}" var="pageIndex" />
-			<%--nowLevel 설정--%>
-			<c:set var="nowLevel" value="0" />
-			<%--이전/다음버튼관련 param값으로 nowLevel 재할당--%>
-			<c:choose>
-				<c:when test="${empty param.nowLevel}">
-					<c:set var="nowLevel" value="0" />
-				</c:when>
-				<c:when test="${!empty param.nowLevel}">
-					<c:set var="nowLevel" value="${param.nowLevel}" />
-				</c:when>
-			</c:choose>
-			<%--End변수 설정--%>
-			<c:choose>
-				<c:when
-					test="${((nowLevel+1)*pageData.pageCount)>pageData.lastPage}">
-					<c:set var="end" value="${pageData.lastPage}" />
-				</c:when>
-				<c:when
-					test="${((nowLevel+1)*pageData.pageCount)<pageData.lastPage}">
-					<c:set var="end" value="${((nowLevel+1)*pageData.pageCount)}" />
-				</c:when>
-			</c:choose>
-			<form>
-			<table class="table table-bordered"
-				style="text-align: center; margin: 15px; height: 90%;">
-				<thead>
-					<tr>
-						<th>NO</th>
-						<th>프로젝트 이름</th>
-						<th>컨텐트</th>
-						<th>등록일</th>
- 					</tr>
-				</thead>
-				<tbody>
-					<%--첫메인값 예외처리 --%>
-					<c:choose>
-						<c:when test="${empty param.currentPage}">
-							<c:set var="beginTd" value="0" />
-							<c:set var="endTd" value="${pageData.displayRow-1}" /> 
-						</c:when>
-						<c:when test="${!empty param.currentPage}">
-							<c:set var="beginTd" value="${(param.currentPage-1)*pageData.displayRow}" />
-							<c:set var="endTd" value="${(param.currentPage*pageData.displayRow)-1}" />
-						</c:when>
-					</c:choose>
-					<c:if test="${endTd ge (pageData.rowCount-1)}">
-						<c:set var="endTd" value="${pageData.rowCount-1}" />
-					</c:if>
-						<%--TD zone --%>
-						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}">
+		<div class="row" align="center" ><!--수정 -->
+			<div class="tableView">
+				<div style="height:90%; width: 100%; display: block; border: 1px solid black;">
+				<table border="1px solid #333333;" >
+					<thead>
 						<tr>
-							<td><a href="main/detail?num=${index.num}">${index.num}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
-						</tr>	
-						</c:forEach>
-				</tbody>
-			</table>
-			<div style="margin: 0 auto;">
-				<input type="text">&nbsp; <input type="button" value="검색">&nbsp;
-				<Input type="button" value="새글">&nbsp; <Input type="button"
-					value="삭제">&nbsp;</br>
-				<div style="text-align: center; height: 10%;">
-					<c:if test="${nowLevel>0}">
-						<a href="/main?nowLevel=${nowLevel-1}&currentPage=${(nowLevel-1)*pageData.pageCount+1}">이전</a>
-					</c:if>
-					<%--페이지 시작~끝설정	 --%>
-					<c:forEach begin="${(nowLevel*pageData.pageCount)+1}" end="${end}"
-						var="i">
-						<c:choose>
-							<c:when test="${i eq param.currentPage}">
-								<a href="main?currentPage=${i}&nowLevel=${nowLevel}"
-									style="color: red;">${i}</a>
-							</c:when>
-							<c:when
-								test="${i eq ((nowLevel*pageData.pageCount)+1) and empty param.currentPage}">
-								<a href="main?currentPage=${i}&nowLevel=${nowLevel}"
-									style="color: red;">${i}</a>
-							</c:when>
-							<c:otherwise>
-								<a href="main?currentPage=${i}&nowLevel=${nowLevel}">${i}</a>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-					<c:if test="${nowLevel<pageIndex}">
-						<a href="/main?nowLevel=${nowLevel+1}&currentPage=${(nowLevel+1)*pageData.pageCount+1}">다음</a>
-					</c:if>
+							<th>NO</th>
+							<th>프로젝트 이름</th>
+							<th>컨텐트</th>
+							<th>등록일</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				<div style="height:10%; width: 100%; display: block; border: 1px solid black;" >
+					<input type="text">&nbsp;
+					<input type="button" value="검색">&nbsp;
+					<Input type="button" value="새글">&nbsp;
+					<Input type="button" value="삭제">&nbsp;</br>
 				</div>
 			</div>
-			</form>
 		</div>
 		<div class="row" align="center">CONTACT</div>
 	</div>

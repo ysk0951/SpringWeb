@@ -69,6 +69,12 @@ public class ProjectController {
 		return "board/main";
 	}
 	
+	@RequestMapping(value="/mainT", method=RequestMethod.GET)
+	public String projectListTest(Model model, HttpServletRequest request) {
+		//pager를 위한것
+		return "board/mainTest";
+	}
+	
 	@RequestMapping(value="/main/detail", method=RequestMethod.GET)
 	public String projectDetail(Model model, HttpServletRequest request) {
 		try {
