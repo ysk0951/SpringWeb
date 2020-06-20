@@ -9,6 +9,7 @@ public class PageVO {
 	private int lastPage;
 	private int rowCount;
 	private int offset;
+	private int indexOfPage;
 
 	public int getCurrentPage() {
 		return currentPage;
@@ -57,5 +58,11 @@ public class PageVO {
 	}
 	public void setOffset(int offset) {
 		this.offset = offset;
+	}
+	public void setIndexOfPage(int indexOfPage) {
+		this.indexOfPage = indexOfPage;
+	}
+	public int getIndexOfPage() {
+		return indexOfPage;
 	}
 }

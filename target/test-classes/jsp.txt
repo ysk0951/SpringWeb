@@ -27,8 +27,12 @@
 	데이터이동	 param(StringValueOnly)/
 			      pageContext<request<session(browser)<application .Attribute
                   
+    JDBC        Drive로딩/DBConnect/PreparedStatement(동적)/Resultset/Close
+                Resultset   executeQuery() Select
+                int         executeUpdate() insert,update,delete
                 
-            
+                
+                
             
             
             

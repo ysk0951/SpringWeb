@@ -17,11 +17,13 @@ public class Pager {
 		//특정 ROW 기준으로하는 현재 페이지
 		// ex) 19/7 >>2 5/7 >> 3페이지의 위에서 5번째의 게시물이 되어야함
 		// 2.xxxx 올림 3
+		// 이게지금 문제
 		int currentPage = (int)Math.ceil((double)rowCount/displayRow);
 		
 		// 현재페이지에서의 게시물 시작위치
 		// ex) 19/7 >> 2.xxxx >> (3-1)*7 >> 14가 0값
 		int offset = (currentPage - 1) * displayRow;
+		
 		
 		// 13페이지면 11페이지가 시작페이지가 되고 15페이지가 마지막이되게함
 		int startPage = (currentPage - 1) / pageCount * pageCount + 1; 
@@ -39,6 +41,9 @@ public class Pager {
 		if(endPage > lastPage){
 			endPage = lastPage;
 		}
+		
+		int indexOfPage = endPage / pageCount ;
+		
 		PageVO pagerData = new PageVO();
 		pagerData.setCurrentPage(currentPage);
 		pagerData.setEndPage(endPage);
@@ -48,6 +53,9 @@ public class Pager {
 		pagerData.setRowCount(rowCount);
 		pagerData.setDisplayRow(displayRow);
 		pagerData.setOffset(offset);
-		return pagerData; 
+		pagerData.setIndexOfPage(indexOfPage);
+		return pagerData;
+		
+		//13/5
 	}
 }
