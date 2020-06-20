@@ -7,8 +7,8 @@
 <body>
 	<h1>
 		Hello world!Hello GitHub<hr> 
-		TODO LIST Grobal	: SpringCRUD/Mybatis(SpringJDBC)/Transaction/Security/<br>
-		TODO LIST Home 		: RESUME/ViewCSS
+		TODO LIST Grobal	: SpringCRUD[paging]w/Mybatis(SpringJDBC)/Transaction/Security/<br>
+		TODO LIST Home 		: SUMMARYFILE/RESUME/ViewCSS
 	</h1>
 
 	<h2>The time on the server is ${serverTime}.</h2>
