@@ -30,7 +30,7 @@
     JDBC        Drive로딩/DBConnect/PreparedStatement(동적)/Resultset/Close
                 Resultset   executeQuery() Select
                 int         executeUpdate() insert,update,delete
-                
+                 
                 
                 
             
