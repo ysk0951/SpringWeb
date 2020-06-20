@@ -180,7 +180,7 @@ a:hover {
 				<table border="1px solid #333333;" >
 					<thead>
 						<tr>
-							<th>NO</th>
+			 				<th>NO</th>
 							<th>프로젝트 이름</th>
 							<th>컨텐트</th>
 							<th>등록일</th>
