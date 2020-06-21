@@ -68,16 +68,14 @@ html, body {
 	overflow: hidden;
 }
 
-table>tbody>tr>td {
-	vertical-align: middle; 
-	text-align: center;
+.table>tbody>tr>td {
+	vertical-align: middle;
 }
 
 .table>thead>tr>th {
 	vertical-align: middle;
-	text-align: center;
 }
- 
+
 a:link {
 	text-decoration: none;
 	color: black;
@@ -100,7 +98,6 @@ a:hover {
 
 .skillHeader {
 	display: flex;
-	flex-shrink : 1;
 	align-items: center;
 	justify-content: center;
 	font-family: 'Lobster', cursive;
@@ -111,7 +108,6 @@ a:hover {
 
 .skillItems {
 	display: flex;
-	flex-shrink : 1;
 	align-items: center;
 	justify-content: center;
 	font-family: 'Lobster', cursive;
@@ -119,6 +115,7 @@ a:hover {
 	height: 8%;
 	border: 1px solid black;
 }
+
 .tableView{
 	height: 100vh;
 	width: 100vw;
@@ -173,7 +170,7 @@ a:hover {
 				style="max-height: 100%; min-width: 100%" />
 		</div>
 		<div class="align-items-center" >
-			<div  style="height: 100vh">
+			<div  style="height: 100vh;">
 				<div class="skillHeader">Skills</div>
 				<div class="skillItems">Launage</div>
 				<div class="skillItems">ImageContainerWillbehere</div>
@@ -185,13 +182,11 @@ a:hover {
 				<div class="skillItems">ImageContainerWillbehere</div>
 				<div class="skillItems">ETC</div>
 				<div class="skillItems">ImageContainerWillbehere</div>
-				<div class="skillItems">ETC</div>
-				<div class="skillItems">ImageContainerWillbehere</div>
 			</div> 
 		</div>
-		<div class="row" align="center" ><!--수정 -->
+		<div class="row" align="center" >
 			<div class="tableView">
-				<table border="1px solid #333333;" style="height:90%; width: 90%; margin-top: 20px; margin-bottom: 20px;" >
+				<table border="1px solid #333333;" style="height:90%; width: 90%; " >
 					<thead> 
 						<tr>
 			 				<th>NO</th>
@@ -200,23 +195,26 @@ a:hover {
 							<th>등록일</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody> 
 						<tr>
 							<td>1</td>
 							<td>2</td>
 							<td>3</td>
 							<td>4</td>
 						</tr>
+						<tr>
+							<td colspan="4" align="center" style="border: hidden; border-top: 1px solid #333333; height: 30px;">
+								<input type="text" >&nbsp;
+								<input type="button" value="검색" >&nbsp;
+								<Input type="button" value="새글" >&nbsp;
+								<Input type="button" value="삭제" >&nbsp;</br>
+							</td>
+						</tr>
 					</tbody>
 				</table>
-				<div style="height:8%; width: 100%; border : 1px solid #333333;">
-					<input type="text">&nbsp;
-					<input type="button" value="검색">&nbsp;
-					<Input type="button" value="새글">&nbsp;
-					<Input type="button" value="삭제">&nbsp;</br>
-				</div>
 			</div>
 		</div>
+		
 		<div class="row" align="center">
 			<div class="contact">CONTACT</div>
 		</div>

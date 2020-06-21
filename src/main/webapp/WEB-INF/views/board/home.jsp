@@ -9,7 +9,7 @@
 		Hello world!Hello GitHub<hr> 
 		TODO LIST Grobal	: SpringCRUD[paging]w/Mybatis(SpringJDBC)/Transaction/Security/<br>
 							  > last page Fill - in 
-		TODO LIST Home 		: SUMMARYFILE/RESUME/ViewCSS(external/buttonJS)
+		TODO LIST Home 		: RESUME IMG/ViewCSS(external/buttonJS)
 							  > flex-shrink apply
 	</h1>
 
