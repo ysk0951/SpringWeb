@@ -146,8 +146,9 @@ a:hover {
 		<ul class="navbar-nav ml-auto"
 			style="background-color: rgba(255, 255, 255, 0.7); border-radius: 40px;">
 			<li class="nav-item">
-				<div class="nav-link" onclick="slide_home()">
+				<div class="nav-link" onclick="alert('test')">
 					Home <span class="sr-only">(current)</span></a>
+					
 			</li>
 			<li class="nav-item">
 				<div class="nav-link" onclick="slide_skills()">
@@ -187,7 +188,7 @@ a:hover {
 		<div class="row" align="center" >
 			<div class="tableView">
 				<table border="1px solid #333333;" style="height:90%; width: 90%; " >
-					<thead> 
+					<thead>
 						<tr>
 			 				<th>NO</th>
 							<th>프로젝트 이름</th>
@@ -195,7 +196,11 @@ a:hover {
 							<th>등록일</th>
 						</tr>
 					</thead>
-					<tbody> 
+					<tbody>
+						<tr>
+							<td>TESTZONE</td>
+							<td colspan="3"><input type="button" valu="test"  onclick="alert('test')"></td>
+						</tr>
 						<tr>
 							<td>1</td>
 							<td>2</td>
