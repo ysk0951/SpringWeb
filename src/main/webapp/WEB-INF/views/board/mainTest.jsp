@@ -16,7 +16,7 @@
 	href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
 	rel="stylesheet">
 <!--BootStrap/Font externalbyURL-->
-<title>Main</title>
+<title>Main LayOut TestPage</title>
 </head>
 <script type="text/javascript">
 	function slide_home() {

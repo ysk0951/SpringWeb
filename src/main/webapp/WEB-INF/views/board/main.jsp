@@ -52,7 +52,6 @@ html, body {
 	height: 100%;
 	overflow: auto;
 }
-
 .col-sm-12 {
 	border: 1px solid #999;
 	margin: auto;
@@ -60,41 +59,33 @@ html, body {
 	margin-right: auto;
 	flex: 0, 1, 90%;
 }
-
 .row {
 	border: 1px solid #999;
 	height: 100%;
 	overflow: hidden;
 }
-
 .table>tbody>tr>td {
 	vertical-align: middle;
 }
-
 .table>thead>tr>th {
 	vertical-align: middle;
 }
-
 a:link {
 	text-decoration: none;
 	color: black;
 }
-
 a:visited {
 	text-decoration: none;
 	color: black;
 }
-
 a:active {
 	text-decoration: none;
 	color: black;
 }
-
 a:hover {
 	text-decoration: underline;
 	color: blue;
 }
-
 .skillHeader {
 	display: flex;
 	align-items: center;
@@ -104,7 +95,6 @@ a:hover {
 	height: 20%;
 	border: 1px solid black;
 }
-
 .skillItems {
 	display: flex;
 	align-items: center;
@@ -113,6 +103,26 @@ a:hover {
 	font-size: medium;
 	height: 8%;
 	border: 1px solid black;
+}
+.tableView{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-wrap:wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+.contact{
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-wrap:wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	border: 1px solid black;	
 }
 </style>
 <%-------------------------------------------------[ToDo List]----------------------------------------------------%>
@@ -187,9 +197,8 @@ a:hover {
 					<c:set var="end" value="${((nowLevel+1)*pageData.pageCount)}" />
 				</c:when>
 			</c:choose>
-			<form>
-			<table class="table table-bordered"
-				style="text-align: center; margin: 15px; height: 90%;">
+			<div class="tableView">
+			<table border="1px solid #333333;" style="height:90%; width: 90%; ">
 				<thead>
 					<tr>
 						<th>NO</th>
@@ -222,42 +231,46 @@ a:hover {
 							<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
 						</tr>	
 						</c:forEach>
+						<tr>
+							<td colspan="4" align="center" style="border: hidden; border-top: 1px solid #333333; height: 30px;">
+								<input type="text" >&nbsp;
+								<input type="button" value="검색" >&nbsp;
+								<Input type="button" value="새글" >&nbsp;
+								<Input type="button" value="삭제" >&nbsp;</br>
+									
+							<c:if test="${nowLevel>0}">
+								<a href="/main?nowLevel=${nowLevel-1}&currentPage=${(nowLevel-1)*pageData.pageCount+1}">이전</a>
+							</c:if>
+							<%--페이지 시작~끝설정	 --%>
+							<c:forEach begin="${(nowLevel*pageData.pageCount)+1}" end="${end}"
+								var="i">
+								<c:choose>
+									<c:when test="${i eq param.currentPage}">
+										<a href="main?currentPage=${i}&nowLevel=${nowLevel}"
+											style="color: red;">${i}</a>
+									</c:when>
+									<c:when
+										test="${i eq ((nowLevel*pageData.pageCount)+1) and empty param.currentPage}">
+										<a href="main?currentPage=${i}&nowLevel=${nowLevel}"
+											style="color: red;">${i}</a>
+									</c:when>
+									<c:otherwise>
+										<a href="main?currentPage=${i}&nowLevel=${nowLevel}">${i}</a>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							<c:if test="${nowLevel<pageIndex}">
+								<a href="/main?nowLevel=${nowLevel+1}&currentPage=${(nowLevel+1)*pageData.pageCount+1}">다음</a>
+							</c:if>
+							</td>
+						</tr>
 				</tbody>
 			</table>
-			<div style="margin: 0 auto;">
-				<input type="text">&nbsp; <input type="button" value="검색">&nbsp;
-				<Input type="button" value="새글">&nbsp; <Input type="button"
-					value="삭제">&nbsp;</br>
-				<div style="text-align: center; height: 10%;">
-					<c:if test="${nowLevel>0}">
-						<a href="/main?nowLevel=${nowLevel-1}&currentPage=${(nowLevel-1)*pageData.pageCount+1}">이전</a>
-					</c:if>
-					<%--페이지 시작~끝설정	 --%>
-					<c:forEach begin="${(nowLevel*pageData.pageCount)+1}" end="${end}"
-						var="i">
-						<c:choose>
-							<c:when test="${i eq param.currentPage}">
-								<a href="main?currentPage=${i}&nowLevel=${nowLevel}"
-									style="color: red;">${i}</a>
-							</c:when>
-							<c:when
-								test="${i eq ((nowLevel*pageData.pageCount)+1) and empty param.currentPage}">
-								<a href="main?currentPage=${i}&nowLevel=${nowLevel}"
-									style="color: red;">${i}</a>
-							</c:when>
-							<c:otherwise>
-								<a href="main?currentPage=${i}&nowLevel=${nowLevel}">${i}</a>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-					<c:if test="${nowLevel<pageIndex}">
-						<a href="/main?nowLevel=${nowLevel+1}&currentPage=${(nowLevel+1)*pageData.pageCount+1}">다음</a>
-					</c:if>
-				</div>
 			</div>
-			</form>
 		</div>
-		<div class="row" align="center">CONTACT</div>
+		<div class="row" align="center">
+			<div class="contact">CONTACT</div>
+		</div>
 	</div>
 </body>
 </html>
