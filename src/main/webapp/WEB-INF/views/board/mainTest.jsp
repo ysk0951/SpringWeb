@@ -20,10 +20,10 @@
 </head>
 <script type="text/javascript">
 	function slide_home() {
-		window.scrollTo({
-			"top" : 0,
-			"behavior" : "smooth"
-		});
+		var target = document.getElementsByClassName("tableView");
+		window.scrollTo(0 , target.scrollTop);
+		console.log(target);
+		
 	}
 	function slide_skills() {
 		window.scrollTo({
@@ -33,11 +33,7 @@
 		});
 	}
 	function slide_project() {
-		window.scrollTo({
-			"behavior" : "smooth",
-			"left" : 0,
-			"top" : window.innerHeight * 2
-		});
+		window.alert('project');
 	}
 	function slide_contact() {
 		window.scrollTo({
@@ -48,7 +44,12 @@
 	}
 </script>
 <style>
-html, body {
+html{
+	margin: 0;
+	height: 100%;
+	overflow: auto;
+}
+body {
 	margin: 0;
 	height: 100%;
 	overflow: auto;
@@ -144,24 +145,11 @@ a:hover {
 <body>
 	<nav class="navbar fixed-top navbar-expand">
 		<ul class="navbar-nav ml-auto"
-			style="background-color: rgba(255, 255, 255, 0.7); border-radius: 40px;">
-			<li class="nav-item">
-				<div class="nav-link" onclick="alert('test')">
-					Home <span class="sr-only">(current)</span></a>
-					
-			</li>
-			<li class="nav-item">
-				<div class="nav-link" onclick="slide_skills()">
-					Skills <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<div class="nav-link" onclick="slide_project()">
-					Project <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<div class="nav-link" onclick="slide_contact()">
-					Contact <span class="sr-only">(current)</span></a>
-			</li>
+			style="background-color: rgba(255, 255, 255, 0.6); border-radius: 40px;">
+			<li class="nav-item"><div class="nav-link" onclick="slide_home()">Home</li>
+			<li class="nav-item"><div class="nav-link" onclick="slide_skills()">Skills</li>
+			<li class="nav-item"><div class="nav-link" onclick="slide_project()">Project</li>
+			<li class="nav-item"><div class="nav-link" onclick="slide_contact()">Contact</li>
 		</ul>
 	</nav>
 	<%-- -------------------------------[Remote]------------------------------------------ --%>
@@ -199,7 +187,7 @@ a:hover {
 					<tbody>
 						<tr>
 							<td>TESTZONE</td>
-							<td colspan="3"><input type="button" valu="test"  onclick="alert('test')"></td>
+							<td colspan="3"><input type="button" valu="test"  onclick="alert('test')" value="Test"></td>
 						</tr>
 						<tr>
 							<td>1</td>

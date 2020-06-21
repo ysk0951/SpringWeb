@@ -18,6 +18,7 @@
 <title>Main</title>
 </head>
 <script type="text/javascript">
+	/*	스크립트 수정 필요  */
 	function slide_home() {
 		window.scrollTo({
 			"top" : 0,
@@ -134,24 +135,12 @@ a:hover {
 	<nav class="navbar fixed-top navbar-expand">
 		<ul class="navbar-nav ml-auto"
 			style="background-color: rgba(255, 255, 255, 0.7); border-radius: 40px;">
-			<li class="nav-item">
-				<div class="nav-link" onclick="slide_home()">
-					Home <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<div class="nav-link" onclick="slide_skills()">
-					Skills <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<div class="nav-link" onclick="slide_project()">
-					Project <span class="sr-only">(current)</span></a>
-			</li>
-			<li class="nav-item">
-				<div class="nav-link" onclick="slide_contact()">
-					Contact <span class="sr-only">(current)</span></a>
-			</li>
+			<li class="nav-item"><div class="nav-link" onclick="slide_home()">Home</li>
+			<li class="nav-item"><div class="nav-link" onclick="slide_skills()">Skills</li>
+			<li class="nav-item"><div class="nav-link" onclick="slide_project()">Project</li>
+			<li class="nav-item"><div class="nav-link" onclick="slide_contact()">Contact</li>
 		</ul>
-	</nav>  
+	</nav>
 	<%-- -------------------------------[Remote]------------------------------------------ --%>
 	<div class="container_fluid" >
 		<div class="row align-items-center" ><!--수정  style="height: 100%;" -->
