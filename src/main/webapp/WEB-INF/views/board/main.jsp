@@ -61,7 +61,7 @@ html, body {
 }
 .row {
 	border: 1px solid #999;
-	height: 100%;
+	height: 100vh;
 	overflow: hidden;
 }
 .table>tbody>tr>td {
@@ -107,10 +107,12 @@ a:hover {
 	border: 1px solid black;
 }
 .tableView{
+	width : 100%;
+	height : 100%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding : 5px;
+	padding : 10px;
 	border: 1px solid black;
 }
 .contact{
@@ -149,12 +151,12 @@ a:hover {
 					Contact <span class="sr-only">(current)</span></a>
 			</li>
 		</ul>
-	</nav>
+	</nav>  
 	<%-- -------------------------------[Remote]------------------------------------------ --%>
 	<div class="container_fluid" >
 		<div class="row align-items-center" ><!--수정  style="height: 100%;" -->
 			<img src="/resources/img/homeIndex.jpg" class="img-fluid"
-				style="max-height: 100%; min-width: 100%" />
+				style="height: 100%; width: 100%" />
 		</div>
 		<div class="align-items-center" >
 			<div  style="height: 100vh">
