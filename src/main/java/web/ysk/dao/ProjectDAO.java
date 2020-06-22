@@ -10,10 +10,8 @@ public interface ProjectDAO {
 	public void create(ProjectVO vo) throws Exception; 
 	public void update(ProjectVO vo) throws Exception; 
 	public void delete(int bno) throws Exception; 
-	public List<ProjectVO> listSearch();
-	public int listSearchCount();
-	public ProjectVO listDetail(int no);
+	public int listSearchCount ();
+	public ProjectVO listDetail(int no) throws Exception;
 	public int selectRowCount() throws Exception;
-	public List<ProjectVO> readByMybatis() throws Exception;
-	public int selectRowCountMybatis() throws Exception;
+	public List<ProjectVO> listSearch() throws Exception;
 }

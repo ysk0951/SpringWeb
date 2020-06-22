@@ -10,10 +10,8 @@ public interface ProjectService {
 	public void create(ProjectVO vo) throws Exception; // 
 	public void update(ProjectVO vo) throws Exception; //
 	public void delete(int num) throws Exception; // 
-	public List<ProjectVO> listSearch(); // 
+	public List<ProjectVO> listSearch() throws Exception; // 
 	public int listSearchCount(); //
-	public ProjectVO listDetail(int no);
+	public ProjectVO listDetail(int no) throws Exception;
 	public int selectRowCount()throws Exception;
-	public int selectRowCountMybatis()throws Exception;
-	public List<ProjectVO> listSearchMybatis() throws Exception;
 }

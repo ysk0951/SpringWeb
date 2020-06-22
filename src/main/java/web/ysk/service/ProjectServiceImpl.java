@@ -24,7 +24,7 @@ public class ProjectServiceImpl implements ProjectService{
 	private ProjectDAO projectdao;
 	
 	@Override
-	public List<ProjectVO> listSearch(){
+	public List<ProjectVO> listSearch() throws Exception{
 		System.out.println("LOG :  SERVICEIMPL");
 		return dao.listSearch();
 	}
@@ -33,7 +33,7 @@ public class ProjectServiceImpl implements ProjectService{
 		return dao.listSearchCount();
 	}
 	@Override
-	public ProjectVO listDetail(int no) {
+	public ProjectVO listDetail(int no) throws Exception {
 		// TODO Auto-generated method stub
 		ProjectVO vo = dao.listDetail(no);
 		return vo;
@@ -55,14 +55,5 @@ public class ProjectServiceImpl implements ProjectService{
 	@Override
 	public void delete(int num) throws Exception {
 		// TODO Auto-generated method stub
-	}
-	@Override
-	public List<ProjectVO> listSearchMybatis() throws Exception {
-		
-		return dao.readByMybatis();
-	}
-	@Override
-	public int selectRowCountMybatis() throws Exception {
-		return dao.selectRowCountMybatis();
 	}
 }

@@ -91,8 +91,8 @@ public class ProjectController {
 	//Mybatis Testing
 	@RequestMapping(value="/mainT", method=RequestMethod.GET)
 	public String projectListTest(Model model, HttpServletRequest request) throws Exception{
-		List<ProjectVO> list = service.listSearchMybatis();//
-		int count = service.selectRowCountMybatis();
+		List<ProjectVO> list = service.listSearch();//
+		int count = service.selectRowCount();
 		model.addAttribute("list", list);
 		model.addAttribute("count", count);
 		
