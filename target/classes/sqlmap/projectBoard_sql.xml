@@ -7,6 +7,6 @@
 여기의 boardVO 는 mybatis-confg.xml 에 Alias 되어 있습니다. -->
 	<select id="selectALL" resultType="TestDTO">
 		select * from TEST
-	</select>
+	</select> 
 </mapper>
 
