@@ -8,8 +8,8 @@
 	<h1>
 		Hello world!Hello GitHub<hr> 
 		TODO LIST Grobal	: SpringCRUD[paging]w/Mybatis(SpringJDBC)/Transaction/Security/<br>
-							  > last page Fill - in / Script
-		TODO LIST Home 		: RESUME IMG/ViewCSS(external/buttonJS)/Oracle11gInstall
+							  > last page Fill 
+		TODO LIST Home 		: RESUME IMG/tableCss/JS/ViewCSS(external/buttonJS)/Oracle11gInstall
 	</h1>
 
 	<h2>The time on the server is ${serverTime}.</h2>

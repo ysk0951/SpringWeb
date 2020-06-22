@@ -18,7 +18,7 @@
 <title>Main</title>
 </head>
 <script type="text/javascript">
-	/*	스크립트 수정 필요  */
+	/*	스크립트 수정 필요 좌표를 직접구해서 움직이는걸로 변경필요 */
 	function slide_home() {
 		window.scrollTo({
 			"top" : 0,
@@ -188,6 +188,7 @@ a:hover {
 				</c:when>
 			</c:choose>
 			<div class="tableView">
+			<!-- 가로를 줄이면 깨짐 수정필요 -->
 			<table border="1px solid #333333;" style="height:100%; width: 90%; ">
 				<thead>
 					<tr>
@@ -260,7 +261,7 @@ a:hover {
 				</tbody>
 			</table>
 			</div>
-		</div>
+		</div> 
 		<div class="row" align="center">
 			<div class="contact">CONTACT</div>
 		</div>
