@@ -160,4 +160,8 @@ public class ProjectDAOImpl implements ProjectDAO {
 	public List<ProjectVO> readByMybatis() throws Exception {
 		return sqlSession.selectList("boardMapper.select");
 	}
+	@Override
+	public int selectRowCountMybatis() throws Exception {
+		return sqlSession.selectOne("boardMapper.selectRowCount");
+	}
 }

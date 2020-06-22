@@ -56,4 +56,13 @@ public class ProjectServiceImpl implements ProjectService{
 	public void delete(int num) throws Exception {
 		// TODO Auto-generated method stub
 	}
+	@Override
+	public List<ProjectVO> listSearchMybatis() throws Exception {
+		
+		return dao.readByMybatis();
+	}
+	@Override
+	public int selectRowCountMybatis() throws Exception {
+		return dao.selectRowCountMybatis();
+	}
 }

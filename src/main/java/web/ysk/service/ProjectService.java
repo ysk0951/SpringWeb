@@ -14,4 +14,6 @@ public interface ProjectService {
 	public int listSearchCount(); //
 	public ProjectVO listDetail(int no);
 	public int selectRowCount();
+	public int selectRowCountMybatis()throws Exception;
+	public List<ProjectVO> listSearchMybatis() throws Exception;
 }

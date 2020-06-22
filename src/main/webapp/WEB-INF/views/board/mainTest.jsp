@@ -207,9 +207,13 @@ a:hover {
 				</table>
 			</div>
 		</div>
-		
 		<div class="row" align="center">
 			<div class="contact">CONTACT</div>
+		</div>
+		<div class="row" align="center">
+			<div class="contact">
+			[TestZONE]Data[${list}]	
+			</div>
 		</div>
 	</div>
 </body>

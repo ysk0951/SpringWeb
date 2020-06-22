@@ -56,7 +56,7 @@ public class ProjectController {
 			//PageVO의 형태로 VIEW로 전송
 			Pager pager = new Pager(rowCount);
 			pageData = pager.pageCal();
-			List<ProjectVO> list = service.listSearch();//NULLPOINT
+			List<ProjectVO> list = service.listSearch();//
 			
 			model.addAttribute("list", list);
 			model.addAttribute("pageData",pageData);
@@ -71,9 +71,14 @@ public class ProjectController {
 	}
 	
 	@RequestMapping(value="/mainT", method=RequestMethod.GET)
-	public String projectListTest(Model model, HttpServletRequest request) {
+	public String projectListTest(Model model, HttpServletRequest request) throws Exception{
 		//pager를 위한것
-		return "board/mainTest";
+		List<ProjectVO> list = service.listSearchMybatis();//
+		int count = service.selectRowCountMybatis();
+		model.addAttribute("list", list);
+		model.addAttribute("count", count);
+		
+		return "board/mainTest"; 
 	}
 	
 	@RequestMapping(value="/main/detail", method=RequestMethod.GET)
