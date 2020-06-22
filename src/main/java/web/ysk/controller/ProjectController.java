@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import web.ysk.dao.Pager;
 import web.ysk.service.ProjectService;
+import web.ysk.service.mybatisTestService;
 import web.ysk.vo.PageVO;
 import web.ysk.vo.ProjectVO;
 @Controller
@@ -92,4 +94,19 @@ public class ProjectController {
 		}
 		return "board/detail";
 	}
+	
+//	@Resource(name = "testService")
+//	private mybatisTestService mybatisTestservice;
+// 
+//	@RequestMapping(value = "/TestM", method = RequestMethod.GET)
+//	public String boardList(Model model) throws Exception {
+//
+//	    List list = mybatisTestservice.selectTestList();
+//	    System.out.println(list);
+//	    model.addAttribute("list", list);
+//	    
+//	    return "board/mybatisTest";
+//	}
+	
+	
 }

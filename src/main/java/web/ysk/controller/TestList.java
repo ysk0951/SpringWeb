@@ -27,4 +27,5 @@ public class TestList {
 	    
 	    return "board/mybatisTest";
 	}
+	//URI Mapping이 안되는중
 }
