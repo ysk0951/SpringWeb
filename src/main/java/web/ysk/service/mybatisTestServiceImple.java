@@ -15,8 +15,8 @@ import web.ysk.dao.TestDAO;
 @Service("testService")
 public class mybatisTestServiceImple implements mybatisTestService{
 	
-	//Injection시 에러가남
-	private TestDAO dao;
+	@Autowired(required = false)
+	private TestDAO dao; 
  
 	@Transactional
 	@Override

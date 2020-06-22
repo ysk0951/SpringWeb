@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import web.ysk.vo.TestDTO;
 
+@Repository
 public interface TestDAO {
 	public List<TestDTO> selectAll();
 }
