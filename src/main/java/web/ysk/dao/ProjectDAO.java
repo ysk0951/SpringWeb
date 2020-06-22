@@ -14,5 +14,5 @@ public interface ProjectDAO {
 	public int listSearchCount();
 	public ProjectVO listDetail(int no);
 	public int selectRowCount();
-	public void readByMybatis(ProjectVO vo) throws Exception;
+	public List<ProjectVO> readByMybatis() throws Exception;
 }

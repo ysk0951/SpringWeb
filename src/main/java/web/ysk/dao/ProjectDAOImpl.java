@@ -155,9 +155,9 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return selectRowCount;
 	}
 	
-	
+	//게시물 조회 Mybatis
 	@Override
-	public void readByMybatis(ProjectVO vo) throws Exception {
-		sqlSession.selectList("boardMapper.select",vo);
+	public List<ProjectVO> readByMybatis() throws Exception {
+		return sqlSession.selectList("boardMapper.select");
 	}
 }
