@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import web.ysk.vo.ProjectVO;
@@ -14,6 +17,9 @@ import web.ysk.vo.ProjectVO;
 @Repository
 public class ProjectDAOImpl implements ProjectDAO {
 
+	@Inject
+	private SqlSession sqlSession;
+	
 //	sigleton DB
 	private static ProjectDAOImpl Instance = new ProjectDAOImpl();
 	private ProjectDAOImpl() {
@@ -147,5 +153,11 @@ public class ProjectDAOImpl implements ProjectDAO {
 			try {if (conn != null)conn.close();} catch (Exception e4) {e4.printStackTrace();}
 		}
 		return selectRowCount;
+	}
+	
+	
+	@Override
+	public void readByMybatis(ProjectVO vo) throws Exception {
+		sqlSession.selectList("boardMapper.select",vo);
 	}
 }
