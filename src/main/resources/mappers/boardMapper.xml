@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boardMapper">
+   <select id="selectList" resultType="web.ysk.vo.ProjectVO">
+   	select * from PROJECT_TBL
+   </select>
+   <!--mybatis result type Int Need  -->
+   <select id="selectRowCount" resultType="Integer">
+   	SELECT COUNT(*) FROM PROJECT_TBL pt
+   </select>
+   <select id="selectDetail" resultType="web.ysk.vo.ProjectVO">
+   SELECT * FROM PROJECT_TBL pt WHERE NUM = #{NUM}
+   </select>
+</mapper>

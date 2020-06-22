@@ -18,7 +18,7 @@
 <title>Main</title>
 </head>
 <script type="text/javascript">
-	/*	스크립트 수정 필요  */
+	/*	스크립트 수정 필요 좌표를 직접구해서 움직이는걸로 변경필요 */
 	function slide_home() {
 		window.scrollTo({
 			"top" : 0,
@@ -188,6 +188,7 @@ a:hover {
 				</c:when>
 			</c:choose>
 			<div class="tableView">
+			<!-- 가로를 줄이면 깨짐 수정필요 -->
 			<table border="1px solid #333333;" style="height:100%; width: 90%; ">
 				<thead>
 					<tr>
@@ -213,13 +214,23 @@ a:hover {
 						<c:set var="endTd" value="${pageData.rowCount-1}" />
 					</c:if>
 						<%--TD zone --%>
-						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}">
+						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}" varStatus="status">
 						<tr>
 							<td><a href="main/detail?num=${index.num}">${index.num}</a></td>
 							<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
 							<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
 							<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
-						</tr>	
+						</tr>
+							<c:if test="${status.last and (status.count<7)}">
+								<c:forEach begin="${status.count+1}" end="7">
+								<tr>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								<tr>
+								</c:forEach>
+							</c:if>
 						</c:forEach>
 						<tr>
 							<td colspan="4" align="center" >
@@ -260,7 +271,7 @@ a:hover {
 				</tbody>
 			</table>
 			</div>
-		</div>
+		</div> 
 		<div class="row" align="center">
 			<div class="contact">CONTACT</div>
 		</div>

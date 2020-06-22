@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -55,7 +56,7 @@ public class ProjectController {
 			//PageVO의 형태로 VIEW로 전송
 			Pager pager = new Pager(rowCount);
 			pageData = pager.pageCal();
-			List<ProjectVO> list = service.listSearch();//NULLPOINT
+			List<ProjectVO> list = service.listSearch();//
 			
 			model.addAttribute("list", list);
 			model.addAttribute("pageData",pageData);
@@ -67,12 +68,6 @@ public class ProjectController {
 			e.printStackTrace();
 		}
 		return "board/main";
-	}
-	
-	@RequestMapping(value="/mainT", method=RequestMethod.GET)
-	public String projectListTest(Model model, HttpServletRequest request) {
-		//pager를 위한것
-		return "board/mainTest";
 	}
 	
 	@RequestMapping(value="/main/detail", method=RequestMethod.GET)
@@ -92,4 +87,16 @@ public class ProjectController {
 		}
 		return "board/detail";
 	}
+	
+	//Mybatis Testing
+	@RequestMapping(value="/mainT", method=RequestMethod.GET)
+	public String projectListTest(Model model, HttpServletRequest request) throws Exception{
+		List<ProjectVO> list = service.listSearch();//
+		int count = service.selectRowCount();
+		model.addAttribute("list", list);
+		model.addAttribute("count", count);
+		
+		return "board/mainTest"; 
+	}
+	
 }

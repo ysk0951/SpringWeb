@@ -19,8 +19,12 @@ public class ProjectServiceImpl implements ProjectService{
 	//injection 
 	@Inject
 	private ProjectDAOImpl dao;
+	
+	@Autowired
+	private ProjectDAO projectdao;
+	
 	@Override
-	public List<ProjectVO> listSearch(){
+	public List<ProjectVO> listSearch() throws Exception{
 		System.out.println("LOG :  SERVICEIMPL");
 		return dao.listSearch();
 	}
@@ -29,13 +33,13 @@ public class ProjectServiceImpl implements ProjectService{
 		return dao.listSearchCount();
 	}
 	@Override
-	public ProjectVO listDetail(int no) {
+	public ProjectVO listDetail(int no) throws Exception {
 		// TODO Auto-generated method stub
 		ProjectVO vo = dao.listDetail(no);
 		return vo;
 	}
 	@Override
-	public int selectRowCount() {
+	public int selectRowCount() throws Exception{
 		// TODO Auto-generated method stub
 		int selectRowCount = dao.selectRowCount();
 		return selectRowCount;
