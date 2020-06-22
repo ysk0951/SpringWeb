@@ -23,8 +23,7 @@ public class Pager {
 		// 현재페이지에서의 게시물 시작위치
 		// ex) 19/7 >> 2.xxxx >> (3-1)*7 >> 14가 0값
 		int offset = (currentPage - 1) * displayRow;
-		
-		
+
 		// 13페이지면 11페이지가 시작페이지가 되고 15페이지가 마지막이되게함
 		int startPage = (currentPage - 1) / pageCount * pageCount + 1; 
 		int endPage  = startPage + pageCount - 1;	
