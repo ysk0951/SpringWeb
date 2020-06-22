@@ -2,6 +2,8 @@ package web.ysk.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import web.ysk.vo.ProjectVO;
 
 public interface ProjectDAO {

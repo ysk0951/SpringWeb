@@ -15,17 +15,18 @@ import web.ysk.service.mybatisTestService;
 public class TestList {
 	private static final Logger logger = LoggerFactory.getLogger(ProjectController.class);
 	
-	@Resource(name = "testService")
-	private mybatisTestService mybatisTestservice;
- 
-	@RequestMapping(value = "/TestM", method = RequestMethod.GET)
-	public String boardList(Model model) throws Exception {
-
-	    List list = mybatisTestservice.selectTestList();
-	    System.out.println(list);
-	    model.addAttribute("list", list);
-	    
-	    return "board/mybatisTest";
-	}
-	//URI Mapping이 안되는중
+//	@Resource(name = "testService")
+//	private mybatisTestService mybatisTestservice;
+// 
+//	@RequestMapping(value = "/testM", method = RequestMethod.GET)
+//	public String boardList(Model model) throws Exception {
+//		
+//	    List list = mybatisTestservice.selectTestList();
+//	    System.out.println(list);
+//	    model.addAttribute("list", list);
+//	    
+//	    return "board/mybatisTest";
+//	}
+//URI Mapping이 안되는중 - https://offbyone.tistory.com/18
+	
 }

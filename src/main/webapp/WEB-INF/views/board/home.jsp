@@ -10,7 +10,8 @@
 		TODO LIST Grobal	: SpringCRUD[paging+Errorpage]/Mybatis(SpringJDBC)/Transaction/Security/</br>
 		TODO LIST Home 		: RESUME IMG/tableCss/JS/ViewCSS(external/buttonJS)/Oracle11gInstall</br>
 		<hr>
-		ConnectionPool 기술 기재 추가
+		ConnectionPool add
+		<hr>
 	</h1>
 
 	<h2>The time on the server is ${serverTime}.</h2>

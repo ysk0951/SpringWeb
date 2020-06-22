@@ -95,9 +95,9 @@ public class ProjectController {
 		return "board/detail";
 	}
 	
-//	@Resource(name = "testService")
-//	private mybatisTestService mybatisTestservice;
-// 
+	@Resource(name = "testService")
+	private mybatisTestService mybatisTestservice;
+ 
 //	@RequestMapping(value = "/TestM", method = RequestMethod.GET)
 //	public String boardList(Model model) throws Exception {
 //
@@ -107,6 +107,6 @@ public class ProjectController {
 //	    
 //	    return "board/mybatisTest";
 //	}
-	
+//	마이바티스 테스트중
 	
 }

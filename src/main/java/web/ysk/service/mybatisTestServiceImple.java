@@ -15,14 +15,12 @@ import web.ysk.dao.TestDAO;
 @Service("testService")
 public class mybatisTestServiceImple implements mybatisTestService{
 	
-	//구현하지 않은상태여서 Injection 을 안해줬음
 	//Injection시 에러가남
 	private TestDAO dao;
-
+ 
 	@Transactional
 	@Override
 	public List selectTestList() {
-		//Null이어야하는데 메소드가 나옴
 		return dao.selectAll();
 	}
 }

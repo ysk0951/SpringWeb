@@ -17,8 +17,8 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	<!--https://doublesprogramming.tistory.com/95 // CLONECODING  -->
-	<context:component-scan base-package="web.ysk.controller;" />
-	<context:component-scan base-package="web.ysk.dao;" />
-	<context:component-scan base-package="web.ysk.service;" />
-	<context:component-scan base-package="web.ysk.vo;" />
+	<context:component-scan base-package="web.ysk.*" />
+	<!-- <context:component-scan base-package="web.ysk.dao;" />
+	<context:component-scan base-package="web.ysk.service;" />  
+	<context:component-scan base-package="web.ysk.vo;" /> -->
 </beans:beans>
