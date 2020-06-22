@@ -214,13 +214,23 @@ a:hover {
 						<c:set var="endTd" value="${pageData.rowCount-1}" />
 					</c:if>
 						<%--TD zone --%>
-						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}">
+						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}" varStatus="status">
 						<tr>
 							<td><a href="main/detail?num=${index.num}">${index.num}</a></td>
 							<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
 							<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
 							<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
-						</tr>	
+						</tr>
+							<c:if test="${status.last and (status.count<7)}">
+								<c:forEach begin="${status.count+1}" end="7">
+								<tr>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+								<tr>
+								</c:forEach>
+							</c:if>
 						</c:forEach>
 						<tr>
 							<td colspan="4" align="center" >

@@ -30,7 +30,8 @@
     JDBC        Drive로딩/DBConnect/PreparedStatement(동적)/Resultset/Close
                 Resultset   executeQuery() Select
                 int         executeUpdate() insert,update,delete
-                 
+    커넥션 풀 
+                DB와 연결된 커넥션들을 미리만들어서 저장해놓고 쓰고 반환함
                 
                 
             
