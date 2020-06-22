@@ -17,7 +17,7 @@ public class TestList {
 	
 	@Resource(name = "testService")
 	private mybatisTestService mybatisTestservice;
-
+ 
 	@RequestMapping(value = "/TestM", method = RequestMethod.GET)
 	public String boardList(Model model) throws Exception {
 
