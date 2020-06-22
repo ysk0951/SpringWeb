@@ -39,7 +39,7 @@ public class ProjectServiceImpl implements ProjectService{
 		return vo;
 	}
 	@Override
-	public int selectRowCount() {
+	public int selectRowCount() throws Exception{
 		// TODO Auto-generated method stub
 		int selectRowCount = dao.selectRowCount();
 		return selectRowCount;

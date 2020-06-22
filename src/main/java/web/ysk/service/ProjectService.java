@@ -13,7 +13,7 @@ public interface ProjectService {
 	public List<ProjectVO> listSearch(); // 
 	public int listSearchCount(); //
 	public ProjectVO listDetail(int no);
-	public int selectRowCount();
+	public int selectRowCount()throws Exception;
 	public int selectRowCountMybatis()throws Exception;
 	public List<ProjectVO> listSearchMybatis() throws Exception;
 }

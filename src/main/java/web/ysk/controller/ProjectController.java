@@ -70,17 +70,6 @@ public class ProjectController {
 		return "board/main";
 	}
 	
-	@RequestMapping(value="/mainT", method=RequestMethod.GET)
-	public String projectListTest(Model model, HttpServletRequest request) throws Exception{
-		//pager를 위한것
-		List<ProjectVO> list = service.listSearchMybatis();//
-		int count = service.selectRowCountMybatis();
-		model.addAttribute("list", list);
-		model.addAttribute("count", count);
-		
-		return "board/mainTest"; 
-	}
-	
 	@RequestMapping(value="/main/detail", method=RequestMethod.GET)
 	public String projectDetail(Model model, HttpServletRequest request) {
 		try {
@@ -98,4 +87,16 @@ public class ProjectController {
 		}
 		return "board/detail";
 	}
+	
+	//Mybatis Testing
+	@RequestMapping(value="/mainT", method=RequestMethod.GET)
+	public String projectListTest(Model model, HttpServletRequest request) throws Exception{
+		List<ProjectVO> list = service.listSearchMybatis();//
+		int count = service.selectRowCountMybatis();
+		model.addAttribute("list", list);
+		model.addAttribute("count", count);
+		
+		return "board/mainTest"; 
+	}
+	
 }

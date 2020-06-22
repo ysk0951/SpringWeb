@@ -212,7 +212,7 @@ a:hover {
 		</div>
 		<div class="row" align="center">
 			<div class="contact">
-			[TestZONE]Data[${list}]	
+			[TestZONE]Data[${count}]	
 			</div>
 		</div>
 	</div>

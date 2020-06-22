@@ -122,37 +122,9 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return 0;
 	}
 	
-	public int selectRowCount() {
-		System.out.println("LOG :  DAOIMPL : selectRowCount");
-		String driver = "oracle.jdbc.driver.OracleDriver";
-//		String url = "jdbc:oracle:thin:@192.168.0.252:1521:ORCL";
-		String HomeToGrobalURL = "jdbc:oracle:thin:@nullmaster.iptime.org:3000:ORCL";
-		Connection conn = null;
-		PreparedStatement ppst = null;
-		ResultSet rs = null;
-		int selectRowCount = 0;
-		try {
-			Class.forName(driver);
-//			conn = DriverManager.getConnection(url,"java06", "java06");
-			conn = DriverManager.getConnection(HomeToGrobalURL, "java06", "java06");
-			ppst = conn.prepareStatement("SELECT COUNT(*) FROM PROJECT_TBL pt");
-			//집에서 접속하는것 작성
-//		ppst.set~~
-			rs = ppst.executeQuery();
-			if (rs.next()) {
-				do {
-					//갯수받기
-					selectRowCount = rs.getInt("COUNT(*)");
-				} while (rs.next());
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {if (rs != null)rs.close();} catch (Exception e2) {e2.printStackTrace();}
-			try {if (ppst != null)ppst.close();} catch (Exception e3) {e3.printStackTrace();}
-			try {if (conn != null)conn.close();} catch (Exception e4) {e4.printStackTrace();}
-		}
-		return selectRowCount;
+	@Override
+	public int selectRowCount() throws Exception {
+		return sqlSession.selectOne("boardMapper.selectRowCount");
 	}
 	
 	//게시물 조회 Mybatis
