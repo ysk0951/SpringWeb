@@ -19,6 +19,10 @@ public class ProjectServiceImpl implements ProjectService{
 	//injection 
 	@Inject
 	private ProjectDAOImpl dao;
+	
+	@Autowired
+	private ProjectDAO projectdao;
+	
 	@Override
 	public List<ProjectVO> listSearch(){
 		System.out.println("LOG :  SERVICEIMPL");
