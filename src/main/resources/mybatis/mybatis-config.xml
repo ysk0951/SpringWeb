@@ -10,6 +10,7 @@ VO 의 readCount 처럼 카멜 케이스로 변환 되게 합니다. -->
 	</settings>
 	<typeAliases>
 		<typeAlias alias="projectVO" type="web.ysk.vo.ProjectVO"/>
+		<typeAlias alias="testDTO" type="web.ysk.vo.TestDTO"/>
 	</typeAliases>
 </configuration>
 
