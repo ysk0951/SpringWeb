@@ -32,7 +32,8 @@
                 int         executeUpdate() insert,update,delete
     커넥션 풀 
                 DB와 연결된 커넥션들을 미리만들어서 저장해놓고 쓰고 반환함
-                
+                커넥션 수를 지정해서 어플리케이션의 실행속도를 향상 시킨다
+                tomcat-dbcp.jar / ojdbc6.jar 
                 
             
             

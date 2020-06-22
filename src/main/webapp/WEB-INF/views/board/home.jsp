@@ -7,8 +7,7 @@
 <body>
 	<h1>
 		Hello world!Hello GitHub<hr> 
-		TODO LIST Grobal	: SpringCRUD[paging+Errorpage]w/Mybatis(SpringJDBC)/Transaction/Security/<br>
-							  > last page Fill 
+		TODO LIST Grobal	: SpringCRUD[paging+Errorpage]/Mybatis(SpringJDBC)/Transaction/Security/<br>
 		TODO LIST Home 		: RESUME IMG/tableCss/JS/ViewCSS(external/buttonJS)/Oracle11gInstall
 	</h1>
 
