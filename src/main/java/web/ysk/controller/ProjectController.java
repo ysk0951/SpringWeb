@@ -94,6 +94,16 @@ public class ProjectController {
 		return "board/detail";
 	}
 	
+	@RequestMapping(value = "/main/newData", method = RequestMethod.GET)
+	public String newData(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		String formattedDate = dateFormat.format(date);
+		model.addAttribute("serverTime", formattedDate );
+		return "board/newData";
+	}
+	
 	//Mybatis Testing
 	@RequestMapping(value="/mainT", method=RequestMethod.GET)
 	public String projectListTest(Model model, HttpServletRequest request) throws Exception{
