@@ -13,4 +13,5 @@ public interface ProjectDAO {
 	public ProjectVO listDetail(int no) throws Exception;
 	public int selectRowCount() throws Exception;
 	public List<ProjectVO> listSearch() throws Exception;
+	public void boardHit(int bno) throws Exception;
 }

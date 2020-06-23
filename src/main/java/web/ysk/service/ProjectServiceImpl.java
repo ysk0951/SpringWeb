@@ -9,6 +9,8 @@ import javax.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import web.ysk.dao.ProjectDAO;
 import web.ysk.dao.ProjectDAOImpl;
@@ -28,9 +30,13 @@ public class ProjectServiceImpl implements ProjectService{
 		System.out.println("LOG :  SERVICEIMPL");
 		return dao.listSearch();
 	}
+	
+	//Detail읽을때마다 트랜잭션 처리
+	@Transactional(isolation = Isolation.READ_COMMITTED)
 	@Override
 	public ProjectVO listDetail(int no) throws Exception {
-		// TODO Auto-generated method stub
+					   //Transaciton
+					   dao.boardHit(no);
 		ProjectVO vo = dao.listDetail(no);
 		return vo;
 	}

@@ -42,4 +42,8 @@ public class ProjectDAOImpl implements ProjectDAO {
 	public int selectRowCount() throws Exception {
 		return sqlSession.selectOne("boardMapper.selectRowCount");
 	}
+	@Override
+	public void boardHit(int bno) throws Exception {
+		sqlSession.update("boardMapper.boardHit",bno);
+	}
 }

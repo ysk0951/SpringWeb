@@ -196,6 +196,7 @@ a:hover {
 						<th >프로젝트 이름</th>  
 						<th >프로젝트 구현 내용</th>
 						<th >등록일</th>
+						<th>조회수</th>
  					</tr>
 				</thead>
 				<tbody>
@@ -220,10 +221,12 @@ a:hover {
 							<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
 							<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
 							<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
+							<td><a href="main/detail?num=${index.num}">${index.viewcnt}</a></td>
 						</tr>
 							<c:if test="${status.last and (status.count<7)}">
 								<c:forEach begin="${status.count+1}" end="7">
 								<tr>
+									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
@@ -233,16 +236,19 @@ a:hover {
 							</c:if>
 						</c:forEach>
 						<tr>
-							<td colspan="4" align="center" >
-								<input type="text" >&nbsp;
-								<input type="button" value="검색" >&nbsp;
-								<Input type="button" value="새글" >&nbsp;
-								<Input type="button" value="삭제" >&nbsp;
-								<Input type="button" value="관리자 모드(쿠키/세션/SpringSecurity)" >&nbsp;
+							<td colspan="5" align="center" >
+								<form>
+									<input type="text" >&nbsp;
+									<input type="button" value="검색" onclick="window.location.href='main'">&nbsp;
+									<!-- onclick="window.open('../signup/signupForm.jsp') -->
+									<Input type="button" value="새글" >&nbsp;
+									<Input type="button" value="삭제" >&nbsp;
+									<Input type="button" value="관리자 모드(쿠키/세션/SpringSecurity)" >&nbsp;
+								</form>
 							</td> 
 						</tr> 
 						<tr>
-							<td colspan="4" align="center" >		
+							<td colspan="5" align="center" >		
 								<c:if test="${nowLevel>0}">
 									<a href="/main?nowLevel=${nowLevel-1}&currentPage=${(nowLevel-1)*pageData.pageCount+1}">이전</a>
 								</c:if>
