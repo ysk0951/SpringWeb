@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,8 +45,13 @@ public class ProjectController {
 		model.addAttribute("content", "1");
 		return "board/error";
 	} 
+	
 	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String projectList(Model model, HttpServletRequest request) {
+		
+		//session - 관리자
+		HttpSession httpSession = request.getSession();
+		
 		//pager를 위한것
 		int rowCount =0;
 		PageVO pageData = null;
