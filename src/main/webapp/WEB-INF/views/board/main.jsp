@@ -238,7 +238,7 @@ a:hover {
 								<input type="button" value="검색" >&nbsp;
 								<Input type="button" value="새글" >&nbsp;
 								<Input type="button" value="삭제" >&nbsp;
-								<Input type="button" value="관리자 모드(쿠키/세션구현)" >&nbsp;
+								<Input type="button" value="관리자 모드(쿠키/세션/SpringSecurity)" >&nbsp;
 							</td> 
 						</tr> 
 						<tr>
