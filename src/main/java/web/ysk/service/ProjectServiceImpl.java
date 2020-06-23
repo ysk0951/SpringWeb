@@ -29,10 +29,6 @@ public class ProjectServiceImpl implements ProjectService{
 		return dao.listSearch();
 	}
 	@Override
-	public int listSearchCount(){
-		return dao.listSearchCount();
-	}
-	@Override
 	public ProjectVO listDetail(int no) throws Exception {
 		// TODO Auto-generated method stub
 		ProjectVO vo = dao.listDetail(no);
