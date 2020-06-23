@@ -189,13 +189,13 @@ a:hover {
 			</c:choose>
 			<div class="tableView">
 			<!-- 가로를 줄이면 깨짐 수정필요 -->
-			<table border="1px solid #333333;" style="height:100%; width: 90%; ">
+			<table border="1px solid #333333;" style="height:100%; width: 90%; text-align: center;">
 				<thead>
 					<tr>
-						<th style="text-align: center;">NO</th>
-						<th style="text-align: center;">프로젝트 이름</th>  
-						<th style="text-align: center;">프로젝트 구현 내용</th>
-						<th style="text-align: center;">등록일</th>
+						<th >NO</th>
+						<th >프로젝트 이름</th>  
+						<th >프로젝트 구현 내용</th>
+						<th >등록일</th>
  					</tr>
 				</thead>
 				<tbody>
