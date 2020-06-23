@@ -8,9 +8,7 @@
 	<h1>Hello world!Hello GitHub</h1><hr> 
 		<h2>TODO LIST Grobal	: 	구현완료 SpringCRUD[paging+Errorpage]/Mybatis/<br/>
 									구현중 ConnectionPool/Transaction/Security/</br>
-									트랜잭션/첨부파일/검색기능</br>
-									자세목차 https://melonpeach.tistory.com/12?category=806570 SKIllSetSumary<br>
-									
+									구현필요 검색기능/upload/download</br>
 		
 		TODO LIST Home 		: RESUME IMG/tableCss/JS/ViewCSS(external/buttonJS)/추가뷰고민</br>
 		<hr>
