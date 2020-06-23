@@ -192,10 +192,10 @@ a:hover {
 			<table border="1px solid #333333;" style="height:100%; width: 90%; ">
 				<thead>
 					<tr>
-						<th>NO</th>
-						<th>프로젝트 이름</th> 
-						<th>컨텐트</th>
-						<th>등록일</th>
+						<th style="text-align: center;">NO</th>
+						<th style="text-align: center;">프로젝트 이름</th>  
+						<th style="text-align: center;">프로젝트 구현 내용</th>
+						<th style="text-align: center;">등록일</th>
  					</tr>
 				</thead>
 				<tbody>
@@ -238,6 +238,7 @@ a:hover {
 								<input type="button" value="검색" >&nbsp;
 								<Input type="button" value="새글" >&nbsp;
 								<Input type="button" value="삭제" >&nbsp;
+								<Input type="button" value="관리자 모드(쿠키/세션구현)" >&nbsp;
 							</td> 
 						</tr> 
 						<tr>
