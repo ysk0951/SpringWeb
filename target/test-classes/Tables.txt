@@ -29,6 +29,27 @@ PRIMARY KEY(num)
 CREATE SEQUENCE seq_project START WITH 1 INCREMENT BY 1;
 insert into project_tbl VALUES (seq_project.nextval, 'project', 'content',  sysdate, 0);
 
+***Web
+CREATE TABLE client(
+	name VARCHAR2(100) NOT null,
+	no1 number(20) NOT NULL,
+	no2 number(20) NOT NULL,
+	id VARCHAR2(100) NOT null,
+	pw VARCHAR2(100) NOT null,
+	emailFirst VARCHAR2(100) NOT null,
+	emailSecond VARCHAR2(100) NOT null,
+	homeFirst number(20) NOT NULL,
+	home1 NUMBER(20) NOT NULL,
+	home2 NUMBER(20) NOT NULL,
+	mobileFirst number(20) NOT NULL,
+	mobile1 NUMBER(20) NOT NULL,
+	mobile2 NUMBER(20) NOT NULL,
+	address varchar2(100) NOT NULL,
+	addressDetail varchar2(100) NOT NULL,
+	checkForMail number(5) NOT NULL
+);
+
+
 
 
 
