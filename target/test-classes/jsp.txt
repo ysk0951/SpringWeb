@@ -26,23 +26,15 @@
 	예외처리	  try-catch/JSPDirectiveTag/web.xml
 	데이터이동	 param(StringValueOnly)/
 			      pageContext<request<session(browser)<application .Attribute
-                  
     JDBC        Drive로딩/DBConnect/PreparedStatement(동적)/Resultset/Close
                 Resultset   executeQuery() Select
                 int         executeUpdate() insert,update,delete
-    커넥션 풀 
-                DB와 연결된 커넥션들을 미리만들어서 저장해놓고 쓰고 반환함
-                커넥션 수를 지정해서 어플리케이션의 실행속도를 향상 시킨다
+    커넥션 풀   커넥션 수를 지정해서 어플리케이션의 실행속도를 향상 시킨다
                 context.xml resource기술필요
                 Http Request > catalina > context.xml > web.xml > servlet > client Response
-    하나의 테이블에 하나의 DAO
     
-    쿠키 : 비연결지향 HTTP의 단점을 보완/ 브라우저가 저장하는 현재정보 임시파일
-            쿠키의 제약사항 - 문자열 데이터만 가능/4kb이상의 공간을 차지해야함
-            /클라이언트 300개/도메인당 20개/한도넘으면 최근사용되지않은 쿠키부터 자동삭제
-            /Map형태로 response객체에 실려 사용자 브라우저에 저장됨
-            Cookie cookie = new Cookie(String name,String value);
-            cookie.setMaxAge
+    쿠키 : 비연결지향 HTTP의 단점을 보완/ 브라우저가 저장하는 현재정보 임시파일(response)
             response.addCookie(cookie);
+            
             
             
