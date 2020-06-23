@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -217,11 +218,11 @@ a:hover {
 						<%--TD zone --%>
 						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}" varStatus="status">
 						<tr>
-							<td><a href="main/detail?num=${index.num}">${index.num}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.viewcnt}</a></td>
+							<td><a href="main/detail?num=${index.num}"><c:out value="${index.num}"/></a></td>
+							<td><a href="main/detail?num=${index.num}"><c:out value="${index.projectName}" /></a></td>
+							<td><a href="main/detail?num=${index.num}"><c:out value="${index.content}"/></a></td>
+							<td><a href="main/detail?num=${index.num}"><fmt:formatDate value="${index.regdate}" pattern="yyyy-MM-dd"/></a></td>
+							<td><a href="main/detail?num=${index.num}"><c:out value="${index.viewcnt}"/></a></td>
 						</tr>
 							<c:if test="${status.last and (status.count<7)}">
 								<c:forEach begin="${status.count+1}" end="7">
