@@ -29,9 +29,9 @@ table {
 </head>
 <body>
 	<form>
-		<table border="1">
+		<table border="1" style="text-align: center;">
 			<thead>
-				<td class="leftCell">NO</td>
+				<td class="leftCell">NO</td> 
 				<td class="leftCell">프로젝트제목</td>
 				<td class="leftCell">기간</td>
 				<td class="leftCell">첨부파일</td>
@@ -45,13 +45,15 @@ table {
 				</tr>
 				<tr> 
 					<td colspan="4" width="500" height="500">
-						<textarea rows="80" cols="100">
+						<textarea rows="50" cols="100">
 						
-						</textarea>
+						</textarea> 
 					</td>
 				<tr>
 				<tr>
+					<td colspan="4">
 					<input type="submit" value="등록"><input type="reset" value="다시쓰기">
+					</td>
 				</tr>
 			</tbody> 
 		</table>
