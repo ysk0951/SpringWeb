@@ -275,7 +275,7 @@ a:hover {
 									<a href="/main?nowLevel=${nowLevel+1}&currentPage=${(nowLevel+1)*pageData.pageCount+1}">다음</a>
 								</c:if>
 							</td>
-						</tr>
+						</tr>	
 				</tbody>
 			</table>
 			</div>
