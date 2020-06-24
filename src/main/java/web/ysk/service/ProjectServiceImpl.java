@@ -4,16 +4,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
+import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
-
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import web.ysk.dao.ProjectDAO;
 import web.ysk.dao.ProjectDAOImpl;
+import web.ysk.util.FileUtils;
 import web.ysk.vo.ProjectVO;
 
 @Service
@@ -21,6 +24,9 @@ public class ProjectServiceImpl implements ProjectService{
 	//injection 
 	@Inject
 	private ProjectDAOImpl dao;
+	
+	@Resource(name = "fileUtils")
+	private FileUtils fileUtils;
 	
 	@Autowired
 	private ProjectDAO projectdao;
@@ -46,6 +52,20 @@ public class ProjectServiceImpl implements ProjectService{
 		int selectRowCount = dao.selectRowCount();
 		return selectRowCount;
 	}
+	
+	@Override
+	public void submitNewData(ProjectVO vo, MultipartHttpServletRequest mpRequest) throws Exception {
+		dao.create(vo);
+		List<Map<String,Object>> list =fileUtils.parseInsertFileInfo(vo, mpRequest);
+		int size = list.size();
+		for(int i=0;i<size;i++) {
+			dao.insertFile(list.get(i));
+		}
+		
+	}
+	
+	
+	
 	@Override
 	public void create(ProjectVO vo) throws Exception {
 		// TODO Auto-generated method stub
@@ -58,4 +78,5 @@ public class ProjectServiceImpl implements ProjectService{
 	public void delete(int num) throws Exception {
 		// TODO Auto-generated method stub
 	}
+
 }

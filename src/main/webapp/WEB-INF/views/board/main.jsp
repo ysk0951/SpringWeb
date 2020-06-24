@@ -243,7 +243,7 @@ a:hover {
 									<input type="button" value="검색" onclick="window.location.href='main'">&nbsp;
 									<!-- onclick="window.open('../signup/signupForm.jsp') -->
 									<Input type="button" value="관리자 모드(쿠키/세션/SpringSecurity)" >&nbsp;
-									<Input type="button" value="새글" >&nbsp;
+									<Input type="button" value="새글" onclick="window.open('newData')">&nbsp;
 									<Input type="button" value="삭제" >&nbsp;
 								</form>
 							</td> 
@@ -275,7 +275,7 @@ a:hover {
 									<a href="/main?nowLevel=${nowLevel+1}&currentPage=${(nowLevel+1)*pageData.pageCount+1}">다음</a>
 								</c:if>
 							</td>
-						</tr>
+						</tr>	
 				</tbody>
 			</table>
 			</div>

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import web.ysk.dao.Pager;
 import web.ysk.service.ProjectService;
@@ -26,7 +27,7 @@ import web.ysk.vo.ProjectVO;
 public class ProjectController {
 	private static final Logger logger = LoggerFactory.getLogger(ProjectController.class);
 	
-	@Inject
+	@Inject 
 	ProjectService service;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -38,6 +39,22 @@ public class ProjectController {
 		model.addAttribute("serverTime", formattedDate );
 		return "board/home";
 	}
+	
+	@RequestMapping(value = "/submitNewData", method = RequestMethod.GET)
+	public String submitNewData(ProjectVO vo,MultipartHttpServletRequest mpRequest) throws Exception {
+		
+		logger.info("Submit newDataFile");
+		service.submitNewData(vo,mpRequest);
+		return "redirect:board/main";
+	}
+	
+	@RequestMapping(value = "/newData", method = RequestMethod.GET)
+	public String newData(Locale locale, Model model) {
+		
+		logger.info("newDataFile Format");
+		return "board/newData";
+	}
+	
 	@RequestMapping(value = "/error404", method = RequestMethod.GET)
 	public String error(HttpServletResponse response,Model model) {
 		response.setStatus(HttpServletResponse.SC_OK);
@@ -92,16 +109,6 @@ public class ProjectController {
 			e.printStackTrace();
 		}
 		return "board/detail";
-	}
-	
-	@RequestMapping(value = "/main/newData", method = RequestMethod.GET)
-	public String newData(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate );
-		return "board/newData";
 	}
 	
 	//Mybatis Testing

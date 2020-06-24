@@ -28,20 +28,20 @@ table {
 
 </head>
 <body>
-	<form>
+	<form action="/submitNewData" name="submitNewData" method="post" enctype="multipart/form-data">
 		<table border="1" style="text-align: center;">
 			<thead>
 				<td class="leftCell">NO</td> 
 				<td class="leftCell">프로젝트제목</td>
 				<td class="leftCell">기간</td>
 				<td class="leftCell">첨부파일</td>
-			</thead>
+			</thead> 
 			<tbody>
 				<tr>
 					<td>&nbsp;</td>
 					<td><input type="text"></td>
 					<td>&nbsp;</td>
-					<td>&nbsp;</td>
+					<td> <input type="file" name="file"></td>
 				</tr>
 				<tr> 
 					<td colspan="4" width="500" height="500">
