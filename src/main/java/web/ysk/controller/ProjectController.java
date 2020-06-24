@@ -26,7 +26,7 @@ import web.ysk.vo.ProjectVO;
 public class ProjectController {
 	private static final Logger logger = LoggerFactory.getLogger(ProjectController.class);
 	
-	@Inject
+	@Inject 
 	ProjectService service;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
