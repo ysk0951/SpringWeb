@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import web.ysk.dao.Pager;
 import web.ysk.service.ProjectService;
@@ -39,13 +40,18 @@ public class ProjectController {
 		return "board/home";
 	}
 	
+	@RequestMapping(value = "/submitNewData", method = RequestMethod.GET)
+	public String submitNewData(ProjectVO vo,MultipartHttpServletRequest mpRequest) throws Exception {
+		
+		logger.info("Submit newDataFile");
+		service.submitNewData(vo,mpRequest);
+		return "redirect:board/main";
+	}
+	
 	@RequestMapping(value = "/newData", method = RequestMethod.GET)
 	public String newData(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate );
+		
+		logger.info("newDataFile Format");
 		return "board/newData";
 	}
 	

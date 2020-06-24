@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -45,5 +46,9 @@ public class ProjectDAOImpl implements ProjectDAO {
 	@Override
 	public void boardHit(int bno) throws Exception {
 		sqlSession.update("boardMapper.boardHit",bno);
+	}
+	@Override
+	public void insertFile(Map<String, Object> map) throws Exception {
+		sqlSession.insert("boardMapper.insertFile", map);
 	}
 }

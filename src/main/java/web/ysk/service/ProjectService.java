@@ -3,6 +3,7 @@ package web.ysk.service;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import web.ysk.vo.ProjectVO;
 
@@ -13,4 +14,5 @@ public interface ProjectService {
 	public List<ProjectVO> listSearch() throws Exception; // 
 	public ProjectVO listDetail(int no) throws Exception;
 	public int selectRowCount()throws Exception;
+	public void submitNewData(ProjectVO vo,MultipartHttpServletRequest mpRequest) throws Exception;
 }

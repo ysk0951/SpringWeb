@@ -1,6 +1,7 @@
 package web.ysk.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -14,4 +15,5 @@ public interface ProjectDAO {
 	public int selectRowCount() throws Exception;
 	public List<ProjectVO> listSearch() throws Exception;
 	public void boardHit(int bno) throws Exception;
+	public void insertFile(Map<String,Object> map) throws Exception;
 }
