@@ -243,7 +243,7 @@ a:hover {
 									<input type="button" value="검색" onclick="window.location.href='main'">&nbsp;
 									<!-- onclick="window.open('../signup/signupForm.jsp') -->
 									<Input type="button" value="관리자 모드(쿠키/세션/SpringSecurity)" >&nbsp;
-									<Input type="button" value="새글" >&nbsp;
+									<Input type="button" value="새글" onclick="window.open('newData')">&nbsp;
 									<Input type="button" value="삭제" >&nbsp;
 								</form>
 							</td> 

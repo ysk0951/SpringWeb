@@ -35,13 +35,13 @@ table {
 				<td class="leftCell">프로젝트제목</td>
 				<td class="leftCell">기간</td>
 				<td class="leftCell">첨부파일</td>
-			</thead>
+			</thead> 
 			<tbody>
 				<tr>
 					<td>&nbsp;</td>
 					<td><input type="text"></td>
 					<td>&nbsp;</td>
-					<td>&nbsp;</td>
+					<td> <input type="file" name="file"></td>
 				</tr>
 				<tr> 
 					<td colspan="4" width="500" height="500">
