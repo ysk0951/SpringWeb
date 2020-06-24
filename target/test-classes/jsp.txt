@@ -25,18 +25,16 @@
 						                                   dispatcher.forward(request, response);
 	예외처리	  try-catch/JSPDirectiveTag/web.xml
 	데이터이동	 param(StringValueOnly)/
-			      pageContext<request<session(browser)<application .Attribute
-                  
+			      pageContext<request<session(container)/cookie(browser)<application .Attribute
     JDBC        Drive로딩/DBConnect/PreparedStatement(동적)/Resultset/Close
                 Resultset   executeQuery() Select
                 int         executeUpdate() insert,update,delete
-    커넥션 풀 
-                DB와 연결된 커넥션들을 미리만들어서 저장해놓고 쓰고 반환함
-                커넥션 수를 지정해서 어플리케이션의 실행속도를 향상 시킨다
-                context.xml resource기술필요
+    커넥션 풀   context.xml resource기술필요
                 Http Request > catalina > context.xml > web.xml > servlet > client Response
-    하나의 테이블에 하나의 DAO
+    쿠키 : 브라우저(Server)가 저장하는 현재정보 임시파일(response) 
+    세션 : 웹 서버쪽(Client)의 웹 컨테이너에 정보를 저장(Browser단위로 생성)
+            JSESSIONID가 쿠키가 세션ID를 공유할때 사용하는 쿠키
+            request.getSession()
                 
-            
             
             

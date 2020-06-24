@@ -3,6 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -189,13 +190,14 @@ a:hover {
 			</c:choose>
 			<div class="tableView">
 			<!-- 가로를 줄이면 깨짐 수정필요 -->
-			<table border="1px solid #333333;" style="height:100%; width: 90%; ">
+			<table border="1px solid #333333;" style="height:100%; width: 90%; text-align: center;">
 				<thead>
 					<tr>
-						<th>NO</th>
-						<th>프로젝트 이름</th> 
-						<th>컨텐트</th>
-						<th>등록일</th>
+						<th >NO</th>
+						<th >프로젝트 이름</th>  
+						<th >프로젝트 구현 내용</th>
+						<th >등록일</th>
+						<th>조회수</th>
  					</tr>
 				</thead>
 				<tbody>
@@ -216,14 +218,16 @@ a:hover {
 						<%--TD zone --%>
 						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}" varStatus="status">
 						<tr>
-							<td><a href="main/detail?num=${index.num}">${index.num}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.projectName}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.content}</a></td>
-							<td><a href="main/detail?num=${index.num}">${index.regdate}</a></td>
+							<td><a href="main/detail?num=${index.num}"><c:out value="${index.num}"/></a></td>
+							<td><a href="main/detail?num=${index.num}"><c:out value="${index.projectName}" /></a></td>
+							<td><a href="main/detail?num=${index.num}"><c:out value="${index.content}"/></a></td>
+							<td><a href="main/detail?num=${index.num}"><fmt:formatDate value="${index.regdate}" pattern="yyyy-MM-dd"/></a></td>
+							<td><a href="main/detail?num=${index.num}"><c:out value="${index.viewcnt}"/></a></td>
 						</tr>
 							<c:if test="${status.last and (status.count<7)}">
 								<c:forEach begin="${status.count+1}" end="7">
 								<tr>
+									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
@@ -233,15 +237,19 @@ a:hover {
 							</c:if>
 						</c:forEach>
 						<tr>
-							<td colspan="4" align="center" >
-								<input type="text" >&nbsp;
-								<input type="button" value="검색" >&nbsp;
-								<Input type="button" value="새글" >&nbsp;
-								<Input type="button" value="삭제" >&nbsp;
+							<td colspan="5" align="center" >
+								<form>
+									<input type="text" >&nbsp;
+									<input type="button" value="검색" onclick="window.location.href='main'">&nbsp;
+									<!-- onclick="window.open('../signup/signupForm.jsp') -->
+									<Input type="button" value="관리자 모드(쿠키/세션/SpringSecurity)" >&nbsp;
+									<Input type="button" value="새글" >&nbsp;
+									<Input type="button" value="삭제" >&nbsp;
+								</form>
 							</td> 
 						</tr> 
 						<tr>
-							<td colspan="4" align="center" >		
+							<td colspan="5" align="center" >		
 								<c:if test="${nowLevel>0}">
 									<a href="/main?nowLevel=${nowLevel-1}&currentPage=${(nowLevel-1)*pageData.pageCount+1}">이전</a>
 								</c:if>

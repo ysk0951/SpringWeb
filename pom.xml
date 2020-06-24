@@ -23,6 +23,14 @@
 			<version>3.1.1.RELEASE</version>
 		</dependency> 
 		-->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>3.1.1.RELEASE</version>
+		</dependency>
+		
 		<!-- Test -->
         <dependency>
             <groupId>junit</groupId>

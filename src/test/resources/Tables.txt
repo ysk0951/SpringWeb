@@ -1,0 +1,61 @@
+##Connection##
+1) Connect
+        Connect to DB >> Oracle >> 
+        Host: ip (192.168.0.252) port : 1521
+        Database : ORCL (SID)
+        UserName : java06
+        Password : java06
+        TestConnection
+        DriveDownload 
+2) External Connection
+        Connect to DB >> Oracle >> 
+        Host: nullmaster.iptime.org port : 3000
+        Database : ORCL (SID)
+        UserName : java06
+        Password : java06
+        TestConnection
+        DriveDownload
+
+***SpringWeb***
+CREATE TABLE project_tbl(
+num NUMBER(10), 
+projectName VARCHAR(50) NOT NULL, 
+content VARCHAR(200) NULL, 
+regdate DATE default sysdate null, 
+viewcnt NUMBER(10) DEFAULT 0, 
+PRIMARY KEY(num) 
+);
+
+CREATE SEQUENCE seq_project START WITH 1 INCREMENT BY 1;
+insert into project_tbl VALUES (seq_project.nextval, 'project', 'content',  sysdate, 0);
+
+***Web
+CREATE TABLE client(
+	primeNum number(20) PRIMARY KEY,
+	name VARCHAR2(100) NOT null,
+	no1 number(20) NOT NULL,
+	no2 number(20) NOT NULL,
+	id VARCHAR2(100) NOT null,
+	pw VARCHAR2(100) NOT null,
+	emailFirst VARCHAR2(100) NOT null,
+	emailSecond VARCHAR2(100) NOT null,
+	homeFirst number(20) NOT NULL,
+	home1 NUMBER(20) NOT NULL,
+	home2 NUMBER(20) NOT NULL,
+	mobileFirst number(20) NOT NULL,
+	mobile1 NUMBER(20) NOT NULL,
+	mobile2 NUMBER(20) NOT NULL,
+	address varchar2(100) NOT NULL,
+	addressDetail varchar2(100) NOT NULL,
+	checkForMail number(5) NOT NULL
+);
+
+CREATE SEQUENCE seq_client START WITH 1 INCREMENT BY 1;
+
+
+
+
+
+
+
+

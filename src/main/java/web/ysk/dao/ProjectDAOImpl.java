@@ -19,13 +19,6 @@ public class ProjectDAOImpl implements ProjectDAO {
 
 	@Inject
 	private SqlSession sqlSession;
-//	sigleton DB
-	private static ProjectDAOImpl Instance = new ProjectDAOImpl();
-	private ProjectDAOImpl() {
-	}
-	public static ProjectDAOImpl getInstance() {
-		return Instance;
-	}
 	@Override
 	public void create(ProjectVO vo) throws Exception {
 	}
@@ -38,8 +31,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 	
 	@Override
 	public ProjectVO listDetail(int no) throws Exception {
-		ProjectVO vo = sqlSession.selectOne("boardMapper.selectDetail",no); 
-		return vo;
+		return sqlSession.selectOne("boardMapper.selectDetail",no);
 	}
 	//게시물 조회 Mybatis
 	@Override
@@ -47,11 +39,11 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return sqlSession.selectList("boardMapper.selectList");
 	}
 	@Override
-	public int listSearchCount() {
-		return 0;
-	}
-	@Override
 	public int selectRowCount() throws Exception {
 		return sqlSession.selectOne("boardMapper.selectRowCount");
+	}
+	@Override
+	public void boardHit(int bno) throws Exception {
+		sqlSession.update("boardMapper.boardHit",bno);
 	}
 }
