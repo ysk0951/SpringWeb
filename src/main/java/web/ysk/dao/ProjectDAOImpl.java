@@ -52,5 +52,5 @@ public class ProjectDAOImpl implements ProjectDAO {
 	public void insertFile(Map<String, Object> map) throws Exception {
 		sqlSession.insert("boardMapper.insertFile", map);
 	}
-}
+}  
  
