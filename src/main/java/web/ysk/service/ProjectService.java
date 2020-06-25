@@ -17,4 +17,5 @@ public interface ProjectService {
 	public int selectRowCount()throws Exception;
 	public void submitNewData(ProjectVO vo,MultipartHttpServletRequest mpRequest) throws Exception;
 	public List<Map<String, Object>> selectFileList(int bno) throws Exception;;
+	public void alterbnoFiletable(int seq) throws Exception;
 }

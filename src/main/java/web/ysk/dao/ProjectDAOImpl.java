@@ -60,5 +60,9 @@ public class ProjectDAOImpl implements ProjectDAO {
 	public int selectSeqOfProjectTB() throws Exception {
 		return sqlSession.selectOne("boardMapper.selectSeqOfProjectTB");
 	}
+	@Override
+	public void alterbnoFiletable(int seq) throws Exception {
+		sqlSession.update("boardMapper.alterbnoFiletable",seq);
+	}
 }  
  

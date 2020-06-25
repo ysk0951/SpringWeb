@@ -65,7 +65,7 @@ public class ProjectServiceImpl implements ProjectService{
 		  
 		//select seq(num)
 		int seq = dao.selectSeqOfProjectTB();
-		/* dao.alterbnoFiletable(); */
+		dao.alterbnoFiletable(seq);
 		System.out.println(seq);
 		//alter bono logic
 	}
@@ -85,5 +85,11 @@ public class ProjectServiceImpl implements ProjectService{
 	@Override
 	public void delete(int num) throws Exception {
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void alterbnoFiletable(int seq) throws Exception {
+		// TODO Auto-generated method stub
+		dao.alterbnoFiletable(seq);
 	}
 }

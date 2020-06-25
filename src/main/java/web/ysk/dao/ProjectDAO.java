@@ -18,4 +18,5 @@ public interface ProjectDAO {
 	public void insertFile(Map<String,Object> map) throws Exception;
 	public List<Map<String, Object>> selectFileList(int bno) throws Exception;
 	public int selectSeqOfProjectTB() throws Exception;
+	public void alterbnoFiletable(int seq) throws Exception;
 }
