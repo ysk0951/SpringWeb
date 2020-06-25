@@ -42,10 +42,12 @@ table {
 					<td>${vo.projectName}</td>
 					<td>${vo.regdate}</td>
 					<td>
-						<c:forEach var="file" items="${files}">
-							<a href="#" onclick="fn_fileDown('${file.FILE_NO}'); return false;">${file.ORG_FILE_NAME}</a>
-							(${file.FILE_SIZE}kb)<br>
-						</c:forEach>
+						<!--CIF  -->
+						${files}
+						<%-- <c:forEach var="files" items="${files}">
+							<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
+							(${files.FILE_SIZE}kb)<br>
+						</c:forEach> --%>
 					</td>
 				</tr>
 				<tr>
