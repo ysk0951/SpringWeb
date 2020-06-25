@@ -56,5 +56,9 @@ public class ProjectDAOImpl implements ProjectDAO {
 	public List<Map<String,Object>> selectFileList(int bno) throws Exception {
 		return  sqlSession.selectList("boardMapper.selectFileList", bno);
 	}
+	@Override
+	public int selectSeqOfProjectTB() throws Exception {
+		return sqlSession.selectOne("boardMapper.selectSeqOfProjectTB");
+	}
 }  
  

@@ -43,13 +43,16 @@
    </insert>
    <!-- 게시판 글 작성 -->
   <insert id="insert" parameterType="web.ysk.vo.ProjectVO">
-   INSERT INTO project_tbl(   num 
+   INSERT INTO project_tbl(  num 
    					      , PROJECTNAME 
    					      , CONTENT 
    					      , VIEWCNT )
                  VALUES(    SEQ_PROJECT.NEXTVAL 
-                 		  , 1
-                 		  , 2
+                 		  , #{projectName}
+                 		  , #{content}
                  		  , 0  )
   </insert>
+  <select id = "selectSeqOfProjectTB" resultType="int">
+  	select max(num) from project_tbl
+  </select>
 </mapper>

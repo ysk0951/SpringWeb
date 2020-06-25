@@ -59,14 +59,18 @@ public class ProjectServiceImpl implements ProjectService{
 		List<Map<String,Object>> list =fileUtils.parseInsertFileInfo(vo, mpRequest);
 		int size = list.size();
 		for(int i=0;i<size;i++) {
-			dao.insertFile(list.get(i));
+			dao.insertFile(list.get(i)); 
 		}
 		//sequce >> bno 2logic
+		
+		//select seq(num)
+		int seq = dao.selectSeqOfProjectTB();
+		System.out.println(seq);
 	}
 	
 	@Override
 	public void create(ProjectVO vo) throws Exception {
-		// TODO Auto-generated method stub
+		dao.create(vo);
 	}
 	@Override
 	public List<Map<String,Object>> selectFileList(int bno) throws Exception {

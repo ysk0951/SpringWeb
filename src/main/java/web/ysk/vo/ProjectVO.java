@@ -15,12 +15,7 @@ public class ProjectVO {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public String getProjectName() {
-		return projectName;
-	}
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
+	
 	public String getContent() {
 		return content;
 	}
@@ -50,6 +45,12 @@ public class ProjectVO {
 		this.content = content;
 		this.regdate = regdate;
 		this.viewcnt = viewcnt;
+	}
+	public String getProjectName() {
+		return projectName;
+	}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 	public ProjectVO() {
 		// TODO Auto-generated constructor stub
