@@ -229,18 +229,18 @@ a:hover {
 							<td><a href="main/detail?num=${index.num}"><c:out value="${index.content}"/></a></td>
 							<td><a href="main/detail?num=${index.num}"><fmt:formatDate value="${index.regdate}" pattern="yyyy-MM-dd"/></a></td>
 							<td><a href="main/detail?num=${index.num}"><c:out value="${index.viewcnt}"/></a></td>
-						</tr>
-							<c:if test="${status.last and (status.count<7)}">
-								<c:forEach begin="${status.count+1}" end="7">
-								<tr>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-								<tr>
-								</c:forEach>
-							</c:if>
+						</tr> 
+						<c:if test="${status.last and (status.count<7)}">
+							<c:forEach begin="${status.count+1}" end="7">
+							<tr>
+								<td>1</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+								<td>&nbsp;</td>
+							</tr>
+							</c:forEach>
+						</c:if>
 						</c:forEach>
 						<tr>
 							<td colspan="5" align="center" >

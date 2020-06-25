@@ -55,4 +55,7 @@
   <select id = "selectSeqOfProjectTB" resultType="int">
   	select max(NUM) from project_tbl
   </select>
+  <update id="alterbnoFiletable" parameterType="int">
+  	update MP_FILE set bno = #{seq} WHERE FILE_NO = (SELECT max(FILE_NO) FROM MP_FILE mf);
+  </update>
 </mapper>
