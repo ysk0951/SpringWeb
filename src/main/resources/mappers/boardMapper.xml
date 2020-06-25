@@ -53,6 +53,6 @@
                  		  , 0  )
   </insert>
   <select id = "selectSeqOfProjectTB" resultType="int">
-  	select max(num) from project_tbl
+  	select max(NUM) from project_tbl
   </select>
 </mapper>
