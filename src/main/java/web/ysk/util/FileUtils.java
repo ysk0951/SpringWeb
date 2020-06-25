@@ -16,7 +16,7 @@ import web.ysk.vo.ProjectVO;
 
 @Component("fileUtils")
 public class FileUtils {
-	private static final String filePath = "C:\\Program Files\\Git\\tmp"; // 파일이 저장될 위치
+	private static final String filePath = "C:\\Program Files\\Git\\tmp\\"; // 파일이 저장될 위치
 	
 	public List<Map<String, Object>> parseInsertFileInfo(ProjectVO projectVO, MultipartHttpServletRequest mpRequest)
 			throws Exception{
@@ -42,7 +42,7 @@ public class FileUtils {
 			if(multipartFile.isEmpty() == false) {
 				originalFileName = multipartFile.getOriginalFilename();
 				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-				storedFileName = getRandomString() + originalFileExtension;
+				storedFileName = originalFileName + originalFileExtension;
 				
 				file = new File(filePath + storedFileName);
 				multipartFile.transferTo(file);
@@ -55,9 +55,5 @@ public class FileUtils {
 			}
 		}
 		return list;
-	}
-	
-	public static String getRandomString() {
-		return UUID.randomUUID().toString().replaceAll("-", "");
 	}
 }

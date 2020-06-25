@@ -22,6 +22,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 	private SqlSession sqlSession;
 	@Override
 	public void create(ProjectVO vo) throws Exception {
+		sqlSession.insert("boardMapper.insert",vo);
 	}
 	@Override
 	public void update(ProjectVO vo) throws Exception {
@@ -52,3 +53,4 @@ public class ProjectDAOImpl implements ProjectDAO {
 		sqlSession.insert("boardMapper.insertFile", map);
 	}
 }
+ 

@@ -3,17 +3,53 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boardMapper">
    <select id="selectList" resultType="web.ysk.vo.ProjectVO">
-   	select * from PROJECT_TBL
-   </select>
-   <!--mybatis result type Int Need  -->
-   <select id="selectRowCount" resultType="Integer">
-   	SELECT COUNT(*) FROM PROJECT_TBL pt
-   </select>
-   <select id="selectDetail" resultType="web.ysk.vo.ProjectVO" parameterType="int">
-   SELECT * FROM PROJECT_TBL pt WHERE NUM = #{NUM}
-   </select>
-   <update id="boardHit" parameterType="int">
-   UPDATE PROJECT_TBL SET VIEWCNT = VIEWCNT+1 WHERE NUM = #{NUM}
-   </update>
-   
+	select * from PROJECT_TBL
+	</select>
+	<!--mybatis result type Int Need -->
+	<select id="selectRowCount" resultType="Integer">
+		SELECT COUNT(*) FROM PROJECT_TBL pt
+	</select>
+	<select id="selectDetail" resultType="web.ysk.vo.ProjectVO"
+		parameterType="int">
+		SELECT * FROM PROJECT_TBL pt WHERE NUM = #{NUM}
+	</select>
+	<update id="boardHit" parameterType="int">
+		UPDATE PROJECT_TBL SET VIEWCNT = VIEWCNT+1 WHERE NUM = #{NUM}
+	</update>
+	<!-- 첨부파일 조회 -->
+	<select id="selectFileList" parameterType="int"
+		resultType="hashMap">
+		SELECT FILE_NO,
+		ORG_FILE_NAME,
+		ROUND(FILE_SIZE/1024,1) AS FILE_SIZE
+		FROM MP_FILE
+		WHERE BNO = #{BNO}
+		AND DEL_GB = 'N'
+	</select>
+	 <insert id="insertFile" parameterType="hashMap">
+	INSERT INTO MP_FILE(
+		FILE_NO,
+		BNO,
+		ORG_FILE_NAME,
+		STORED_FILE_NAME,
+		FILE_SIZE
+	)VALUES(
+		SEQ_MP_FILE_NO.NEXTVAL,
+		#{BNO},
+		#{ORG_FILE_NAME},
+		#{STORED_FILE_NAME},
+		#{FILE_SIZE}
+	)
+   </insert>
+   <!-- 게시판 글 작성 -->
+  <insert id="insert" parameterType="web.ysk.vo.ProjectVO">
+   INSERT INTO project_tbl(   num 
+   					      , PROJECTNAME 
+   					      , CONTENT 
+   					      , VIEWCNT )
+                 VALUES(    SEQ_PROJECT.NEXTVAL 
+                 		  , 1
+                 		  , 2
+                 		  , 0  )
+  </insert>
 </mapper>

@@ -61,7 +61,7 @@ public class ProjectServiceImpl implements ProjectService{
 		for(int i=0;i<size;i++) {
 			dao.insertFile(list.get(i));
 		}
-		
+		//sequce >> bno 2logic
 	}
 	
 	

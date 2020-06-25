@@ -40,12 +40,17 @@ public class ProjectController {
 		return "board/home";
 	}
 	
-	@RequestMapping(value = "/submitNewData", method = RequestMethod.GET)
-	public String submitNewData(ProjectVO vo,MultipartHttpServletRequest mpRequest) throws Exception {
+	@RequestMapping(value = "/submitNewData", method = {RequestMethod.GET ,RequestMethod.POST})
+	public String submitNewData(ProjectVO vo,MultipartHttpServletRequest mpRequest,HttpServletRequest request) throws Exception {
 		
 		logger.info("Submit newDataFile");
+		String projectname =(String) request.getParameter("prjectName");
+		String content = (String)request.getParameter("content");
+		System.out.println(projectname+content);
+		vo.setProjectName(projectname);
+		vo.setContent(content);
 		service.submitNewData(vo,mpRequest);
-		return "redirect:board/main";
+		return "redirect:/main";
 	}
 	
 	@RequestMapping(value = "/newData", method = RequestMethod.GET)

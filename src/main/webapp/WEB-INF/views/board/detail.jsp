@@ -34,15 +34,22 @@ table {
 				<td class="leftCell">NO</td>
 				<td class="leftCell">프로젝트제목</td>
 				<td class="leftCell">기간</td>
+				<td class="leftCell">첨부파일</td>
 			</thead>
 			<tbody>
 				<tr>
 					<td>${num}</td>
 					<td>${vo.projectName}</td>
 					<td>${vo.regdate}</td>
+					<td>
+						<c:forEach var="file" items="${file}">
+							<a href="#" onclick="fn_fileDown('${file.FILE_NO}'); return false;">${file.ORG_FILE_NAME}</a>
+							(${file.FILE_SIZE}kb)<br>
+						</c:forEach>
+					</td>
 				</tr>
 				<tr>
-					<td colspan="3" width="500" height="500">${vo.content}</td>
+					<td colspan="4" width="500" height="500">${vo.content}</td>
 				<tr>
 			</tbody> 
 		</table>

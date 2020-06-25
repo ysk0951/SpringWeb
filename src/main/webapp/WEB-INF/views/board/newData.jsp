@@ -33,19 +33,19 @@ table {
 			<thead>
 				<td class="leftCell">NO</td> 
 				<td class="leftCell">프로젝트제목</td>
-				<td class="leftCell">기간</td>
+				<td class="leftCell">기간</td> 
 				<td class="leftCell">첨부파일</td>
 			</thead> 
 			<tbody>
 				<tr>
 					<td>&nbsp;</td>
-					<td><input type="text"></td>
+					<td><input type="text" name ="prjectName"></td>
 					<td>&nbsp;</td>
 					<td> <input type="file" name="file"></td>
 				</tr>
 				<tr> 
 					<td colspan="4" width="500" height="500">
-						<textarea rows="50" cols="100">
+						<textarea rows="50" cols="100" name = "content">
 						
 						</textarea> 
 					</td>
