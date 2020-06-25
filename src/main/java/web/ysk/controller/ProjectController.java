@@ -114,7 +114,6 @@ public class ProjectController {
 			model.addAttribute("vo", vo);
 			model.addAttribute("num", num);
 			model.addAttribute("files", files);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

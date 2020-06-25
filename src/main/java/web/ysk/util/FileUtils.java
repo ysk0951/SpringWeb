@@ -43,7 +43,7 @@ public class FileUtils {
 				originalFileName = multipartFile.getOriginalFilename();
 				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
 				storedFileName = originalFileName + originalFileExtension;
-				
+				System.out.println(storedFileName);
 				file = new File(filePath + storedFileName);
 				multipartFile.transferTo(file);
 				listMap = new HashMap<String, Object>();
