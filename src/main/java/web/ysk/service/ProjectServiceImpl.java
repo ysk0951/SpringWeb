@@ -62,7 +62,7 @@ public class ProjectServiceImpl implements ProjectService{
 			dao.insertFile(list.get(i)); 
 		}
 		//sequce >> bno 2logic
-		 
+		  
 		//select seq(num)
 		int seq = dao.selectSeqOfProjectTB();
 		/* dao.alterbnoFiletable(); */
