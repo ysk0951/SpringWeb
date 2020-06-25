@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -104,11 +105,15 @@ public class ProjectController {
 			ProjectVO vo = null;
 
 			String num = request.getParameter("num");
+			vo = service.listDetail(Integer.parseInt(num));//NULLPOINT
+			List<Map<String,Object>> files = service.selectFileList(Integer.parseInt(num));
 			System.out.println("LOG NUM : "+num);
 			System.out.println("LOG vo : "+vo);
-			vo = service.listDetail(Integer.parseInt(num));//NULLPOINT
+			System.out.println("LOG files : "+files.size());
+			
 			model.addAttribute("vo", vo);
 			model.addAttribute("num", num);
+			model.addAttribute("files", files);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

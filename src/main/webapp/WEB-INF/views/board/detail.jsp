@@ -42,7 +42,7 @@ table {
 					<td>${vo.projectName}</td>
 					<td>${vo.regdate}</td>
 					<td>
-						<c:forEach var="file" items="${file}">
+						<c:forEach var="file" items="${files}">
 							<a href="#" onclick="fn_fileDown('${file.FILE_NO}'); return false;">${file.ORG_FILE_NAME}</a>
 							(${file.FILE_SIZE}kb)<br>
 						</c:forEach>

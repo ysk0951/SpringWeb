@@ -1,6 +1,7 @@
 package web.ysk.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -15,4 +16,5 @@ public interface ProjectService {
 	public ProjectVO listDetail(int no) throws Exception;
 	public int selectRowCount()throws Exception;
 	public void submitNewData(ProjectVO vo,MultipartHttpServletRequest mpRequest) throws Exception;
+	public List<Map<String, Object>> selectFileList(int bno) throws Exception;;
 }

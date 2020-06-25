@@ -64,11 +64,13 @@ public class ProjectServiceImpl implements ProjectService{
 		//sequce >> bno 2logic
 	}
 	
-	
-	
 	@Override
 	public void create(ProjectVO vo) throws Exception {
 		// TODO Auto-generated method stub
+	}
+	@Override
+	public List<Map<String,Object>> selectFileList(int bno) throws Exception {
+		return dao.selectFileList(bno);
 	}
 	@Override
 	public void update(ProjectVO vo) throws Exception {
@@ -78,5 +80,4 @@ public class ProjectServiceImpl implements ProjectService{
 	public void delete(int num) throws Exception {
 		// TODO Auto-generated method stub
 	}
-
 }
