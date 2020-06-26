@@ -16,7 +16,8 @@ import web.ysk.vo.ProjectVO;
 
 @Component("fileUtils")
 public class FileUtils {
-	private static final String filePath = "D:\\web\\"; // 파일이 저장될 위치
+	//private static final String filePath = "D:\\web\\"; // 파일이 저장될 위치
+	private static final String filePath = "C:\\Program Files\\Git\\tmp\\"; // 파일이 저장될 위치
 	
 	public List<Map<String, Object>> parseInsertFileInfo(ProjectVO projectVO, MultipartHttpServletRequest mpRequest)
 			throws Exception{
