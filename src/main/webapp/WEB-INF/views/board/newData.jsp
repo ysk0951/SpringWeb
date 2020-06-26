@@ -28,7 +28,7 @@ table {
 
 </head>
 <body>
-	<form action="/submitNewData" name="submitNewData" method="post" enctype="multipart/form-data">
+	<form action="/submitNewData" name="submitNewData" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 		<table border="1" style="text-align: center;">
 			<thead>
 				<td class="leftCell">NO</td> 

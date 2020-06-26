@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -43,10 +44,10 @@ public class FileUtils {
 			if(multipartFile.isEmpty() == false) {
 				originalFileName = multipartFile.getOriginalFilename();
 				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-				storedFileName = originalFileName + originalFileExtension;
-				System.out.println(storedFileName);
+				storedFileName = originalFileName + originalFileExtension; 
+				System.out.println("LOGT : StoredFILEName : "+storedFileName);
 				file = new File(filePath + storedFileName);
-				multipartFile.transferTo(file);
+				multipartFile.transferTo(file); 
 				listMap = new HashMap<String, Object>();
 				listMap.put("BNO", bno);
 				listMap.put("ORG_FILE_NAME", originalFileName);
