@@ -26,7 +26,16 @@
 		WHERE BNO = #{BNO}
 		AND DEL_GB = 'N'
 	</select>
-	 <insert id="insertFile" parameterType="hashMap">
+	<!-- 첨부파일 다운 -->
+	<select id="selectFileInfo" parameterType="hashMap" resultType="hashMap">
+		SELECT
+		STORED_FILE_NAME,
+		ORG_FILE_NAME
+		FROM MP_FILE
+		WHERE FILE_NO = #{FILE_NO}
+	</select>
+	<!-- 첨부파일 load -->
+	<insert id="insertFile" parameterType="hashMap">
 	INSERT INTO MP_FILE(
 		FILE_NO,
 		BNO,
@@ -58,4 +67,8 @@
   <update id="alterbnoFiletable" parameterType="int">
   	update MP_FILE set BNO = #{seq} WHERE FILE_NO = (SELECT max(FILE_NO) FROM MP_FILE)
   </update>
+  <!--download  -->
+  <select id ="selectFileInfo" resultType="">
+  	
+  </select>
 </mapper>

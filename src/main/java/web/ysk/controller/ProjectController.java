@@ -21,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import web.ysk.dao.Pager;
@@ -138,5 +139,13 @@ public class ProjectController {
 		model.addAttribute("count", count);
 		
 		return "board/mainTest"; 
+	}
+	
+	//file DownLoad
+	@RequestMapping(value="/fileDown")
+	public void fileDown(@RequestParam Map<String,Object> map,HttpServletResponse response) throws Exception {
+		Map<String, Object> resultMap = service.selectFileInfo(map);
+		String storedFileName = (String) resultMap.get("STORED_FILE_NAME");
+		String originalFileName = (String) resultMap.get("ORG_FILE_NAME");
 	}
 }

@@ -96,4 +96,11 @@ public class ProjectServiceImpl implements ProjectService{
 		// TODO Auto-generated method stub
 		dao.alterbnoFiletable(seq);
 	}
+	
+	
+	//첨부파일 다운로드
+	@Override
+	public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
+		return dao.selectFileInfo(map);
+	}
 }

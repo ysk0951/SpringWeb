@@ -64,5 +64,9 @@ public class ProjectDAOImpl implements ProjectDAO {
 	public void alterbnoFiletable(int seq) throws Exception {
 		sqlSession.update("boardMapper.alterbnoFiletable",seq);
 	}
+	@Override
+	public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
+		return sqlSession.selectOne("boardMapper.selectFileInfo",map);
+	}
 }  
  

@@ -16,7 +16,9 @@ public interface ProjectDAO {
 	public List<ProjectVO> listSearch() throws Exception;
 	public void boardHit(int bno) throws Exception;
 	public void insertFile(Map<String,Object> map) throws Exception;
+	//첨부파일조회
 	public List<Map<String, Object>> selectFileList(int bno) throws Exception;
 	public int selectSeqOfProjectTB() throws Exception;
 	public void alterbnoFiletable(int seq) throws Exception;
+	public Map<String, Object> selectFileInfo(Map<String,Object> map)throws Exception;
 }
