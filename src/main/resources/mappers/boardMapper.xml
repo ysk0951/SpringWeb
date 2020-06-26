@@ -73,4 +73,13 @@
    	DEL_GB = 'Y' <!--Y시 보여주지 않는것으로-->
    	WHERE FILE_NO = #{FILE_NO}
    </update>
+   
+   
+   <!--게시글 수정 구현중  -->
+   <!-- <update id="update" parameterType="kr.co.vo.BoardVO">
+		UPDATE MP_BOARD
+		   SET projectName    =  #{projectName},
+		   	   CONTENT  =   #{content}
+		 WHERE num = #{num} 
+	</update> -->
 </mapper>
