@@ -49,7 +49,7 @@ table {
 				</tr>
 				<tr> 
 					<td colspan="4" width="500" height="500">
-						<textarea rows="50" cols="100" name = "content">TEXTAREA</textarea>
+						<textarea rows="40" cols="50" name = "content">TEXTAREA</textarea>
 					</td>
 				<tr>
 				<tr>

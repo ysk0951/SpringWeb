@@ -224,11 +224,12 @@ a:hover {
 						<%--TD zone --%>
 						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}" varStatus="status">
 						<tr>
-							<td><a href="/main/detail?num=${index.num}"><c:out value="${index.num}"/></a></td>
-							<td><a href="/main/detail?num=${index.num}"><c:out value="${index.projectName}" /></a></td>
-							<td><a href="/main/detail?num=${index.num}"><c:out value="${index.content}"/></a></td>
-							<td><a href="/main/detail?num=${index.num}"><fmt:formatDate value="${index.regdate}" pattern="yyyy-MM-dd"/></a></td>
-							<td><a href="/main/detail?num=${index.num}"><c:out value="${index.viewcnt}"/></a></td>
+						
+							<td><a href="/main/detail?num=${index.num}" onclick="window.open(this.href,'DETAIL','width=1000 ,height=1000'); return false;"><c:out value="${index.num}"/></a></td>
+							<td><a href="/main/detail?num=${index.num}" onclick="window.open(this.href,'DETAIL','width=1000 ,height=1000'); return false;"><c:out value="${index.projectName}" /></a></td>
+							<td><a href="/main/detail?num=${index.num}" onclick="window.open(this.href,'DETAIL','width=1000 ,height=1000'); return false;"><c:out value="${index.content}"/></a></td>
+							<td><a href="/main/detail?num=${index.num}" onclick="window.open(this.href,'DETAIL','width=1000 ,height=1000'); return false;"><fmt:formatDate value="${index.regdate}" pattern="yyyy-MM-dd"/></a></td>
+							<td><a href="/main/detail?num=${index.num}" onclick="window.open(this.href,'DETAIL','width=1000 ,height=1000'); return false;"><c:out value="${index.viewcnt}"/></a></td>
 						</tr> 
 						<c:if test="${status.last and (status.count<7)}">
 							<c:forEach begin="${status.count+1}" end="7">
