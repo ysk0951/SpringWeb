@@ -58,16 +58,20 @@ public class ProjectServiceImpl implements ProjectService{
 		dao.create(vo);
 		List<Map<String,Object>> list =fileUtils.parseInsertFileInfo(vo, mpRequest);
 		int size = list.size();
+		System.out.println("LOG : FILE LIST SIZE"+size);
 		for(int i=0;i<size;i++) {
 			dao.insertFile(list.get(i)); 
 		}
 		//sequce >> bno 2logic
+		
 		  
 		//select seq(num)
-		int seq = dao.selectSeqOfProjectTB();
-		dao.alterbnoFiletable(seq);
-		System.out.println(seq);
 		//alter bono logic
+		if(list.size()>0) {
+			int seq = dao.selectSeqOfProjectTB();
+			dao.alterbnoFiletable(seq);
+			System.out.println(seq);
+		}
 	}
 	
 	@Override

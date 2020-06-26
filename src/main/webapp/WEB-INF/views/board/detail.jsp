@@ -46,11 +46,15 @@ table {
 					<td>${vo.projectName}</td>
 					<td>${vo.regdate}</td>
 					<td>
-						<!--CIF  -->
+						<c:if test="${!empty files}">
 						<c:forEach var="files" items="${files}">
 							<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
 							(${files.FILE_SIZE}kb)<br>
-						</c:forEach> 
+						</c:forEach>
+						</c:if>
+						<c:if test="${empty files}">
+						&nbsp;
+						</c:if>
 					</td>
 				</tr>
 				<tr>

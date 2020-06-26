@@ -42,7 +42,7 @@
 	}
 	function slide_contact() {
 		window.scrollTo({
-			"behavior" : "smooth",
+			"behavior" : "smooth",	
 			"left" : 0,
 			"top" : window.innerHeight * 3
 		});
@@ -224,16 +224,16 @@ a:hover {
 						<%--TD zone --%>
 						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}" varStatus="status">
 						<tr>
-							<td><a href="main/detail?num=${index.num}"><c:out value="${index.num}"/></a></td>
-							<td><a href="main/detail?num=${index.num}"><c:out value="${index.projectName}" /></a></td>
-							<td><a href="main/detail?num=${index.num}"><c:out value="${index.content}"/></a></td>
-							<td><a href="main/detail?num=${index.num}"><fmt:formatDate value="${index.regdate}" pattern="yyyy-MM-dd"/></a></td>
-							<td><a href="main/detail?num=${index.num}"><c:out value="${index.viewcnt}"/></a></td>
+							<td><a href="/main/detail?num=${index.num}"><c:out value="${index.num}"/></a></td>
+							<td><a href="/main/detail?num=${index.num}"><c:out value="${index.projectName}" /></a></td>
+							<td><a href="/main/detail?num=${index.num}"><c:out value="${index.content}"/></a></td>
+							<td><a href="/main/detail?num=${index.num}"><fmt:formatDate value="${index.regdate}" pattern="yyyy-MM-dd"/></a></td>
+							<td><a href="/main/detail?num=${index.num}"><c:out value="${index.viewcnt}"/></a></td>
 						</tr> 
 						<c:if test="${status.last and (status.count<7)}">
 							<c:forEach begin="${status.count+1}" end="7">
 							<tr>
-								<td>1</td>
+								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
