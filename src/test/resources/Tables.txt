@@ -43,6 +43,7 @@ CREATE TABLE MP_FILE
 
 CREATE SEQUENCE SEQ_MP_FILE_NO START WITH 1 INCREMENT BY 1 NOMAXVALUE NOCACHE;
 insert into project_tbl VALUES (seq_project.nextval, 'project', 'content',  sysdate, 0);
+
 ***Web
 CREATE TABLE client(
 	primeNum number(20) PRIMARY KEY,
