@@ -67,10 +67,10 @@
   <update id="alterbnoFiletable" parameterType="int">
   	update MP_FILE set BNO = #{seq} WHERE FILE_NO = (SELECT max(FILE_NO) FROM MP_FILE)
   </update>
-  <!--download  -->
-  <!--
-  <select id ="selectFileInfo" resultType="">
-  	
-  </select>
-  -->
+  <!--첨부파일 변경-->
+  <update id="updateFile" parameterType="hashMap">
+   	UPDATE MP_FILE SET
+   	DEL_GB = 'Y' <!--Y시 보여주지 않는것으로-->
+   	WHERE FILE_NO = #{FILE_NO}
+   </update>
 </mapper>

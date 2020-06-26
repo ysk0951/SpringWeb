@@ -104,9 +104,22 @@ public class ProjectController {
 		return "board/main";
 	}
 	
+	@RequestMapping(value="modifyPro", method=RequestMethod.POST)
+	public String modifyPro(ProjectVO vo,MultipartHttpServletRequest mpRequest,HttpServletRequest request) throws Exception {
+	
+		logger.info("modifyPro DataFile");
+		String projectname =(String) request.getParameter("prjectName");
+		String content = (String)request.getParameter("content");
+		System.out.println(projectname+content);
+		vo.setProjectName(projectname);
+		vo.setContent(content);
+		service.modifyData(vo,mpRequest);
+		return "redirect:/main";
+	}
+	
 	@RequestMapping(value="/main/detail", method=RequestMethod.GET)
-	public String projectDetail(Model model, HttpServletRequest request) {
-		try {
+	public String projectDetail(Model model, HttpServletRequest request) throws Exception {
+	
 			ProjectVO vo = null;
 
 			String num = request.getParameter("num");
@@ -125,20 +138,42 @@ public class ProjectController {
 			model.addAttribute("vo", vo);
 			model.addAttribute("num", num);
 			model.addAttribute("files", files);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return "board/detail";
+			
+			return "board/detail";
 	}
 	
 	@RequestMapping(value = "/modifyForm")
-	public String modifyForm(Model model, HttpServletRequest request) {
+	public String modifyForm(Model model, HttpServletRequest request) throws Exception{
 		String test1 = request.getParameter("num");
 		String test2 = request.getParameter("forFileUpdate");
 		String test3 = request.getParameter("projectName");
 		System.out.println("TEST Param num: "+test1);
 		System.out.println("TEST Param forFileUpdate: "+test2);
 		System.out.println("TEST Param projectName: "+test3);
+		
+		//Detail Source
+		ProjectVO vo = null;
+
+		String num = request.getParameter("num");
+		String forFileUpdate = request.getParameter("forFileUpdate");
+		String projectName = request.getParameter("projectName");
+		
+		vo = service.listDetail(Integer.parseInt(num));//NULLPOINT
+		List<Map<String,Object>> files = service.selectFileList(Integer.parseInt(num));
+		System.out.println("LOG NUM : "+num);
+		System.out.println("LOG vo : "+vo);
+		System.out.println("LOG files : "+files.size());
+		
+		if(files.size()>0) {
+			Map<String,Object> map = files.get(0);
+			for(Map.Entry<String,Object> entry :map.entrySet()) {
+				System.out.println("DETAIL LOG : [KEY : "+entry.getKey()+"]"+"[Value : "+entry.getValue()+"]");
+			}
+		}
+		model.addAttribute("vo", vo);
+		model.addAttribute("num", num);
+		model.addAttribute("files", files);
+		
 		return "board/modifyForm";
 	}
 	
@@ -161,6 +196,7 @@ public class ProjectController {
 		String originalFileName = (String) resultMap.get("ORG_FILE_NAME");
 		
 		String path = "C:\\Program Files\\Git\\tmp\\";
+		//String path = AT HOME;
 		// 파일을 저장했던 위치에서 첨부파일을 읽어 byte[]형식으로 변환한다.
 		byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File(path+storedFileName));
 		

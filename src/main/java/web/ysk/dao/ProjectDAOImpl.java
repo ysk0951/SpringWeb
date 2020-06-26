@@ -12,6 +12,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import web.ysk.vo.ProjectVO;
 
@@ -67,6 +68,10 @@ public class ProjectDAOImpl implements ProjectDAO {
 	@Override
 	public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
 		return sqlSession.selectOne("boardMapper.selectFileInfo",map);
+	}
+	@Override
+	public void modifyData(ProjectVO vo, MultipartHttpServletRequest mpRequest)throws Exception {
+		//MODIFY
 	}
 }  
  

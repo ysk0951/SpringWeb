@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import web.ysk.vo.ProjectVO;
 
@@ -21,4 +22,5 @@ public interface ProjectDAO {
 	public int selectSeqOfProjectTB() throws Exception;
 	public void alterbnoFiletable(int seq) throws Exception;
 	public Map<String, Object> selectFileInfo(Map<String,Object> map)throws Exception;
+	public void modifyData(ProjectVO vo, MultipartHttpServletRequest mpRequest)throws Exception;
 }

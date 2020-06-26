@@ -103,4 +103,11 @@ public class ProjectServiceImpl implements ProjectService{
 	public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
 		return dao.selectFileInfo(map);
 	}
+
+	@Override
+	public void modifyData(ProjectVO vo, MultipartHttpServletRequest mpRequest) throws Exception {
+		
+		dao.update(vo); //게시글을 업데이트
+		dao.modifyData(vo,mpRequest); //파일을 업데이트
+	}
 }
