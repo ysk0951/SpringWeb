@@ -68,7 +68,9 @@
   	update MP_FILE set BNO = #{seq} WHERE FILE_NO = (SELECT max(FILE_NO) FROM MP_FILE)
   </update>
   <!--download  -->
+  <!--
   <select id ="selectFileInfo" resultType="">
   	
   </select>
+  -->
 </mapper>
