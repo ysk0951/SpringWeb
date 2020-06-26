@@ -11,7 +11,6 @@
 <title>Insert title here</title>
 <style>
 table>tbody>tr>td {
-	text-align: left;
 	padding: 4px;
 	padding-left: 10px;
 }
@@ -67,9 +66,14 @@ table {
 						</c:if>
 					</td>
 				</tr>
+				<tr> 
+					<td colspan="4" width="500" height="500" style="text-align: left;">${vo.content}</td>
+				<tr> 
 				<tr>
-					<td colspan="4" width="500" height="500">${vo.content}</td>
-				<tr>
+					<td colspan="4" align="center">
+						<input type ="button" value="수정(관리자A)" onclick=""/>
+					</td>
+				</tr>
 			</tbody> 
 		</table>
 	</form>

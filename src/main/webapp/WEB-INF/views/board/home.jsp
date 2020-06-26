@@ -6,9 +6,9 @@
 </head>	
 <body>
 	<h1>Hello world!Hello GitHub</h1><hr> 
-		<h2>TODO LIST Grobal	: 	구현완료 SpringCRUD[paging+Errorpage]/Mybatis/Transaction/<br/>
-						 			구현중 Security/</br>
-									구현필요 검색기능/upload/download</br>
+		<h2>TODO LIST Grobal	: 	구현완료 SpringCRUD[paging+Errorpage]/Mybatis/Transaction/upload/download<br/>
+						 			구현중 Security(새글/삭제/변경모두)/</br>
+									구현필요 검색기능/삭제/변경기능</br>
 		
 		TODO LIST Home 		: RESUME IMG/tableCss(tr %hight)/JS/ViewCSS(external/buttonJS)/추가뷰고민</br>
 		<hr>
