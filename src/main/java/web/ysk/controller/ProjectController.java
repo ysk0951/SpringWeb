@@ -131,6 +131,17 @@ public class ProjectController {
 		return "board/detail";
 	}
 	
+	@RequestMapping(value = "/modifyForm")
+	public String modifyForm(Model model, HttpServletRequest request) {
+		String test1 = request.getParameter("num");
+		String test2 = request.getParameter("forFileUpdate");
+		String test3 = request.getParameter("projectName");
+		System.out.println("TEST Param num: "+test1);
+		System.out.println("TEST Param forFileUpdate: "+test2);
+		System.out.println("TEST Param projectName: "+test3);
+		return "board/modifyForm";
+	}
+	
 	//Mybatis Testing
 	@RequestMapping(value="/mainT", method=RequestMethod.GET)
 	public String projectListTest(Model model, HttpServletRequest request) throws Exception{
