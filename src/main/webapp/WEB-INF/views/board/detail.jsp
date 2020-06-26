@@ -60,20 +60,22 @@ table {
 							<c:forEach var="files" items="${files}">
 								<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
 								(${files.FILE_SIZE}kb)<br>
+								<input type ="hidden"  name ="forFileUpdate" value="${files.FILE_NO}">
 							</c:forEach>
 							<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
 							</form>
 						</c:if>
 					</td>
-				</tr>
+				</tr> 
 				<tr> 
 					<td colspan="4" width="500" height="500" style="text-align: left;">${vo.content}</td>
 				<tr> 
 				<tr>
 					<td colspan="4" align="center">
-						<form action="/newData" method="post">
-						<input type = "hidden" name="update" value="update" />
-						<input type ="submit" value="수정(관리자A)" />
+						<form action="/modifyForm" method="post">
+							<input type ="hidden"  name ="num" value="${num}">
+							<input type ="hidden"  name ="projectName" value="${vo.projectName}">
+							<input type ="submit" value="수정(관리자A)" />
 						</form>
 					</td>
 				</tr>

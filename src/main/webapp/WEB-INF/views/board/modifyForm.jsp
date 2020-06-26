@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>MODIFY</title>
 <style>
 table>tbody>tr>td {
 	text-align: left;
