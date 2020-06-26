@@ -40,7 +40,7 @@ table {
 		document.forms[0].submit();
 	}
 </script>
-</head>
+</head> 
 <body>
 	<form>
 		<table border="1">
