@@ -11,7 +11,7 @@
 									 
 		
 		TODO LIST Home 		: RESUME IMG/tableCss(tr %hight)/JS/ViewCSS(external/buttonJS)/추가뷰고민</br>
-		<hr> 
+		<hr>  
 		</h2>
 	<h2>The time on the server is ${serverTime}.</h2>
 </body>
