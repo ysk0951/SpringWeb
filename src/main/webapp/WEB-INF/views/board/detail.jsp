@@ -43,11 +43,12 @@ table {
 					<td>${vo.regdate}</td>
 					<td>
 						<!--CIF  -->
-						${files}
-						<%--<c:forEach var="files" items="${files}">
-							<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
-							(${files.FILE_SIZE}kb)<br>
-						</c:forEach> --%>
+						<%=request.getAttribute("files") %>
+						<c:forEach var="files" items="${files}">
+							<%-- <a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
+							(${files.FILE_SIZE}kb)<br> --%>
+							
+						</c:forEach> 
 					</td>
 				</tr>
 				<tr>

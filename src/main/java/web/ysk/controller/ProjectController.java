@@ -2,9 +2,12 @@ package web.ysk.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -110,6 +113,12 @@ public class ProjectController {
 			System.out.println("LOG NUM : "+num);
 			System.out.println("LOG vo : "+vo);
 			System.out.println("LOG files : "+files.size());
+			for(int i = 0;i<files.size();i++) {
+				Map map = new HashMap<String, Object>();
+				Set<String> set = map.keySet();
+				System.out.println("LOG MAP KEY : "+i+"번 : "+set);
+				Iterator<String> iter = set.iterator();
+			}
 			
 			model.addAttribute("vo", vo);
 			model.addAttribute("num", num);
