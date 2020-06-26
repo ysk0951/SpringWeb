@@ -113,11 +113,10 @@ public class ProjectController {
 			System.out.println("LOG NUM : "+num);
 			System.out.println("LOG vo : "+vo);
 			System.out.println("LOG files : "+files.size());
-			for(int i = 0;i<files.size();i++) {
-				Map map = new HashMap<String, Object>();
-				Set<String> set = map.keySet();
-				System.out.println("LOG MAP KEY : "+i+"번 : "+set);
-				Iterator<String> iter = set.iterator();
+			
+			Map<String,Object> map = files.get(0);
+			for(Map.Entry<String,Object> entry :map.entrySet()) {
+				System.out.println("[KEY : "+entry.getKey()+"]"+"[Value : "+entry.getValue()+"]");
 			}
 			
 			model.addAttribute("vo", vo);

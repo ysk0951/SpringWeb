@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,9 +36,9 @@ table {
 		<table border="1">
 			<thead>
 				<td class="leftCell">NO</td>
-				<td class="leftCell">橇肺璃飘力格</td>
-				<td class="leftCell">扁埃</td>
-				<td class="leftCell">梅何颇老</td>
+				<td class="leftCell">頂勲鞝濏姼鞝滊</td>
+				<td class="leftCell">旮瓣皠</td>
+				<td class="leftCell">觳秬韺岇澕</td>
 			</thead>
 			<tbody>
 				<tr>
@@ -43,11 +47,9 @@ table {
 					<td>${vo.regdate}</td>
 					<td>
 						<!--CIF  -->
-						<%=request.getAttribute("files") %>
 						<c:forEach var="files" items="${files}">
-							<%-- <a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
-							(${files.FILE_SIZE}kb)<br> --%>
-							
+							<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
+							(${files.FILE_SIZE}kb)<br>
 						</c:forEach> 
 					</td>
 				</tr>
