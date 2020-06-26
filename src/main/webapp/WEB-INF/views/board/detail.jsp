@@ -29,7 +29,17 @@ table {
 	background-color: antiquewhite;
 }
 </style>
-
+<script>
+	function fn_fileDown(fileNo){
+		alert("FILE DOWN....");
+		var formObj = document.forms[0].FILE_NO;
+		console.log(formObj);
+		formObj.setAttribute("value",fileNo);
+		console.log(formObj);
+		document.forms[0].action = "/fileDown";
+		document.forms[0].submit();
+	}
+</script>
 </head>
 <body>
 	<form>
@@ -44,13 +54,16 @@ table {
 				<tr>
 					<td>${num}</td>
 					<td>${vo.projectName}</td>
-					<td>${vo.regdate}</td>
+					<td>${vo.regdate}</td> 
 					<td>
 						<c:if test="${!empty files}">
+							<form name="downloadForm" value ="DOWN..." action="#" method="post">
 							<c:forEach var="files" items="${files}">
 								<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
 								(${files.FILE_SIZE}kb)<br>
 							</c:forEach>
+							<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
+							</form>
 						</c:if>
 					</td>
 				</tr>

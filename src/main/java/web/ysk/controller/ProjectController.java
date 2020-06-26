@@ -161,5 +161,7 @@ public class ProjectController {
 		response.getOutputStream().write(fileByte);
 		response.getOutputStream().flush();
 		response.getOutputStream().close();
+		
+		/* fileReadView */
 	}
 }
