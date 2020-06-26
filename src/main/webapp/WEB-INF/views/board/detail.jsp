@@ -71,7 +71,10 @@ table {
 				<tr> 
 				<tr>
 					<td colspan="4" align="center">
-						<input type ="button" value="수정(관리자A)" onclick=""/>
+						<form action="/newData" method="post">
+						<input type = "hidden" name="update" value="update" />
+						<input type ="submit" value="수정(관리자A)" />
+						</form>
 					</td>
 				</tr>
 			</tbody> 

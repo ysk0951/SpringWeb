@@ -60,9 +60,8 @@ public class ProjectController {
 		return "redirect:/main";
 	}
 	
-	@RequestMapping(value = "/newData", method = RequestMethod.GET)
-	public String newData(Locale locale, Model model) {
-		
+	@RequestMapping(value = "/newData", method = {RequestMethod.GET ,RequestMethod.POST} )
+	public String newData(Locale locale, Model model,HttpServletRequest request) {
 		logger.info("newDataFile Format");
 		return "board/newData";
 	}

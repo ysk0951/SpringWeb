@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,9 +36,9 @@ table {
 		<table border="1" style="text-align: center;">
 			<thead>
 				<td class="leftCell">NO</td> 
-				<td class="leftCell">橇肺璃飘力格</td>
-				<td class="leftCell">扁埃</td> 
-				<td class="leftCell">梅何颇老</td>
+				<td class="leftCell">頂勲鞝濏姼鞝滊</td>
+				<td class="leftCell">旮瓣皠</td> 
+				<td class="leftCell">觳秬韺岇澕</td>
 			</thead> 
 			<tbody>
 				<tr>
@@ -45,12 +49,19 @@ table {
 				</tr>
 				<tr> 
 					<td colspan="4" width="500" height="500">
-						<textarea rows="50" cols="100" name = "content"/> 
+						<textarea rows="50" cols="100" name = "content">TEXTAREA</textarea>
 					</td>
 				<tr>
 				<tr>
 					<td colspan="4">
-					<input type="submit" value="殿废"><input type="reset" value="促矫静扁">
+					<c:if test="${empty param.update}">
+						<input type="submit" value="霌彪">
+						<input type="reset" value="雼れ嫓鞊瓣赴">
+					</c:if>
+					<c:if test="${!empty param.update}">
+						<input type="submit" value="靾橃爼">
+						<input type="reset" value="雼れ嫓鞊瓣赴">
+					</c:if>
 					</td>
 				</tr>
 			</tbody> 
