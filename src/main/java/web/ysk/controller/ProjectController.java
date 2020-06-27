@@ -139,22 +139,24 @@ public class ProjectController {
 			model.addAttribute("num", num);
 			model.addAttribute("files", files);
 			
-			return "board/detail";
+//			if(files.size()>0) {
+//				System.out.println("***FileDetail***");
+				return "board/detail";
+//			}else {
+//				System.out.println("***NoFileDetail***");
+//				return "board/detail_nf";	
+//			}
 	}
 	
-	@RequestMapping(value = "/modifyForm")
+	@RequestMapping(value = "/modifyForm" , method=RequestMethod.POST)
 	public String modifyForm(Model model, HttpServletRequest request) throws Exception{
-		String test1 = request.getParameter("num");
-		String test2 = request.getParameter("forFileUpdate");
-		String test3 = request.getParameter("projectName");
-		System.out.println("MODIFY TEST Param num: "+test1);
-		System.out.println("MODIFY TEST Param forFileUpdate: "+test2);
-		System.out.println("MODIFY TEST Param projectName: "+test3);
 		
 		//Detail Source
 		ProjectVO vo = null;
 
 		String num = request.getParameter("num");
+		System.out.println("MODIFY TEST Param num: "+num);
+		//NOFILE LOGIC NEED
 		
 		vo = service.listDetail(Integer.parseInt(num));//NULLPOINT
 		List<Map<String,Object>> files = service.selectFileList(Integer.parseInt(num));

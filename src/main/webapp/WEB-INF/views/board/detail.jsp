@@ -29,7 +29,7 @@ table {
 }
 </style>
 <script>
-	function fn_fileDown(fileNo){
+/* 	function fn_fileDown(fileNo){
 		alert("FILE DOWN....");
 		var formObj = document.forms[0].FILE_NO;
 		console.log(formObj);
@@ -37,11 +37,10 @@ table {
 		console.log(formObj);
 		document.forms[0].action = "/fileDown";
 		document.forms[0].submit();
-	}
+	} */
 </script>
 </head> 
 <body>
-	<form>
 		<table border="1">
 			<thead>
 				<td class="leftCell">NO</td>
@@ -79,14 +78,13 @@ table {
 					<td colspan="4" align="center">
 							<form action="/modifyForm" method="post">
 							<input type ="hidden"  name ="num" value="${num}">
-							<input type ="hidden"  name ="projectName" value="${vo.projectName}">
-							<input type ="submit" value="수정페이지로(관리자A)" />
-							</form>
+							<input type ="button" value="수정페이지로(관리자A)" />
+							<input type ="submit" value="수정페이지로(관리자B)" />
+							</form> 
 					</td>
 				</tr>
 			</tbody> 
 			
 		</table>
-	</form>
 </body>
 </html>
