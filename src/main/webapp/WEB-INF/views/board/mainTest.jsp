@@ -62,9 +62,12 @@ html, body {
 	flex: 0, 1, 90%;
 }
 .row {
+	display:table;
 	border: 1px solid #999;
 	height: 100vh;
 	overflow: hidden;
+	margin-right:0;
+    margin-left:0;
 }
 .table>tbody>tr>td {
 	vertical-align: middle;
@@ -109,23 +112,19 @@ a:hover {
 	border: 1px solid black;
 }
 .tableView{
-	width : 100%;
-	height : 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	width: 100vw;
+    height: 100vh;
+	display: table-cell;
 	padding : 10px;
 	border: 1px solid black;
 }
 .contact{
 	height: 100vh;
 	width: 100vw;
-	display: flex;
-	flex-wrap:wrap;
-	align-items: center;
-	justify-content: center;
-	margin: 0 auto;
-	border: 1px solid black;	
+	display: table-cell;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;	
 }
 </style>
 <%-------------------------------------------------[ToDo List]----------------------------------------------------%>
@@ -190,10 +189,11 @@ a:hover {
 			</c:choose>
 			<div class="tableView">
 			<!-- 가로를 줄이면 깨짐 수정필요 -->
-			<table border="1px solid #333333;" style="height:100%; width: 90%; text-align: center;">
+			<table border="1px solid #333333;" style="height:90%; width: 90% ;
+			text-align: center; ">
 				<thead>
 					<tr>
-						<th >NO</th>
+						<th style="height: 33%">NO</th>
 						<th >프로젝트 이름</th>  
 						<th >프로젝트 구현 내용</th>
 						<th >등록일</th>
@@ -257,30 +257,7 @@ a:hover {
 						</tr> 
 						<tr>
 							<td colspan="5" align="center" >		
-								<c:if test="${nowLevel>0}">
-									<a href="/main?nowLevel=${nowLevel-1}&currentPage=${(nowLevel-1)*pageData.pageCount+1}">이전</a>
-								</c:if>
-								<%--페이지 시작~끝설정	 --%>
-								<c:forEach begin="${(nowLevel*pageData.pageCount)+1}" end="${end}"
-									var="i">
-									<c:choose>
-										<c:when test="${i eq param.currentPage}">
-											<a href="main?currentPage=${i}&nowLevel=${nowLevel}"
-												style="color: red;">${i}</a>
-										</c:when>
-										<c:when
-											test="${i eq ((nowLevel*pageData.pageCount)+1) and empty param.currentPage}">
-											<a href="main?currentPage=${i}&nowLevel=${nowLevel}"
-												style="color: red;">${i}</a>
-										</c:when>
-										<c:otherwise>
-											<a href="main?currentPage=${i}&nowLevel=${nowLevel}">${i}</a>
-										</c:otherwise>
-									</c:choose>
-								</c:forEach>
-								<c:if test="${nowLevel<pageIndex}">
-									<a href="/main?nowLevel=${nowLevel+1}&currentPage=${(nowLevel+1)*pageData.pageCount+1}">다음</a>
-								</c:if>
+								12345
 							</td>
 						</tr>	
 				</tbody>

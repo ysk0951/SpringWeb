@@ -62,9 +62,12 @@ html, body {
 	flex: 0, 1, 90%;
 }
 .row {
+	display:table;
 	border: 1px solid #999;
 	height: 100vh;
 	overflow: hidden;
+	margin-right:0;
+    margin-left:0;
 }
 .table>tbody>tr>td {
 	vertical-align: middle;
@@ -109,23 +112,19 @@ a:hover {
 	border: 1px solid black;
 }
 .tableView{
-	width : 100%;
-	height : 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	width: 100vw;
+    height: 100vh;
+	display: table-cell;
 	padding : 10px;
 	border: 1px solid black;
 }
 .contact{
 	height: 100vh;
 	width: 100vw;
-	display: flex;
-	flex-wrap:wrap;
-	align-items: center;
-	justify-content: center;
-	margin: 0 auto;
-	border: 1px solid black;	
+	display: table-cell;
+	border: 1px solid black;
+	text-align: center;
+	vertical-align: middle;	
 }
 </style>
 <%-------------------------------------------------[ToDo List]----------------------------------------------------%>
@@ -146,7 +145,7 @@ a:hover {
 	<div class="container_fluid" >
 		<div class="row align-items-center" ><!--수정  style="height: 100%;" -->
 			<img src="/resources/img/homeIndex.jpg" class="img-fluid"
-				style="height: 100%; width: 100%" />
+				style="height: 100vh; width: 100vw" />
 		</div>
 		<div class="align-items-center" >
 			<div  style="height: 100vh">
@@ -190,7 +189,8 @@ a:hover {
 			</c:choose>
 			<div class="tableView">
 			<!-- 가로를 줄이면 깨짐 수정필요 -->
-			<table border="1px solid #333333;" style="height:100%; width: 90%; text-align: center;">
+			<table border="1px solid #333333;" style="height: 90vh;
+    width: 90vw; ; text-align: center; display:table;">
 				<thead>
 					<tr>
 						<th >NO</th>
