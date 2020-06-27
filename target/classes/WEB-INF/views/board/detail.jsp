@@ -55,7 +55,8 @@ table {
 					<td>${vo.projectName}</td>
 					<td>${vo.regdate}</td> 
 					<td>
-						<c:if test="${!empty files}">
+						<c:choose>
+						<c:when test="${!empty files}">
 							<form name="downloadForm" value ="DOWN..." action="#" method="post">
 							<c:forEach var="files" items="${files}">
 								<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
@@ -64,7 +65,11 @@ table {
 							</c:forEach>
 								<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
 							</form>
-						</c:if>
+						</c:when>
+						<c:otherwise>
+							&nbsp;
+						</c:otherwise>
+						</c:choose>
 					</td>
 				</tr> 
 				<tr> 
