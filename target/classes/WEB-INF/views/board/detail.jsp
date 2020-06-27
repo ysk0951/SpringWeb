@@ -75,7 +75,6 @@ table {
 							<form action="/modifyForm" method="post">
 							<input type ="hidden"  name ="num" value="${num}">
 							<input type ="hidden"  name ="projectName" value="${vo.projectName}">
-							<input type ="hidden"  name ="forFileUpdate" value="${FILE_NO}" />
 							<input type ="submit" value="수정페이지로(관리자A)" />
 							</form>
 					</td>
