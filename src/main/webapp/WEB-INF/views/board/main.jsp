@@ -66,8 +66,8 @@ html, body {
 	border: 1px solid #999;
 	height: 100vh;
 	overflow: hidden;
-	margin-right:0;
-    margin-left:0;
+	margin :0 auto;
+    text-align: 0;
 }
 .table>tbody>tr>td {
 	vertical-align: middle;
@@ -113,10 +113,11 @@ a:hover {
 }
 .tableView{
 	width: 100vw;
-    height: 100vh;
+    height: 100vh; 
 	display: table-cell;
 	padding : 10px;
 	border: 1px solid black;
+	vertical-align: middle;
 }
 .contact{
 	height: 100vh;
@@ -187,20 +188,19 @@ a:hover {
 					<c:set var="end" value="${((nowLevel+1)*pageData.pageCount)}" />
 				</c:when>
 			</c:choose>
-			<div class="tableView">
+			<div class="tableView" >
 			<!-- 가로를 줄이면 깨짐 수정필요 -->
-			<table border="1px solid #333333;" style="height: 90vh;
-    width: 90vw; ; text-align: center; display:table;">
+			<table border="1px solid #333333;" style="height: 90%; width: 90%; ; text-align: center;">
 				<thead>
 					<tr>
 						<th >NO</th>
 						<th >프로젝트 이름</th>  
 						<th >프로젝트 구현 내용</th>
-						<th >등록일</th>
+						<th >등록일</th> 
 						<th>조회수</th>
  					</tr>
 				</thead>
-				<tbody>
+				<tbody> 
 					<%--첫메인값 예외처리 --%>
 					<c:choose>
 						<c:when test="${empty param.currentPage}">
