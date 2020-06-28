@@ -260,7 +260,7 @@ footer{
 			<img src="/resources/img/homeIndex.jpg" class="img-fluid"
 				style="height: 100vh; width: 100vw" />
 		</div> 
-		<div class="align-items-center" id="one">
+		<div class="align-items-center" id="one" >
 			<div  style="height: 100vh">
 				<div class="skillHeader">Skills</div>
 				<div class="skillItems">Launage</div>
@@ -275,7 +275,7 @@ footer{
 				<div class="skillItems">ImageContainerWillbehere</div>
 			</div>
 		</div>
-		<div class="row" align="center" id="two">
+		<div class="row" align="center" id="two" >
 			<%--pageIndex 설정--%>
 			<c:set value="${pageData.indexOfPage}" var="pageIndex" />
 			<%--nowLevel 설정--%>
@@ -399,7 +399,7 @@ footer{
 			</table>
 			</div>
 		</div> 
-		<div class="row" align="center" id="three">
+		<div class="row" align="center" id="three" >
 			<div class="contact">CONTACT</div>
 		</div>
 	</div>
