@@ -19,41 +19,13 @@
 <title>Main</title>
 </head>
 <script type="text/javascript">
-	/*	스크립트 수정 필요 좌표를 직접구해서 움직이는걸로 변경필요 */
-	function slide_home() {
-		window.scrollTo({
-			"top" : 0,
-			"behavior" : "smooth"
-		});
-	}
-	function slide_skills() {
-		window.scrollTo({
-			"behavior" : "smooth",
-			"left" : 0,
-			"top" : window.innerHeight * 1
-		});
-	}
-	function slide_project() {
-		window.scrollTo({
-			"behavior" : "smooth",
-			"left" : 0,
-			"top" : window.innerHeight * 2
-		});
-	}
-	function slide_contact() {
-		window.scrollTo({
-			"behavior" : "smooth",	
-			"left" : 0,
-			"top" : window.innerHeight * 3
-		});
-	}
 </script>
 <style>
 html, body {
 	margin: 0;
 	height: 100%;
 	overflow: auto;
-}
+} 
 .col-sm-12 {
 	border: 1px solid #999;
 	margin: auto;
@@ -132,18 +104,19 @@ a:hover {
 </style>
 <%-------------------------------------------------[ToDo List]----------------------------------------------------%>
 <%---------------------------------[MappingChange >> JS/CSS import Check]--------------------------------------------%>
-<%---------------------------------[nav-item/link >> sr-only Option Test]--------------------------------------------%>
-<%-----------------------------------------------------------------------------------------------------------------------------%>
+<%----------------------------------------------------------------------------------------------------------------%>
 <body>
-	<nav class="navbar fixed-top navbar-expand">
+	<!-- <nav class="navbar fixed-top navbar-expand">
 		<ul class="navbar-nav ml-auto"
 			style="background-color: rgba(255, 255, 255, 0.7); border-radius: 40px;">
-			<li class="nav-item"><div class="nav-link" onclick="slide_home()">Home</li>
+			<li class="nav-item"><div class="nav-link" onclick="slide_home()" id = "slide_home">Home</li>
 			<li class="nav-item"><div class="nav-link" onclick="slide_skills()">Skills</li>
 			<li class="nav-item"><div class="nav-link" onclick="slide_project()">Project</li>
 			<li class="nav-item"><div class="nav-link" onclick="slide_contact()">Contact</li>
 		</ul>
-	</nav>
+	</nav> 
+	ScrollSPY구현
+	-->
 	<%-- -------------------------------[Remote]------------------------------------------ --%>
 	<div class="container_fluid" >
 		<div class="row align-items-center" ><!--수정  style="height: 100%;" -->
