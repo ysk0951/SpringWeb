@@ -118,7 +118,9 @@ a:hover {
 	padding : 10px;
 	border: 1px solid black;
 	vertical-align: middle;
-}
+	margin: 0 auto;
+	text-align: center;
+} 
 .contact{
 	height: 100vh;
 	width: 100vw;
@@ -190,7 +192,7 @@ a:hover {
 			</c:choose>
 			<div class="tableView" >
 			<!-- 가로를 줄이면 깨짐 수정필요 -->
-			<table border="1px solid #333333;" style="height: 90%; width: 90%; ; text-align: center;">
+			<table border="1px solid #333333;" style="height: 90%; width: 90%; ; text-align: center; margin-left: auto; margin-right: auto;">
 				<thead>
 					<tr>
 						<th >NO</th>
