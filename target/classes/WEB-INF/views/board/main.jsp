@@ -15,11 +15,40 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
 	rel="stylesheet">
+<script src="http://code.jquery.com/jquery.min.js" ></script>
+<script type="text/javascript">
+	
+	$(function() {
+		var link = $('#navbar a.dot');
+		link.on('click', function(e) {
+			//href 속성을 통해, section id 타겟을 잡음
+			var target = $($(this).attr('href'));
+			//target section의 좌표를 통해 꼭대기로 이동
+			$('html, body').animate({
+				scrollTop : target.offset().top
+			}, 600);
+			//active 클래스 부여
+			$(this).addClass('active');
+			//앵커를 통해 이동할때, URL에 #id가 붙지 않도록 함.
+			e.preventDefault();
+		});
+		$(window).on('scroll', function() {
+			findPosition();
+		});
+		function findPosition() {
+			$('section').each(function() {
+				if (($(this).offset().top - $(window).scrollTop()) < 20) {
+					link.removeClass('active');	
+					$('#navbar').find('[data-scroll="'+ $(this).attr('id')+ '"]').addClass('active');
+				}
+			});
+		}
+		findPosition();
+	});
+</script>
 <!--BootStrap/Font externalbyURL-->
 <title>Main</title>
 </head>
-<script type="text/javascript">
-</script>
 <style>
 html, body {
 	margin: 0;
@@ -101,29 +130,137 @@ a:hover {
 	text-align: center;
 	vertical-align: middle;	
 }
+
+/* nevigator */
+.navbar {
+    position: fixed;
+    z-index: 999;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
+}
+
+.navbar .nav-menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.navbar .nav-menu li {
+    position: relative;
+    min-width: 200px;
+    text-align: right;
+}
+
+.navbar .nav-menu li .dot {
+    display: block;
+    color: #fff;
+    padding: 5px 0;
+}
+
+.navbar .nav-menu li .dot::before,
+.navbar .nav-menu li .dot::after {
+    display: block;
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    top: 50%;
+    transition: all .3s ease;
+}
+
+.navbar .nav-menu li .dot::before {
+    width: 5px;
+    height: 5px;
+    right: 0;
+    border: 2px solid #181818;
+    transform: translateY(-50%);
+}
+
+.navbar .nav-menu li .dot::after {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #f44336;
+    right: -5px;
+    transform: translateY(-50%) scale(0);
+}
+
+.navbar .nav-menu li .dot.active::before,
+.navbar .nav-menu li:hover .dot::before {
+    background: #f44336;
+    border-color: #f44336;
+}
+
+.navbar .nav-menu li .dot.active::after,
+.navbar .nav-menu li:hover .dot::after {
+    transform: translateY(-50%) scale(1);
+}
+
+.navbar .nav-menu li .dot span {
+    display: inline-block;
+    opacity: 0;
+    font-weight: 700;
+    letter-spacing: .5px;
+    text-transform: capitalize;
+    background-color: #f44336;
+    padding: 10px 20px;
+    border-radius: 3px;
+    margin-right: 30px;
+    transform: translateX(20px);
+    transition: all .3s ease;
+}
+
+.navbar .nav-menu li .dot span::before {
+    display: block;
+    position: absolute;
+    content: '';
+    border-left: 7px solid #f44336;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    top: 50%;
+    transform: translate(7px, -50%);
+    right: 0;
+    transition: all .3s ease;
+}
+
+.navbar .nav-menu li .dot.active span,
+.navbar .nav-menu li:hover .dot span {
+    transform: translateX(0px);
+    opacity: 1;
+}
+/* End Nav Styles */
+
+footer{
+    width:100%;
+    height: 300px;
+    background-color: #181818;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    line-height: 300px;
+}
 </style>
 <%-------------------------------------------------[ToDo List]----------------------------------------------------%>
 <%---------------------------------[MappingChange >> JS/CSS import Check]--------------------------------------------%>
 <%----------------------------------------------------------------------------------------------------------------%>
 <body>
-	<!-- <nav class="navbar fixed-top navbar-expand">
-		<ul class="navbar-nav ml-auto"
-			style="background-color: rgba(255, 255, 255, 0.7); border-radius: 40px;">
-			<li class="nav-item"><div class="nav-link" onclick="slide_home()" id = "slide_home">Home</li>
-			<li class="nav-item"><div class="nav-link" onclick="slide_skills()">Skills</li>
-			<li class="nav-item"><div class="nav-link" onclick="slide_project()">Project</li>
-			<li class="nav-item"><div class="nav-link" onclick="slide_contact()">Contact</li>
-		</ul>
-	</nav> 
-	ScrollSPY구현
+	<!--ScrollSPY구현
+	https://kutar37.tistory.com/entry/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8A%A4%ED%8C%8C%EC%9D%B4scrollspy-%EA%B5%AC%ED%98%84 
 	-->
+	<nav id="navbar" class="navbar">
+		<ul class="nav-menu">
+			<li><a data-scroll="home" href="#home" class="dot active"> <span>Home</span></a></li>
+			<li><a data-scroll="one" href="#one" class="dot"> <span>Skills</span></a></li>
+			<li><a data-scroll="two" href="#two" class="dot"> <span>Project</span></a></li>
+			<li><a data-scroll="three" href="#three" class="dot"> <span>contect</span></a></li>
+		</ul>
+	</nav>
 	<%-- -------------------------------[Remote]------------------------------------------ --%>
 	<div class="container_fluid" >
-		<div class="row align-items-center" ><!--수정  style="height: 100%;" -->
+		<div class="row align-items-center" id="home"><!--수정  style="height: 100%;" -->
 			<img src="/resources/img/homeIndex.jpg" class="img-fluid"
 				style="height: 100vh; width: 100vw" />
-		</div>
-		<div class="align-items-center" >
+		</div> 
+		<div class="align-items-center" id="one">
 			<div  style="height: 100vh">
 				<div class="skillHeader">Skills</div>
 				<div class="skillItems">Launage</div>
@@ -138,7 +275,7 @@ a:hover {
 				<div class="skillItems">ImageContainerWillbehere</div>
 			</div>
 		</div>
-		<div class="row" align="center">
+		<div class="row" align="center" id="two">
 			<%--pageIndex 설정--%>
 			<c:set value="${pageData.indexOfPage}" var="pageIndex" />
 			<%--nowLevel 설정--%>
@@ -262,7 +399,7 @@ a:hover {
 			</table>
 			</div>
 		</div> 
-		<div class="row" align="center">
+		<div class="row" align="center" id="three">
 			<div class="contact">CONTACT</div>
 		</div>
 	</div>
