@@ -55,7 +55,6 @@ public class ProjectController {
 		logger.info("Submit newDataFile");
 		String projectname =(String) request.getParameter("prjectName");
 		String content = (String)request.getParameter("content");
-		System.out.println(projectname+content);
 		vo.setProjectName(projectname);
 		vo.setContent(content);
 		service.submitNewData(vo,mpRequest);
@@ -96,9 +95,6 @@ public class ProjectController {
 			
 			model.addAttribute("list", list);
 			model.addAttribute("pageData",pageData);
-			for(int i=0;i<list.size();i++) {
-				System.out.println("Data : "+list.get(i));
-			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -114,9 +110,6 @@ public class ProjectController {
 			String num = request.getParameter("num");
 			vo = service.listDetail(Integer.parseInt(num));//NULLPOINT
 			List<Map<String,Object>> files = service.selectFileList(Integer.parseInt(num));
-			System.out.println("LOG NUM : "+num);
-			System.out.println("LOG vo : "+vo);
-			System.out.println("LOG files : "+files.size());
 			
 			if(files.size()>0) {
 				Map<String,Object> map = files.get(0);
@@ -128,13 +121,7 @@ public class ProjectController {
 			model.addAttribute("num", num);
 			model.addAttribute("files", files);
 			
-//			if(files.size()>0) {
-//				System.out.println("***FileDetail***");
 				return "board/detail";
-//			}else {
-//				System.out.println("***NoFileDetail***");
-//				return "board/detail_nf";	
-//			}
 	}
 	
 	@RequestMapping(value = "/modifyForm" , method=RequestMethod.POST)
@@ -219,11 +206,8 @@ public class ProjectController {
 	@RequestMapping(value="/deletePro" ,method=RequestMethod.POST)
 	public String deletePro(HttpServletRequest reqeust,HttpServletResponse response) throws Exception {
 		
-		System.out.println("****DeletePRO checkbox data****");
 		String[] delete = reqeust.getParameterValues("delete");
-		System.out.println("Delete CheckBox : "+delete);
 		for(int i=0;i<delete.length;i++) {
-			System.out.println(delete[i]);
 			service.delete(Integer.parseInt(delete[i]));
 		}
 		return "redirect:/main";

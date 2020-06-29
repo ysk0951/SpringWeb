@@ -35,7 +35,6 @@ public class ProjectServiceImpl implements ProjectService{
 	
 	@Override
 	public List<ProjectVO> listSearch() throws Exception{
-		System.out.println("LOG :  SERVICEIMPL");
 		return dao.listSearch();
 	}
 	
