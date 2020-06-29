@@ -8,9 +8,7 @@
 	<h1>Hello world!Hello GitHub</h1><hr> 
 		<h2>TODO LIST Grobal	: 	구현완료 SpringCRUD[paging+Errorpage]/Mybatis/Transaction/upload/download/
 									Bootstrap/<br/>
-									
-						 		구현중 Security/검색기능/</br>
-						 		update부분 다중처리까지 겸해서 처리 필요 
+						 		구현중 update부분 다중처리까지 겸해서 처리 필요/Security/검색기능/</br>
 		
 		TODO LIST Home 		: ScrollSPY수정/SkillIMG&CONTACT/ViewCSS(external/buttonJS)/RESUME IMG추가뷰고민</br>
 		https://weaklion.github.io/React-PortFolio/ <br>

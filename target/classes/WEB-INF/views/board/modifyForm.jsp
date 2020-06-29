@@ -65,7 +65,7 @@ table {
 								<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
 							</form>
 						</c:if>
-						<input type="file" name="file" value="파일 추가">
+						 <input multiple="multiple" type="file" name="file" value="파일추가"/>
 						<button type="button">파일제거</button>
 					</td>
 				</tr> 

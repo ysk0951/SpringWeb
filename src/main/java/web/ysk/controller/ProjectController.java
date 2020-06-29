@@ -153,6 +153,7 @@ public class ProjectController {
 		return "board/modifyForm";
 	}
 	
+	/////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="modifyPro", method=RequestMethod.POST)
 	public String modifyPro(ProjectVO vo,HttpServletRequest request, MultipartHttpServletRequest mpRequest) throws Exception {
 	
@@ -166,8 +167,7 @@ public class ProjectController {
 		String[] fileNames = null; 
 		service.modifyData(vo,files,fileNames,mpRequest);
 		
-		return "redirect:/test";
-		//return "redirect:/main";
+		return "redirect:/main";
 	}
 	
 	//Mybatis Testing
@@ -200,7 +200,6 @@ public class ProjectController {
 		response.getOutputStream().write(fileByte);
 		response.getOutputStream().flush();
 		response.getOutputStream().close();
-		
 	}
 	
 	@RequestMapping(value="/deletePro" ,method=RequestMethod.POST)
