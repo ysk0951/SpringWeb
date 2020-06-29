@@ -21,14 +21,24 @@ public class FileUtils {
 	public List<Map<String, Object>> parseInsertFileInfo(ProjectVO projectVO, MultipartHttpServletRequest mpRequest)
 			throws Exception{
 
-		Iterator<String> iterator = mpRequest.getFileNames();
-		MultipartFile multipartFile = null;
 		String originalFileName = null;
-		String originalFileExtension = null;
-		String storedFileName = null;
-		
+		Iterator<String> iterator = mpRequest.getFileNames();
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
 		Map<String, Object> listMap = null;
+		MultipartFile multipartFile = null;
+		String originalFileExtension = null;
+		String storedFileName = null;
+
+		
+//		List<MultipartFile> fileList = mpRequest.getFiles("file");
+//		for (MultipartFile mf : fileList) {
+//			originalFileName = mf.getOriginalFilename(); // 원본 파일 명
+//            long fileSize = mf.getSize(); // 파일 사이즈
+//            System.out.println("originFileName : " + originalFileName);
+//            System.out.println("fileSize : " + fileSize);
+//            String safeFile = filePath + System.currentTimeMillis() + originalFileName;
+//             mf.transferTo(new File(safeFile));
+//        }
 		
 		int bno = projectVO.getNum();
 		File file = new File(filePath);
@@ -55,7 +65,8 @@ public class FileUtils {
 		}
 		return list;
 	}
-	
+
+	//수정필요한부분
 	public List<Map<String, Object>> parseInsertFileInfo(ProjectVO projectVO, String[] files, String[] fileNames,
 			MultipartHttpServletRequest mpRequest) throws Exception {
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();

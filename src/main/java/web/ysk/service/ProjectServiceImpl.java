@@ -1,5 +1,6 @@
 package web.ysk.service;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import web.ysk.dao.ProjectDAO;
 import web.ysk.dao.ProjectDAOImpl;
@@ -58,7 +60,7 @@ public class ProjectServiceImpl implements ProjectService{
 		dao.create(vo);
 		String[] files = null;
 		String[] fileNames = null;
-		List<Map<String,Object>> list =fileUtils.parseInsertFileInfo(vo,files,fileNames,mpRequest);
+		List<Map<String,Object>> list =fileUtils.parseInsertFileInfo(vo,mpRequest);
 		int size = list.size();
 		System.out.println("LOG : FILE LIST SIZE"+size);
 		for(int i=0;i<size;i++) {
