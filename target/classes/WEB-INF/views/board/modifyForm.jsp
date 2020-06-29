@@ -29,7 +29,7 @@ table {
 }
 </style>
 <script>
-/* 	function fn_fileDown(fileNo){
+	function fn_fileDown(fileNo){
 		alert("FILE DOWN....");
 		var formObj = document.forms[0].FILE_NO;
 		console.log(formObj);
@@ -37,10 +37,11 @@ table {
 		console.log(formObj);
 		document.forms[0].action = "/fileDown";
 		document.forms[0].submit();
-	} */
+	}
 </script>
 </head> 
 <body>
+	<form>
 		<table border="1">
 			<thead>
 				<td class="leftCell">NO</td>
@@ -51,40 +52,41 @@ table {
 			<tbody>
 				<tr>
 					<td>${num}</td>
-					<td>${vo.projectName}</td>
+					<td><input type="text" value="${vo.projectName}"></td>
 					<td>${vo.regdate}</td> 
 					<td>
-						<c:choose>
-						<c:when test="${!empty files}">
+						<c:if test="${!empty files}">
 							<form name="downloadForm" value ="DOWN..." action="#" method="post">
 							<c:forEach var="files" items="${files}">
 								<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
-								(${files.FILE_SIZE}kb)<br>
+								(${files.FILE_SIZE}kb)
 								<c:set var="FILE_NO" value="${files.FILE_NO}" />
 							</c:forEach>
 								<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
 							</form>
-						</c:when>
-						<c:otherwise>
-							&nbsp;
-						</c:otherwise>
-						</c:choose>
+						</c:if>
+						<button type="button">파일추가</button>
+						<button type="button">파일제거</button>
 					</td>
 				</tr> 
 				<tr> 
-					<td colspan="4" width="500" height="500" style="text-align: left;">${vo.content}</td>
+					<td colspan="4" width="500" height="500" style="text-align: left;">
+					<textarea rows="30" cols="78" name = "content" style="resize: none;">${vo.content}</textarea>
+					</td>
 				<tr> 
 				<tr>
 					<td colspan="4" align="center">
-							<form action="/modifyForm" method="post">
+							<form action="/modifyPro" method="post">
 							<input type ="hidden"  name ="num" value="${num}">
-							<input type ="button" value="수정페이지로(관리자A)" />
-							<input type ="submit" value="수정페이지로(관리자B)" />
-							</form> 
+							<input type ="hidden"  name ="projectName" value="${vo.projectName}">
+							<input type ="hidden"  name ="forFileUpdate" value="${FILE_NO}" />
+							<input type ="submit" value="수정(관리자A)" />
+							</form>
 					</td>
 				</tr>
 			</tbody> 
 			
 		</table>
+	</form>
 </body>
 </html>

@@ -139,41 +139,42 @@ public class ProjectController {
 			model.addAttribute("num", num);
 			model.addAttribute("files", files);
 			
-			return "board/detail";
+//			if(files.size()>0) {
+//				System.out.println("***FileDetail***");
+				return "board/detail";
+//			}else {
+//				System.out.println("***NoFileDetail***");
+//				return "board/detail_nf";	
+//			}
 	}
 	
-	@RequestMapping(value = "/modifyForm")
+	@RequestMapping(value = "/modifyForm" , method=RequestMethod.POST)
 	public String modifyForm(Model model, HttpServletRequest request) throws Exception{
-		String test1 = request.getParameter("num");
-		String test2 = request.getParameter("forFileUpdate");
-		String test3 = request.getParameter("projectName");
-		System.out.println("TEST Param num: "+test1);
-		System.out.println("TEST Param forFileUpdate: "+test2);
-		System.out.println("TEST Param projectName: "+test3);
 		
 		//Detail Source
 		ProjectVO vo = null;
 
 		String num = request.getParameter("num");
-		String forFileUpdate = request.getParameter("forFileUpdate");
-		String projectName = request.getParameter("projectName");
+		System.out.println("MODIFY TEST Param num: "+num);
+		//NOFILE LOGIC NEED
 		
 		vo = service.listDetail(Integer.parseInt(num));//NULLPOINT
 		List<Map<String,Object>> files = service.selectFileList(Integer.parseInt(num));
-		System.out.println("LOG NUM : "+num);
-		System.out.println("LOG vo : "+vo);
-		System.out.println("LOG files : "+files.size());
+		System.out.println("MODIFY LOG NUM : "+num);
+		System.out.println("MODIFY LOG vo : "+vo);
+		System.out.println("MODIFY LOG files : "+files.size());
 		
 		if(files.size()>0) {
 			Map<String,Object> map = files.get(0);
 			for(Map.Entry<String,Object> entry :map.entrySet()) {
-				System.out.println("DETAIL LOG : [KEY : "+entry.getKey()+"]"+"[Value : "+entry.getValue()+"]");
+				System.out.println(" MODIFY DETAIL LOG : [KEY : "+entry.getKey()+"]"+"[Value : "+entry.getValue()+"]");
 			}
 		}
 		model.addAttribute("vo", vo);
 		model.addAttribute("num", num);
-		model.addAttribute("files", files);
-		
+		if(files.size()>0) {
+			model.addAttribute("files", files);
+		}
 		return "board/modifyForm";
 	}
 	
