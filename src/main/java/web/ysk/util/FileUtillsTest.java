@@ -62,6 +62,7 @@
 //		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
 //		Map<String, Object> listMap = null; 
 //		int bno = vo.getBno();
+
 //		while(iterator.hasNext()){ 
 //			multipartFile = mpRequest.getFile(iterator.next()); 
 //			if(multipartFile.isEmpty() == false){ 
@@ -78,6 +79,7 @@
 //				list.add(listMap); 
 //			} 
 //		}
+
 //		if(files != null && fileNames != null){ 
 //			for(int i = 0; i<fileNames.length; i++) {
 //					listMap = new HashMap<String,Object>();

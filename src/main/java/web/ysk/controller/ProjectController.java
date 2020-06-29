@@ -4,6 +4,7 @@ import java.io.File;
 import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -78,7 +79,7 @@ public class ProjectController {
 	public String projectList(Model model, HttpServletRequest request) {
 		
 		//session - 관리자
-		HttpSession httpSession = request.getSession();
+		//HttpSession httpSession = request.getSession();
 		
 		//pager를 위한것
 		int rowCount =0;
@@ -102,23 +103,6 @@ public class ProjectController {
 			e.printStackTrace();
 		}
 		return "board/main";
-	}
-	
-	@RequestMapping(value="modifyPro", method=RequestMethod.POST)
-	public String modifyPro(ProjectVO vo,HttpServletRequest request, MultipartHttpServletRequest mpRequest) throws Exception {
-	
-		logger.info("modifyPro DataFile");
-		String projectname =(String) request.getParameter("projectName");
-		String content = (String)request.getParameter("content");
-		System.out.println("ModifyProDATA : "+projectname+content);
-		vo.setProjectName(projectname);
-		vo.setContent(content);
-		String[] files = null;
-		String[] fileNames = null; 
-		service.modifyData(vo,files,fileNames,mpRequest);
-		
-		return "redirect:/test";
-		//return "redirect:/main";
 	}
 	
 	@RequestMapping(value="/main/detail", method=RequestMethod.GET)
@@ -160,7 +144,6 @@ public class ProjectController {
 
 		String num = request.getParameter("num");
 		System.out.println("MODIFY TEST Param num: "+num);
-		//NOFILE LOGIC NEED
 		
 		vo = service.listDetail(Integer.parseInt(num));//NULLPOINT
 		List<Map<String,Object>> files = service.selectFileList(Integer.parseInt(num));
@@ -180,6 +163,23 @@ public class ProjectController {
 			model.addAttribute("files", files);
 		}
 		return "board/modifyForm";
+	}
+	
+	@RequestMapping(value="modifyPro", method=RequestMethod.POST)
+	public String modifyPro(ProjectVO vo,HttpServletRequest request, MultipartHttpServletRequest mpRequest) throws Exception {
+	
+		logger.info("modifyPro DataFile");
+		String projectname =(String) request.getParameter("projectName");
+		String content = (String)request.getParameter("content");
+		System.out.println("ModifyProDATA : "+projectname+content);
+		vo.setProjectName(projectname);
+		vo.setContent(content);
+		String[] files = null;
+		String[] fileNames = null; 
+		service.modifyData(vo,files,fileNames,mpRequest);
+		
+		return "redirect:/test";
+		//return "redirect:/main";
 	}
 	
 	//Mybatis Testing
@@ -213,6 +213,49 @@ public class ProjectController {
 		response.getOutputStream().flush();
 		response.getOutputStream().close();
 		
-		/* fileReadView */
 	}
+	
+	@RequestMapping(value="/deletePro" ,method=RequestMethod.POST)
+	public String deletePro(HttpServletRequest reqeust,HttpServletResponse response) throws Exception {
+		Enumeration deletecheck =  reqeust.getAttributeNames();
+		System.out.println("****DeletePRO checkbox data****");
+		while(deletecheck.hasMoreElements()) {
+			System.out.println(deletecheck.nextElement());
+		}
+		return "redirect:/main";
+	}
+	
+//  다중파일로 변경시 적용
+//	게시판 수정 뷰
+//	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
+//	public String updateView(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model)
+//			throws Exception {
+//		logger.info("updateView");
+//
+//		model.addAttribute("update", service.read(boardVO.getBno()));
+//		model.addAttribute("scri", scri);
+//
+//		List<Map<String, Object>> fileList = service.selectFileList(boardVO.getBno());
+//		model.addAttribute("file", fileList);
+//		return "board/updateView";
+//	}
+//
+//	// 게시판 수정
+//	@RequestMapping(value = "/update", method = RequestMethod.POST)
+//	public String update(BoardVO boardVO, 
+//						 @ModelAttribute("scri") SearchCriteria scri, 
+//						 RedirectAttributes rttr,
+//						 @RequestParam(value="fileNoDel[]") String[] files,
+//						 @RequestParam(value="fileNameDel[]") String[] fileNames,
+//						 MultipartHttpServletRequest mpRequest) throws Exception {
+//		logger.info("update");
+//		service.update(boardVO, files, fileNames, mpRequest);
+//
+//		rttr.addAttribute("page", scri.getPage());
+//		rttr.addAttribute("perPageNum", scri.getPerPageNum());
+//		rttr.addAttribute("searchType", scri.getSearchType());
+//		rttr.addAttribute("keyword", scri.getKeyword());
+//
+//		return "redirect:/board/list";
+//	}
 }
