@@ -56,7 +56,9 @@ public class ProjectServiceImpl implements ProjectService{
 	@Override
 	public void submitNewData(ProjectVO vo, MultipartHttpServletRequest mpRequest) throws Exception {
 		dao.create(vo);
-		List<Map<String,Object>> list =fileUtils.parseInsertFileInfo(vo, mpRequest);
+		String[] files = null;
+		String[] fileNames = null;
+		List<Map<String,Object>> list =fileUtils.parseInsertFileInfo(vo,files,fileNames,mpRequest);
 		int size = list.size();
 		System.out.println("LOG : FILE LIST SIZE"+size);
 		for(int i=0;i<size;i++) {
@@ -106,6 +108,20 @@ public class ProjectServiceImpl implements ProjectService{
 	public void modifyData(ProjectVO vo, String[] files, String[] fileNames,MultipartHttpServletRequest mpRequest) throws Exception {
 		
 		dao.update(vo); //게시글을 업데이트
+		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(vo,files,fileNames,mpRequest);
+		Map<String,Object> tempMap = null;
+		int size = list.size();
+		System.out.println("===ModifyData List size Log : "+ size);
+		for(int i=0;i<size;i++) {
+			tempMap = list.get(i);
+			if(tempMap.get("IS_NEW").equals("Y")) {
+				System.out.println("===ModifyData Y Log : insertFile");
+				dao.insertFile(tempMap);
+			}else {
+				System.out.println("===ModifyData Y Log : updateFile");
+				dao.updateFile(tempMap);
+			}
+		}
 		
 		
 		//dao.updateFile(vo,map); //파일을 업데이트

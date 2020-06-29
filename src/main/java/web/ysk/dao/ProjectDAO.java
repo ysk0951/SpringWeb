@@ -12,7 +12,7 @@ public interface ProjectDAO {
 	public void create(ProjectVO vo) throws Exception; 
 	public void alterbnoFiletable(int seq) throws Exception;
 	public void update(ProjectVO vo) throws Exception; 
-	public void updateFile(ProjectVO vo, Map<String, Object> map) throws Exception;
+	public void updateFile(Map<String, Object> map) throws Exception;
 	public void delete(int bno) throws Exception; 
 	public ProjectVO listDetail(int no) throws Exception;
 	public void boardHit(int bno) throws Exception;
