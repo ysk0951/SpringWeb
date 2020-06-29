@@ -27,6 +27,8 @@ public class ProjectDAOImpl implements ProjectDAO {
 	}
 	@Override
 	public void update(ProjectVO vo) throws Exception {
+		//구현중
+		sqlSession.update("boardMapper.update",vo);
 	}
 	@Override
 	public void delete(int bno) throws Exception {

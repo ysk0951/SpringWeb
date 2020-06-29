@@ -73,7 +73,6 @@ public class ProjectServiceImpl implements ProjectService{
 			System.out.println(seq);
 		}
 	}
-	
 	@Override
 	public void create(ProjectVO vo) throws Exception {
 		dao.create(vo);
@@ -84,7 +83,7 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 	@Override
 	public void update(ProjectVO vo) throws Exception {
-		// TODO Auto-generated method stub
+		
 	}
 	@Override
 	public void delete(int num) throws Exception {
@@ -97,7 +96,6 @@ public class ProjectServiceImpl implements ProjectService{
 		dao.alterbnoFiletable(seq);
 	}
 	
-	
 	//첨부파일 다운로드
 	@Override
 	public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
@@ -108,6 +106,7 @@ public class ProjectServiceImpl implements ProjectService{
 	public void modifyData(ProjectVO vo, MultipartHttpServletRequest mpRequest) throws Exception {
 		
 		dao.update(vo); //게시글을 업데이트
-		dao.modifyData(vo,mpRequest); //파일을 업데이트
+		//dao.modifyData(vo,mpRequest); //파일을 업데이트
+		
 	}
 }

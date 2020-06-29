@@ -41,7 +41,7 @@ table {
 </script>
 </head> 
 <body>
-	<form action="/modifyPro" method="post">
+	<form action="/modifyPro"name="submitNewData" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 		<table border="1">
 			<thead>
 				<td class="leftCell">NO</td>
@@ -65,7 +65,7 @@ table {
 								<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
 							</form>
 						</c:if>
-						<button type="button">파일추가</button>
+						<input type="file" name="file" value="파일 추가">
 						<button type="button">파일제거</button>
 					</td>
 				</tr> 

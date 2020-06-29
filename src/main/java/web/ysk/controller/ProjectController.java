@@ -105,7 +105,7 @@ public class ProjectController {
 	}
 	
 	@RequestMapping(value="modifyPro", method=RequestMethod.POST)
-	public String modifyPro(ProjectVO vo,HttpServletRequest request) throws Exception {
+	public String modifyPro(ProjectVO vo,HttpServletRequest request, MultipartHttpServletRequest mpRequest) throws Exception {
 	
 		logger.info("modifyPro DataFile");
 		String projectname =(String) request.getParameter("projectName");
@@ -113,7 +113,7 @@ public class ProjectController {
 		System.out.println("ModifyProDATA : "+projectname+content);
 		vo.setProjectName(projectname);
 		vo.setContent(content);
-		/* service.modifyData(vo,mpRequest); */
+		service.modifyData(vo,mpRequest);
 		
 		return "board/test";
 		//return "redirect:/main";
