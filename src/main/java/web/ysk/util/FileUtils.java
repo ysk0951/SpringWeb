@@ -33,7 +33,6 @@ public class FileUtils {
 		Map<String, Object> listMap = null;
 		
 		int bno = projectVO.getNum();
-		
 		File file = new File(filePath);
 		if(file.exists() == false) {
 			file.mkdirs();

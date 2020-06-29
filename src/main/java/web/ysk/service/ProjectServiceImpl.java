@@ -65,14 +65,12 @@ public class ProjectServiceImpl implements ProjectService{
 			dao.insertFile(list.get(i)); 
 		}
 		//sequce >> bno 2logic
-		
-		  
 		//select seq(num)
 		//alter bono logic
 		if(list.size()>0) {
 			int seq = dao.selectSeqOfProjectTB();
 			dao.alterbnoFiletable(seq);
-			System.out.println(seq);
+			System.out.println("파일 첫 추가시 bno 변경"+seq);
 		}
 	}
 	@Override
@@ -116,7 +114,11 @@ public class ProjectServiceImpl implements ProjectService{
 			tempMap = list.get(i);
 			if(tempMap.get("IS_NEW").equals("Y")) {
 				System.out.println("===ModifyData Y Log : insertFile");
+//				DB상 일치하는지 확인
 				dao.insertFile(tempMap);
+				int seq = dao.selectSeqOfProjectTB();
+				dao.alterbnoFiletable(seq);
+				System.out.println("File추가시bno변경"+seq);
 			}else {
 				System.out.println("===ModifyData Y Log : updateFile");
 				dao.updateFile(tempMap);
