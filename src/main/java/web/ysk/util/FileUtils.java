@@ -29,17 +29,6 @@ public class FileUtils {
 		String originalFileExtension = null;
 		String storedFileName = null;
 
-		
-//		List<MultipartFile> fileList = mpRequest.getFiles("file");
-//		for (MultipartFile mf : fileList) {
-//			originalFileName = mf.getOriginalFilename(); // 원본 파일 명
-//            long fileSize = mf.getSize(); // 파일 사이즈
-//            System.out.println("originFileName : " + originalFileName);
-//            System.out.println("fileSize : " + fileSize);
-//            String safeFile = filePath + System.currentTimeMillis() + originalFileName;
-//             mf.transferTo(new File(safeFile));
-//        }
-		
 		int bno = projectVO.getNum();
 		File file = new File(filePath);
 		if(file.exists() == false) {
@@ -48,6 +37,7 @@ public class FileUtils {
 		
 		while(iterator.hasNext()) {
 			multipartFile = mpRequest.getFile(iterator.next());
+			System.out.println(">>MultipartFileNames :"+multipartFile.getOriginalFilename());
 			if(multipartFile.isEmpty() == false) {
 				originalFileName = multipartFile.getOriginalFilename();
 				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
