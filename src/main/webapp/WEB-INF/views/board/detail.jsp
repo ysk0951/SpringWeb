@@ -29,7 +29,7 @@ table {
 }
 </style>
 <script>
-/* 	function fn_fileDown(fileNo){
+	function fn_fileDown(fileNo){
 		alert("FILE DOWN....");
 		var formObj = document.forms[0].FILE_NO;
 		console.log(formObj);
@@ -37,10 +37,11 @@ table {
 		console.log(formObj);
 		document.forms[0].action = "/fileDown";
 		document.forms[0].submit();
-	} */
+	} 
 </script>
 </head> 
 <body>
+	<form action="/modifyForm" method="post">
 		<table border="1">
 			<thead>
 				<td class="leftCell">NO</td>
@@ -57,11 +58,11 @@ table {
 						<c:choose>
 						<c:when test="${!empty files}">
 							<form name="downloadForm" value ="DOWN..." action="#" method="post">
-							<c:forEach var="files" items="${files}">
-								<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
-								(${files.FILE_SIZE}kb)<br>
-								<c:set var="FILE_NO" value="${files.FILE_NO}" />
-							</c:forEach>
+								<c:forEach var="files" items="${files}">
+									<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
+									(${files.FILE_SIZE}kb)<br>
+									<c:set var="FILE_NO" value="${files.FILE_NO}" />
+								</c:forEach>
 								<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
 							</form>
 						</c:when>
@@ -76,14 +77,12 @@ table {
 				<tr> 
 				<tr>
 					<td colspan="4" align="center">
-							<form action="/modifyForm" method="post">
 							<input type ="hidden"  name ="num" value="${num}">
 							<input type ="submit" value="수정페이지로(관리자B)" />
-							</form> 
 					</td>
 				</tr>
 			</tbody> 
-			
 		</table>
+	</form> 
 </body>
 </html>

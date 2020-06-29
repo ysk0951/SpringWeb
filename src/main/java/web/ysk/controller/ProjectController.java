@@ -114,10 +114,10 @@ public class ProjectController {
 		vo.setProjectName(projectname);
 		vo.setContent(content);
 		String[] files = null;
-		String[] fileNames = null;
+		String[] fileNames = null; 
 		service.modifyData(vo,files,fileNames,mpRequest);
 		
-		return "board/test";
+		return "redirect:/test";
 		//return "redirect:/main";
 	}
 	

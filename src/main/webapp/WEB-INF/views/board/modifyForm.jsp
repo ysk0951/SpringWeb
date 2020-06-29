@@ -52,7 +52,7 @@ table {
 			<tbody>
 				<tr>
 					<td>${num}</td>
-					<td><input type="text" value="${vo.projectName}"></td>
+					<td><input type="text" value="${vo.projectName}" name="projectName"></td>
 					<td>${vo.regdate}</td> 
 					<td>
 						<c:if test="${!empty files}">
