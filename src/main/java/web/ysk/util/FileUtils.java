@@ -22,12 +22,12 @@ public class FileUtils {
 			throws Exception{
 
 		String originalFileName = null;
+		String originalFileExtension = null;
+		String storedFileName = null;
 		Iterator<String> iterator = mpRequest.getFileNames();
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
 		Map<String, Object> listMap = null;
 		MultipartFile multipartFile = null;
-		String originalFileExtension = null;
-		String storedFileName = null;
 
 		int bno = projectVO.getNum();
 		File file = new File(filePath);
@@ -35,30 +35,35 @@ public class FileUtils {
 			file.mkdirs();
 		}
 		
-		while(iterator.hasNext()) {
-			multipartFile = mpRequest.getFile(iterator.next());
-			System.out.println(">>MultipartFileNames :"+multipartFile.getOriginalFilename());
-			if(multipartFile.isEmpty() == false) {
-				originalFileName = multipartFile.getOriginalFilename();
+		int index = 0;
+		
+		List<MultipartFile> fileList = mpRequest.getFiles("file");
+
+		for (MultipartFile mf : fileList) {
+			System.out.println(">>MultipartFileNames :" + mf.getOriginalFilename());
+			if (mf.isEmpty() == false) {
+				originalFileName = mf.getOriginalFilename();
 				originalFileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-				storedFileName = originalFileName + originalFileExtension; 
-				System.out.println("LOGT : StoredFILEName : "+storedFileName);
+				storedFileName = originalFileName + originalFileExtension;
+				System.out.println("LOG : StoredFILEName : " + storedFileName);
 				file = new File(filePath + storedFileName);
-				multipartFile.transferTo(file); 
+				mf.transferTo(file);
 				listMap = new HashMap<String, Object>();
 				listMap.put("BNO", bno);
 				listMap.put("ORG_FILE_NAME", originalFileName);
 				listMap.put("STORED_FILE_NAME", storedFileName);
-				listMap.put("FILE_SIZE", multipartFile.getSize());
+				listMap.put("FILE_SIZE", mf.getSize());
 				list.add(listMap);
 			}
 		}
+		
 		return list;
 	}
 
 	//수정필요한부분
 	public List<Map<String, Object>> parseInsertFileInfo(ProjectVO projectVO, String[] files, String[] fileNames,
 			MultipartHttpServletRequest mpRequest) throws Exception {
+		
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
 		Map<String, Object> listMap = null; 
 		Iterator<String> iterator = mpRequest.getFileNames();
@@ -67,6 +72,8 @@ public class FileUtils {
 		String originalFileExtension = null; 
 		String storedFileName = null;
 		int bno = projectVO.getNum();
+		
+		/////
 		System.out.println("******multifile upload*****");
 		System.out.println("data bno: "+bno);
 		System.out.println("data originalFileName: "+originalFileName);
