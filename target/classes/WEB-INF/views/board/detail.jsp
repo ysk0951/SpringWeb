@@ -78,7 +78,6 @@ table {
 					<td colspan="4" align="center">
 							<form action="/modifyForm" method="post">
 							<input type ="hidden"  name ="num" value="${num}">
-							<input type ="button" value="수정페이지로(관리자A)" />
 							<input type ="submit" value="수정페이지로(관리자B)" />
 							</form> 
 					</td>
