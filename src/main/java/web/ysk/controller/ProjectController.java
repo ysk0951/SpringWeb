@@ -113,7 +113,9 @@ public class ProjectController {
 		System.out.println("ModifyProDATA : "+projectname+content);
 		vo.setProjectName(projectname);
 		vo.setContent(content);
-		service.modifyData(vo,mpRequest);
+		String[] files = null;
+		String[] fileNames = null;
+		service.modifyData(vo,files,fileNames,mpRequest);
 		
 		return "board/test";
 		//return "redirect:/main";

@@ -103,10 +103,11 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
-	public void modifyData(ProjectVO vo, MultipartHttpServletRequest mpRequest) throws Exception {
+	public void modifyData(ProjectVO vo, String[] files, String[] fileNames,MultipartHttpServletRequest mpRequest) throws Exception {
 		
 		dao.update(vo); //게시글을 업데이트
-		//dao.modifyData(vo,mpRequest); //파일을 업데이트
 		
+		
+		//dao.updateFile(vo,map); //파일을 업데이트
 	}
 }

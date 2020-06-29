@@ -72,8 +72,9 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return sqlSession.selectOne("boardMapper.selectFileInfo",map);
 	}
 	@Override
-	public void modifyData(ProjectVO vo, MultipartHttpServletRequest mpRequest)throws Exception {
+	public void updateFile(ProjectVO vo, Map<String, Object> map)throws Exception {
 		//MODIFY
+		sqlSession.update("boardMapper.updateFile", map);
 	}
 }  
  
