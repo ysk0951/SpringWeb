@@ -108,14 +108,14 @@ public class ProjectController {
 	public String modifyPro(ProjectVO vo,HttpServletRequest request) throws Exception {
 	
 		logger.info("modifyPro DataFile");
-		String projectname =(String) request.getParameter("prjectName");
+		String projectname =(String) request.getParameter("projectName");
 		String content = (String)request.getParameter("content");
-		System.out.println(projectname+content);
+		System.out.println("ModifyProDATA : "+projectname+content);
 		vo.setProjectName(projectname);
 		vo.setContent(content);
 		/* service.modifyData(vo,mpRequest); */
 		
-		return "test";
+		return "board/test";
 		//return "redirect:/main";
 	}
 	
