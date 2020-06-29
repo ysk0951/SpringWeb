@@ -51,7 +51,7 @@ table {
 			</thead>
 			<tbody>
 				<tr>
-					<td>${num}</td>
+					<td>${num}</td> 
 					<td>${vo.projectName}</td>
 					<td>${vo.regdate}</td> 
 					<td>
