@@ -20,7 +20,7 @@ public class FileUtils {
 	//private static final String filePath = "D:\\web\\"; // 파일이 저장될 위치
 	private static final String filePath = "C:\\Program Files\\Git\\tmp\\"; // 파일이 저장될 위치
 	
-	public List<Map<String, Object>> parseInsertFileInfo(ProjectVO projectVO, String[] files, String[] fileNames,MultipartHttpServletRequest mpRequest)
+	public List<Map<String, Object>> parseInsertFileInfo(ProjectVO projectVO, MultipartHttpServletRequest mpRequest)
 			throws Exception{
 
 		Iterator<String> iterator = mpRequest.getFileNames();
@@ -55,6 +55,19 @@ public class FileUtils {
 				list.add(listMap);
 			}
 		}
+		return list;
+	}
+	
+	public List<Map<String, Object>> parseInsertFileInfo(ProjectVO projectVO, String[] files, String[] fileNames,MultipartHttpServletRequest mpRequest) throws Exception {
+		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
+		Iterator<String> iterator = mpRequest.getFileNames();
+		MultipartFile multipartFile = null; 
+		String originalFileName = null; 
+		String originalFileExtension = null; 
+		String storedFileName = null;
+		Map<String, Object> listMap = null; 
+		int bno = projectVO.getNum();
+		System.out.println("******multifile upload*****");
 		return list;
 	}
 }

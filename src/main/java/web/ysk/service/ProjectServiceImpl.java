@@ -106,6 +106,8 @@ public class ProjectServiceImpl implements ProjectService{
 	public void modifyData(ProjectVO vo, String[] files, String[] fileNames,MultipartHttpServletRequest mpRequest) throws Exception {
 		
 		dao.update(vo); //게시글을 업데이트
+		
+		//*****
 		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(vo,files,fileNames,mpRequest);
 		Map<String,Object> tempMap = null;
 		int size = list.size();
@@ -124,8 +126,5 @@ public class ProjectServiceImpl implements ProjectService{
 				dao.updateFile(tempMap);
 			}
 		}
-		
-		
-		//dao.updateFile(vo,map); //파일을 업데이트
 	}
 }
