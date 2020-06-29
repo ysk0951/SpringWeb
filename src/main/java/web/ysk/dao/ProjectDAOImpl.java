@@ -31,7 +31,9 @@ public class ProjectDAOImpl implements ProjectDAO {
 		sqlSession.update("boardMapper.update",vo);
 	}
 	@Override
-	public void delete(int bno) throws Exception {
+	public void delete(int num) throws Exception {
+		sqlSession.delete("boardMapper.delete",num);
+		sqlSession.delete("boardMapper.deleteFile",num);
 	}
 	
 	@Override

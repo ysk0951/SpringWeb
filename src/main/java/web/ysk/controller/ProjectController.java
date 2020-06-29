@@ -217,10 +217,13 @@ public class ProjectController {
 	
 	@RequestMapping(value="/deletePro" ,method=RequestMethod.POST)
 	public String deletePro(HttpServletRequest reqeust,HttpServletResponse response) throws Exception {
-		Enumeration deletecheck =  reqeust.getAttributeNames();
+		
 		System.out.println("****DeletePRO checkbox data****");
-		while(deletecheck.hasMoreElements()) {
-			System.out.println(deletecheck.nextElement());
+		String[] delete = reqeust.getParameterValues("delete");
+		System.out.println("Delete CheckBox : "+delete);
+		for(int i=0;i<delete.length;i++) {
+			System.out.println(delete[i]);
+			service.delete(Integer.parseInt(delete[i]));
 		}
 		return "redirect:/main";
 	}

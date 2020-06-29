@@ -87,7 +87,7 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 	@Override
 	public void delete(int num) throws Exception {
-		// TODO Auto-generated method stub
+		dao.delete(num);
 	}
 
 	@Override
