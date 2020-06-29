@@ -40,7 +40,7 @@ table {
 	}
 </script>
 </head> 
-<body>
+<body> 
 	<form action="/modifyPro"name="submitNewData" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 		<table border="1">
 			<thead>

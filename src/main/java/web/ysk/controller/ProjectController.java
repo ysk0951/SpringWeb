@@ -151,13 +151,13 @@ public class ProjectController {
 			model.addAttribute("files", files);
 		}
 		return "board/modifyForm";
-	}
+	} 
 	
 	/////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="modifyPro", method=RequestMethod.POST)
 	public String modifyPro(ProjectVO vo,HttpServletRequest request, MultipartHttpServletRequest mpRequest) throws Exception {
 	
-		logger.info("modifyPro DataFile");
+		logger.info("modifyPro DataFile"); 
 		String projectname =(String) request.getParameter("projectName");
 		String content = (String)request.getParameter("content");
 		System.out.println("ModifyProDATA : "+projectname+content);
