@@ -24,7 +24,6 @@ public class FileUtils {
 		String originalFileName = null;
 		String originalFileExtension = null;
 		String storedFileName = null;
-		Iterator<String> iterator = mpRequest.getFileNames();
 		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
 		Map<String, Object> listMap = null;
 		MultipartFile multipartFile = null;
@@ -102,7 +101,7 @@ public class FileUtils {
 			for(int i = 0; i<fileNames.length; i++) {
 					listMap = new HashMap<String,Object>();
                     listMap.put("IS_NEW", "N");
-					listMap.put("FILE_NO", files[i]); 
+					listMap.put("FILE_NO", files[i]);  
 					list.add(listMap); 
 			}
 		}
