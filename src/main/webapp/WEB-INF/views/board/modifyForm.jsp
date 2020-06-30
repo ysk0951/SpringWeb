@@ -40,19 +40,19 @@ table {
 	}
 </script>
 </head> 
-<body>
-	<form>
+<body> 
+	<form action="/modifyPro"name="submitNewData" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
 		<table border="1">
 			<thead>
 				<td class="leftCell">NO</td>
 				<td class="leftCell">프로젝트제목</td>
 				<td class="leftCell">기간</td>
 				<td class="leftCell">첨부파일</td>
-			</thead>
+			</thead> 
 			<tbody>
 				<tr>
 					<td>${num}</td>
-					<td><input type="text" value="${vo.projectName}"></td>
+					<td><input type="text" value="${vo.projectName}" name="projectName"></td>
 					<td>${vo.regdate}</td> 
 					<td>
 						<c:if test="${!empty files}">
@@ -65,7 +65,7 @@ table {
 								<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
 							</form>
 						</c:if>
-						<button type="button">파일추가</button>
+						 <input multiple="multiple" type="file" name="file" value="파일추가"/>
 						<button type="button">파일제거</button>
 					</td>
 				</tr> 
@@ -76,16 +76,13 @@ table {
 				<tr> 
 				<tr>
 					<td colspan="4" align="center">
-							<form action="/modifyPro" method="post">
 							<input type ="hidden"  name ="num" value="${num}">
 							<input type ="hidden"  name ="projectName" value="${vo.projectName}">
 							<input type ="hidden"  name ="forFileUpdate" value="${FILE_NO}" />
 							<input type ="submit" value="수정(관리자A)" />
-							</form>
 					</td>
 				</tr>
 			</tbody> 
-			
 		</table>
 	</form>
 </body>

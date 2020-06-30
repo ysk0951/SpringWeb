@@ -243,6 +243,7 @@ footer{
 <%---------------------------------[MappingChange >> JS/CSS import Check]--------------------------------------------%>
 <%----------------------------------------------------------------------------------------------------------------%>
 <body>
+<form action="deletePro" method="post">
 	<!--ScrollSPY구현
 	https://kutar37.tistory.com/entry/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8A%A4%ED%8C%8C%EC%9D%B4scrollspy-%EA%B5%AC%ED%98%84 
 	-->
@@ -310,6 +311,7 @@ footer{
 						<th >프로젝트 구현 내용</th>
 						<th >등록일</th> 
 						<th>조회수</th>
+						<th>삭제</th>
  					</tr>
 				</thead>
 				<tbody> 
@@ -342,10 +344,12 @@ footer{
 							<td><a href="/main/detail?num=${index.num}" onclick="window.open(this.href,'DETAIL','width=1000 ,height=1000'); return false;"><c:out value="${index.content}"/></a></td>
 							<td><a href="/main/detail?num=${index.num}" onclick="window.open(this.href,'DETAIL','width=1000 ,height=1000'); return false;"><fmt:formatDate value="${index.regdate}" pattern="yyyy-MM-dd"/></a></td>
 							<td><a href="/main/detail?num=${index.num}" onclick="window.open(this.href,'DETAIL','width=1000 ,height=1000'); return false;"><c:out value="${index.viewcnt}"/></a></td>
+							<td><input type="checkbox" value="${index.num}" name="delete"/></td>
 						</tr> 
 						<c:if test="${status.last and (status.count<7)}">
 							<c:forEach begin="${status.count+1}" end="7">
 							<tr>
+								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
 								<td>&nbsp;</td>
@@ -356,19 +360,19 @@ footer{
 						</c:if>
 						</c:forEach>
 						<tr>
-							<td colspan="5" align="center" >
+							<td colspan="6" align="center" >
 								<form>
 									<input type="text" >&nbsp;
 									<input type="button" value="검색" onclick="window.location.href='main'">&nbsp;
 									<!-- onclick="window.open('../signup/signupForm.jsp') -->
 									<Input type="button" value="관리자 모드(쿠키/세션/SpringSecurity)" >&nbsp;
 									<Input type="button" value="새글" onclick="window.open('newData')">&nbsp;
-									<Input type="button" value="삭제" >&nbsp;
+									<Input type="submit" value="삭제" >&nbsp;
 								</form>
 							</td> 
 						</tr> 
 						<tr>
-							<td colspan="5" align="center" >		
+							<td colspan="6" align="center" >		
 								<c:if test="${nowLevel>0}">
 									<a href="/main?nowLevel=${nowLevel-1}&currentPage=${(nowLevel-1)*pageData.pageCount+1}">이전</a>
 								</c:if>
@@ -403,5 +407,6 @@ footer{
 			<div class="contact">CONTACT</div>
 		</div>
 	</div>
+	</form>
 </body>
 </html>

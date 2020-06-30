@@ -65,21 +65,34 @@
   	select max(NUM) from project_tbl
   </select>
   <update id="alterbnoFiletable" parameterType="int">
-  	update MP_FILE set BNO = #{seq} WHERE FILE_NO = (SELECT max(FILE_NO) FROM MP_FILE)
+  	update MP_FILE set BNO = #{seq} WHERE FILE_NO = (SELECT max(FILE_NO) FROM MP_FILE) OR BNO = 0 
   </update>
   <!--첨부파일 변경-->
-  <update id="updateFile" parameterType="hashMap">
-   	UPDATE MP_FILE SET
-   	DEL_GB = 'Y' <!--Y시 보여주지 않는것으로-->
-   	WHERE FILE_NO = #{FILE_NO}
-   </update>
-   
-   
-   <!--게시글 수정 구현중  -->
-   <!-- <update id="update" parameterType="kr.co.vo.BoardVO">
-		UPDATE MP_BOARD
-		   SET projectName    =  #{projectName},
-		   	   CONTENT  =   #{content}
-		 WHERE num = #{num} 
-	</update> -->
+   <update id="updateFile" parameterType="hashMap">
+		UPDATE MP_FILE SET
+		DEL_GB = 'Y' <!--Y시 보여주지 않는것으로 -->
+		WHERE FILE_NO = #{FILE_NO}
+    </update>
+
+	<update id="update" parameterType="web.ysk.vo.ProjectVO">
+		UPDATE PROJECT_TBL
+		SET
+		projectName = #{projectName},
+		CONTENT = #{content}
+		WHERE num = #{num}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		DELETE
+		FROM PROJECT_TBL
+		WHERE
+		num = #{num}
+	</delete>
+	<delete id="deleteFile" parameterType="int">
+		DELETE
+		FROM MP_FILE
+		WHERE
+		bno = #{num}
+	</delete>
+	
 </mapper>

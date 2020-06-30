@@ -45,7 +45,9 @@ table {
 					<td>&nbsp;</td>
 					<td><input type="text" name ="prjectName"></td>
 					<td>&nbsp;</td>
-					<td> <input type="file" name="file"></td>
+					<td> 
+					 <input multiple="multiple" type="file" name="file" />
+					</td>
 				</tr>
 				<tr> 
 					<td colspan="4" width="500" height="500">
