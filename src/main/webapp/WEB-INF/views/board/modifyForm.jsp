@@ -38,6 +38,17 @@ table {
 		document.forms[0].action = "/fileDown";
 		document.forms[0].submit();
 	}
+	
+	function fn_addFile(){
+		var fileIndex = 1;
+		//$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"<button type='button' style='float:right;' id='fileAddBtn'>"+"추가"+"</button></div>");
+		$(".fileAdd_btn").on("click", function(){
+			$("#fileIndex").append("<div><input type='file' style='float:left;' name='file_"+(fileIndex++)+"'>"+"</button>"+"<button type='button' style='float:right;' id='fileDelBtn'>"+"삭제"+"</button></div>");
+		});
+		$(document).on("click","#fileDelBtn", function(){
+			$(this).parent().remove();
+		});
+	}
 </script>
 </head> 
 <body> 
@@ -50,6 +61,8 @@ table {
 				<td class="leftCell">첨부파일</td>
 			</thead> 
 			<tbody>
+				<input type="hidden" id="fileNoDel" name="fileNoDel[]" value=""> 
+				<input type="hidden" id="fileNameDel" name="fileNameDel[]" value=""> 
 				<tr>
 					<td>${num}</td>
 					<td><input type="text" value="${vo.projectName}" name="projectName"></td>
@@ -61,12 +74,13 @@ table {
 								<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
 								(${files.FILE_SIZE}kb)
 								<c:set var="FILE_NO" value="${files.FILE_NO}" />
+								<button id="fileDel" onclick="fn_del('${file.FILE_NO}','FILE_NO_${var.index}');" type="button">삭제</button></br>
 							</c:forEach>
 								<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
 							</form>
 						</c:if>
-						 <input multiple="multiple" type="file" name="file" value="파일추가"/>
-						<button type="button">파일제거</button>
+						 <input multiple="multiple" type="file" name="file" value="파일추가INPUT"/>
+						 <button class="fileAdd_btn" type="button">파일추가</button>	
 					</td>
 				</tr> 
 				<tr> 
