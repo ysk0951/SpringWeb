@@ -47,7 +47,7 @@ table {
 		});
 		$(document).on("click","#fileDelBtn", function(){
 			$(this).parent().remove();
-		});
+		}); 
 	}
 </script>
 </head> 
@@ -61,8 +61,6 @@ table {
 				<td class="leftCell">첨부파일</td>
 			</thead> 
 			<tbody>
-				<input type="hidden" id="fileNoDel" name="fileNoDel[]" value=""> 
-				<input type="hidden" id="fileNameDel" name="fileNameDel[]" value=""> 
 				<tr>
 					<td>${num}</td>
 					<td><input type="text" value="${vo.projectName}" name="projectName"></td>
@@ -78,11 +76,10 @@ table {
 							</c:forEach>
 								<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
 							</form>
-						</c:if>
-						 <input multiple="multiple" type="file" name="file" value="파일추가INPUT"/>
-						 <button class="fileAdd_btn" type="button">파일추가</button>	
+						 </c:if>
+						 <input multiple="multiple" type="file" name="file" />
 					</td>
-				</tr> 
+				</tr>  
 				<tr> 
 					<td colspan="4" width="500" height="500" style="text-align: left;">
 					<textarea rows="30" cols="78" name = "content" style="resize: none;">${vo.content}</textarea>

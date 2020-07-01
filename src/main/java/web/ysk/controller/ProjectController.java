@@ -156,21 +156,17 @@ public class ProjectController {
 	/////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="modifyPro", method=RequestMethod.POST)
 	public String modifyPro(ProjectVO vo,HttpServletRequest request,
-			@RequestParam(value="fileNoDel[]") String[] files,
-			 @RequestParam(value="fileNameDel[]") String[] fileNames,
 			 MultipartHttpServletRequest mpRequest) throws Exception {
-	
+	 
 		logger.info("modifyPro DataFile");
 		
-		System.out.println("FileLogs : "+files.length);
-		System.out.println("FileNameLogs : "+fileNames.length);
 		
 		String projectname =(String) request.getParameter("projectName");
 		String content = (String)request.getParameter("content");
 		System.out.println("ModifyProDATA : "+projectname+content);
 		vo.setProjectName(projectname);
 		vo.setContent(content);
-		service.modifyData(vo,files,fileNames,mpRequest);
+		service.modifyData(vo,mpRequest);
 		
 		return "redirect:/main";
 	}

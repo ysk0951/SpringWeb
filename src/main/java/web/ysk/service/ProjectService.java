@@ -19,7 +19,7 @@ public interface ProjectService {
 	public List<Map<String, Object>> selectFileList(int bno) throws Exception;;
 	public void alterbnoFiletable(int seq) throws Exception;
 	public Map<String,Object> selectFileInfo(Map<String,Object> map) throws Exception;
-	public void modifyData(ProjectVO vo, String[] files, String[] fileNames,MultipartHttpServletRequest mpRequest)throws Exception;
+	public void modifyData(ProjectVO vo, MultipartHttpServletRequest mpRequest)throws Exception;
 	
 	
 }

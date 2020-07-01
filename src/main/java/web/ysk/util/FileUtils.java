@@ -90,7 +90,8 @@ public class FileUtils {
 				listMap.put("ORG_FILE_NAME", originalFileName);
 				listMap.put("STORED_FILE_NAME", storedFileName);
 				listMap.put("FILE_SIZE", mf.getSize());
-				list.add(listMap);
+				listMap.put("IS_NEW", "Y");
+				list.add(listMap); 
 			}
 		}
 		
