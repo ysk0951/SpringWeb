@@ -6,9 +6,10 @@
 </head>	
 <body>
 	<h1>Hello world!Hello GitHub</h1><hr> 
-		<h2>TODO LIST Grobal	: 	구현완료 SpringCRUD[paging+Errorpage]/Mybatis/Transaction/upload/download/
+		<h2>TODO LIST Grobal	: 	구현완료 SpringCRUD[paging+Errorpage]/Mybatis/
+									Transaction/upload/download/파일추가정리
 									Bootstrap/<br/>
-						 		update부분 삭제처리필요/Security/검색기능/</br>
+						 		Security/검색기능/소스총체적 정리</br>
 		
 		TODO LIST Home 		: ScrollSPY수정/SkillIMG&CONTACT/ViewCSS(external/buttonJS)/RESUME IMG추가뷰고민</br>
 		https://weaklion.github.io/React-PortFolio/ <br>

@@ -209,7 +209,7 @@ public class ProjectController {
 		String[] delete = reqeust.getParameterValues("delete");
 		for(int i=0;i<delete.length;i++) {
 			service.delete(Integer.parseInt(delete[i]));
-		}
+		} 
 		return "redirect:/main";
 	}
 	

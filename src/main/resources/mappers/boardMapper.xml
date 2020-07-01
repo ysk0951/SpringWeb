@@ -72,7 +72,7 @@
   <!--첨부파일 변경-->
    <update id="updateFile" parameterType="hashMap">
 		UPDATE MP_FILE SET
-		DEL_GB = 'Y' <!--Y시 보여주지 않는것으로 -->
+		DEL_GB = 'N' <!--Y시 보여주지 않는것으로 -->
 		WHERE FILE_NO = #{FILE_NO}
     </update>
 
@@ -83,7 +83,7 @@
 		CONTENT = #{content}
 		WHERE num = #{num}
 	</update>
-
+ 
 	<delete id="delete" parameterType="int">
 		DELETE
 		FROM PROJECT_TBL
@@ -95,6 +95,12 @@
 		FROM MP_FILE
 		WHERE
 		bno = #{num}
-	</delete>
+	</delete> 
+	<delete id="deleteFilebycheck" parameterType="int">
+		DELETE
+		FROM MP_FILE
+		WHERE
+		file_no = #{num}
+	</delete> 
 	
 </mapper>
