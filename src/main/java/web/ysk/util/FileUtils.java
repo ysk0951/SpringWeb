@@ -59,7 +59,7 @@ public class FileUtils {
 		return list;
 	}
 
-	//수정필요한부분
+	//수정필요한부분 >> 기존에 파일이있을때~~
 	public List<Map<String, Object>> parseInsertFileInfo(ProjectVO projectVO, String[] files, String[] fileNames,
 			MultipartHttpServletRequest mpRequest) throws Exception {
 		
