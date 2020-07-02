@@ -97,7 +97,8 @@ public class ProjectController {
 			if(!search.equals("")) {
 				//검색시
 				System.out.println("검색ON");
-//				rowCount = service.selectRowCount();
+				rowCount = service.selectRowCount(select,search);
+				System.out.println("[Search Service RowCount Test :"+rowCount+"]");
 //				pager = new Pager(rowCount);
 //				pageData = pager.pageCal();
 //				list = service.listSearch();

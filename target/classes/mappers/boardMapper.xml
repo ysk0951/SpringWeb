@@ -9,7 +9,10 @@
 	<select id="selectRowCount" resultType="Integer">
 		SELECT COUNT(*) FROM PROJECT_TBL pt
 	</select>
-	<select id="selectDetail" resultType="web.ysk.vo.ProjectVO"
+	<select id="selectRowCount" resultType="Integer" parameterType="hashMap">
+		SELECT COUNT(*) FROM PROJECT_TBL pt where content '%'||#{search}||'%'
+	</select>
+	<select id="selectDetail" resultType="web.ysk.vo.ProjectVO" 
 		parameterType="int">
 		SELECT * FROM PROJECT_TBL pt WHERE NUM = #{NUM}
 	</select>
