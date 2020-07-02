@@ -334,7 +334,6 @@ footer{
 					<c:if test="${beginTd ==0 and endTd < 0 }">
 						<c:set var="endTd" value="0"/>
 					</c:if>
-					
 						<%--TD zone --%>
 						<c:forEach begin="${beginTd}" end="${endTd}" var="index" items="${list}" varStatus="status">
 						<tr>

@@ -225,7 +225,8 @@ public class ProjectController {
 			} 
 		}
 		System.out.println("Delete Throw");
-		
+		System.out.println("[main paramTest :"+reqeust.getParameter("select")+"]");
+		System.out.println("[main paramTest :"+reqeust.getParameter("search")+"]");
 		return "redirect:/main";
 	}
 	
