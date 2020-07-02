@@ -10,7 +10,7 @@
 		SELECT COUNT(*) FROM PROJECT_TBL pt
 	</select>
 	<select id="selectRowCountSearch" resultType="Integer" parameterType="hashMap">
-		SELECT COUNT(*) FROM PROJECT_TBL pt WHERE content LIKE '%'||#{search}||'%'
+		SELECT COUNT(*) FROM PROJECT_TBL pt WHERE ${select} LIKE '%'||#{search}||'%'
 	</select>
 	<select id="selectDetail" resultType="web.ysk.vo.ProjectVO" 
 		parameterType="int">

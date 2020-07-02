@@ -360,8 +360,8 @@ footer{
 						<tr>
 							<td colspan="6" align="center" >
 									<select name = "select">
-										<option value="프로젝트이름">프로젝트이름</option>
-										<option value="프로젝트구현내용">프로젝트구현내용</option>
+										<option value="projectname">프로젝트이름</option>
+										<option value="content">프로젝트구현내용</option>
 									</select>
 									<input type="text" name = "search">&nbsp;
 									<input type="submit" value="검색" >&nbsp;
