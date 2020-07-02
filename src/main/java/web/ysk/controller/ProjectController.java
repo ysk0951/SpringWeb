@@ -101,7 +101,7 @@ public class ProjectController {
 				System.out.println("[Search Service RowCount Test :"+rowCount+"]");
 				pager = new Pager(rowCount);
 				pageData = pager.pageCal();
-//				list = service.listSearch();
+				list = service.listSearch(select,search);
 			}else {
 				//Default
 				System.out.println("검색OFF");

@@ -12,7 +12,8 @@ public interface ProjectService {
 	public void create(ProjectVO vo) throws Exception; // 
 	public void update(ProjectVO vo) throws Exception; //
 	public void delete(int num) throws Exception; // 
-	public List<ProjectVO> listSearch() throws Exception; // 
+	public List<ProjectVO> listSearch() throws Exception; //default main
+	public List<ProjectVO> listSearch(String select,String search) throws Exception; //search main
 	public ProjectVO listDetail(int no) throws Exception;
 	public int selectRowCount()throws Exception; //default main
 	public int selectRowCount(String select,String search) throws Exception;//search main

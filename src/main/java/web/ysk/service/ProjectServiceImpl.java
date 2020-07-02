@@ -37,6 +37,10 @@ public class ProjectServiceImpl implements ProjectService{
 	public List<ProjectVO> listSearch() throws Exception{
 		return dao.listSearch();
 	}
+	@Override
+	public List<ProjectVO> listSearch(String select,String search) throws Exception{
+		return dao.listSearch(select,search);
+	}
 	
 	//Detail읽을때마다 트랜잭션 처리
 	@Transactional(isolation = Isolation.READ_COMMITTED)

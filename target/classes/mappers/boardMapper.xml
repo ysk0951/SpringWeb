@@ -5,6 +5,9 @@
    <select id="selectList" resultType="web.ysk.vo.ProjectVO">
 	select * from PROJECT_TBL
 	</select>
+	 <select id="selectListSearch" resultType="web.ysk.vo.ProjectVO" parameterType="hashMap">
+	select * from PROJECT_TBL where ${select} LIKE '%'||#{search}||'%'
+	</select>
 	<!--mybatis result type Int Need -->
 	<select id="selectRowCount" resultType="Integer">
 		SELECT COUNT(*) FROM PROJECT_TBL pt

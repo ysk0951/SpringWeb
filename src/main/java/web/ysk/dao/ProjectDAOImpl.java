@@ -47,6 +47,13 @@ public class ProjectDAOImpl implements ProjectDAO {
 		return sqlSession.selectList("boardMapper.selectList");
 	}
 	@Override
+	public List<ProjectVO> listSearch(String select,String search) throws Exception{
+		Map<String,String> map  = new HashMap<String, String>();
+		map.put("select", select);
+		map.put("search", search);
+		return sqlSession.selectList("boardMapper.selectListSearch",map);
+	}
+	@Override
 	public int selectRowCount() throws Exception {
 		return sqlSession.selectOne("boardMapper.selectRowCount");
 	}
