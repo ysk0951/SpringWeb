@@ -83,29 +83,32 @@ public class ProjectController {
 		//session - 관리자
 		//HttpSession httpSession = request.getSession();
 		
-		//pager를 위한것
-		int rowCount =0;
-		PageVO pageData = null;
+		//pager를 위한 기본 데이터 선언
+		int rowCount =0; //DB접속해서 총게시물의 갯수를 가져옴
+		PageVO pageData = null; //총게시물의 갯수를 기준으로 Pager에 대한 데이터를 VO의 형태로 View에 전송
+		Pager pager = null;
+		List<ProjectVO> list = null;
 		
 		//검색일경우
-		System.out.println("[main modelAttribute :"+ search+"]");
-		System.out.println("[main modelAttribute :"+ select+"]");
+		System.out.println("[main modelAttribute select :"+ select+"]");
+		System.out.println("[main modelAttribute search :"+ search+"]");
 		 
 		try {
-			//DB접속해서 총게시물의 갯수를 가져옴
-			rowCount = service.selectRowCount();
-			//총게시물의 갯수를 기준으로 Pager에 대한 데이터를
-			//PageVO의 형태로 VIEW로 전송
-			Pager pager = new Pager(rowCount);
-			pageData = pager.pageCal();
-			List<ProjectVO> list = service.listSearch();//
-			
-			//검색시
-			//rowCount = service.selectRowCount();
-			//Pager pager = new Pager(rowCount);
-			//pageData = pager.pageCal();
-			//List<ProjectVO> list = service.listSearch();//
-			
+			if(!search.equals("")) {
+				//검색시
+				System.out.println("검색ON");
+//				rowCount = service.selectRowCount();
+//				pager = new Pager(rowCount);
+//				pageData = pager.pageCal();
+//				list = service.listSearch();
+			}else {
+				//Default
+				System.out.println("검색OFF");
+				rowCount = service.selectRowCount();
+				pager = new Pager(rowCount);
+				pageData = pager.pageCal();
+				list = service.listSearch();
+			}
 			
 			model.addAttribute("list", list);
 			model.addAttribute("pageData",pageData);
@@ -134,8 +137,7 @@ public class ProjectController {
 			model.addAttribute("vo", vo);
 			model.addAttribute("num", num);
 			model.addAttribute("files", files);
-			
-				return "board/detail";
+			return "board/detail";
 	}
 	
 	@RequestMapping(value = "/modifyForm" , method=RequestMethod.POST)

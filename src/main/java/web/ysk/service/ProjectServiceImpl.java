@@ -55,6 +55,13 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 	
 	@Override
+	public int selectRowCount(String select,String search) throws Exception{
+		// TODO Auto-generated method stub
+		int selectRowCount = dao.selectRowCount(select,search);
+		return selectRowCount;
+	}
+	
+	@Override
 	public void submitNewData(ProjectVO vo, MultipartHttpServletRequest mpRequest) throws Exception {
 		dao.create(vo);
 		String[] files = null;

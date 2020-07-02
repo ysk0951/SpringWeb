@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -48,6 +49,13 @@ public class ProjectDAOImpl implements ProjectDAO {
 	@Override
 	public int selectRowCount() throws Exception {
 		return sqlSession.selectOne("boardMapper.selectRowCount");
+	}
+	@Override
+	public int selectRowCount(String select,String search) throws Exception {
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("select", select);
+		map.put("search",search);
+		return sqlSession.selectOne("boardMapper.selectRowCount",map);
 	}
 	@Override
 	public void boardHit(int bno) throws Exception {

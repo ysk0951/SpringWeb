@@ -14,12 +14,12 @@ public interface ProjectService {
 	public void delete(int num) throws Exception; // 
 	public List<ProjectVO> listSearch() throws Exception; // 
 	public ProjectVO listDetail(int no) throws Exception;
-	public int selectRowCount()throws Exception;
+	public int selectRowCount()throws Exception; //default main
+	public int selectRowCount(String select,String search) throws Exception;//search main
 	public void submitNewData(ProjectVO vo,MultipartHttpServletRequest mpRequest) throws Exception;
 	public List<Map<String, Object>> selectFileList(int bno) throws Exception;;
 	public void alterbnoFiletable(int seq) throws Exception;
 	public Map<String,Object> selectFileInfo(Map<String,Object> map) throws Exception;
 	public void modifyData(ProjectVO vo, MultipartHttpServletRequest mpRequest)throws Exception;
-	
 	
 }

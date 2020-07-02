@@ -17,6 +17,7 @@ public interface ProjectDAO {
 	public ProjectVO listDetail(int no) throws Exception;
 	public void boardHit(int bno) throws Exception;
 	public int selectRowCount() throws Exception;
+	public int selectRowCount(String select,String search) throws Exception;
 	public List<ProjectVO> listSearch() throws Exception;
 	public void insertFile(Map<String,Object> map) throws Exception;
 	//첨부파일조회
