@@ -6,8 +6,7 @@
 <title>Home</title>
 </head>	
 <body>
-	<h1>HELLO YSK PORTFOLI</h1><hr> 
-		<h2>구현완료</h2> 	
+	<h1>HELLO YSK PORTFOLI 구현완료 20200617~20200702</h1><hr> 
 		<h3>BackEND</h3>
 		-SpringCRUD[Mybatis]
 			>paging/Errorpage/search<br>
