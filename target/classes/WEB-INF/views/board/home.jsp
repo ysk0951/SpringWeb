@@ -6,15 +6,21 @@
 <title>Home</title>
 </head>	
 <body>
-	<h1>Hello world!Hello GitHub</h1><hr> 
-		<h2>TODO LIST Grobal	: 	구현완료 SpringCRUD[paging+Errorpage+검색기능]/Mybatis/
-									Transaction/upload/download/파일추가정리
-									Bootstrap/<br/>
-
-							 		소스총체적 정리</br>
-		</h2>
+	<h1>HELLO YSK PORTFOLI</h1><hr> 
+		<h2>구현완료</h2> 	
+		<h3>BackEND</h3>
+		-SpringCRUD[Mybatis]
+			>paging/Errorpage/search<br>
+			>Transaction<br>
+			>FILE upload/download<br> 
+		<h3>Front</h3>
+		-HTML/CSS[Bootstrap]/JS/JQUERY[SCROLLSPY]
+		<h3>hosting</h3>
+		<h3>Contect</h3>
+		<h2>[ yskimweb@google.com ]</h2>
+		<hr>
+		<h2>The time on the server is ${serverTime}.</h2><hr>
 		<h2>TODO LIST Home		: VIEW/JQUERY(SCROLLSPY)/viewImg/hosting
-	<h2>The time on the server is ${serverTime}.</h2>
 </body> 
 </html>
  
