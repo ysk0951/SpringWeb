@@ -2,86 +2,70 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="boardMapper">
-   <select id="selectList" resultType="web.ysk.vo.ProjectVO">
-	select * from PROJECT_TBL
+	<select id="selectList" resultType="web.ysk.vo.ProjectVO">
+		select * from PROJECT_TBL
 	</select>
-	 <select id="selectListSearch" resultType="web.ysk.vo.ProjectVO" parameterType="hashMap">
-	select * from PROJECT_TBL where ${select} LIKE '%'||#{search}||'%'
+	<select id="selectListSearch" resultType="web.ysk.vo.ProjectVO"
+		parameterType="hashMap">
+		select * from PROJECT_TBL where ${select} LIKE
+		'%'||#{search}||'%'
 	</select>
 	<!--mybatis result type Int Need -->
 	<select id="selectRowCount" resultType="Integer">
-		SELECT COUNT(*) FROM PROJECT_TBL pt
+		SELECT COUNT(*) FROM
+		PROJECT_TBL pt
 	</select>
-	<select id="selectRowCountSearch" resultType="Integer" parameterType="hashMap">
-		SELECT COUNT(*) FROM PROJECT_TBL pt WHERE ${select} LIKE '%'||#{search}||'%'
+	<select id="selectRowCountSearch" resultType="Integer"
+		parameterType="hashMap">
+		SELECT COUNT(*) FROM PROJECT_TBL pt WHERE ${select} LIKE
+		'%'||#{search}||'%'
 	</select>
-	<select id="selectDetail" resultType="web.ysk.vo.ProjectVO" 
+	<select id="selectDetail" resultType="web.ysk.vo.ProjectVO"
 		parameterType="int">
 		SELECT * FROM PROJECT_TBL pt WHERE NUM = #{NUM}
 	</select>
-	<update id="boardHit" parameterType="int"> 
-		UPDATE PROJECT_TBL SET VIEWCNT = VIEWCNT+1 WHERE NUM = #{NUM}
-	</update>
 	<!-- 첨부파일 조회 -->
 	<select id="selectFileList" parameterType="int"
 		resultType="hashMap">
 		SELECT FILE_NO,
-    		   ORG_FILE_NAME,
-    		   ROUND(FILE_SIZE/1024,1) AS FILE_SIZE,
-    		   DEL_GB
-    	  FROM MP_FILE
-    	 WHERE BNO = #{BNO}
-    	   AND DEL_GB = 'N'
-    	 ORDER BY FILE_NO ASC
+		ORG_FILE_NAME,
+		ROUND(FILE_SIZE/1024,1) AS
+		FILE_SIZE,
+		DEL_GB
+		FROM MP_FILE
+		WHERE BNO = #{BNO}
+		AND DEL_GB = 'N'
+		ORDER BY
+		FILE_NO ASC
 	</select>
 	<!-- 첨부파일 다운 -->
-	<select id="selectFileInfo" parameterType="hashMap" resultType="hashMap">
+	<select id="selectFileInfo" parameterType="hashMap"
+		resultType="hashMap">
 		SELECT
 		STORED_FILE_NAME,
 		ORG_FILE_NAME
 		FROM MP_FILE
-		WHERE FILE_NO = #{FILE_NO}
+		WHERE
+		FILE_NO = #{FILE_NO}
 	</select>
-	<!-- 첨부파일 load -->
-	<insert id="insertFile" parameterType="hashMap">
-	INSERT INTO MP_FILE(
-		FILE_NO,
-		BNO,
-		ORG_FILE_NAME,
-		STORED_FILE_NAME,
-		FILE_SIZE
-	)VALUES(
-		SEQ_MP_FILE_NO.NEXTVAL,
-		#{BNO},
-		#{ORG_FILE_NAME},
-		#{STORED_FILE_NAME},
-		#{FILE_SIZE}
-	)
-   </insert>
-   <!-- 게시판 글 작성 -->
-  <insert id="insert" parameterType="web.ysk.vo.ProjectVO">
-   INSERT INTO project_tbl(  num 
-   					      , PROJECTNAME 
-   					      , CONTENT 
-   					      , VIEWCNT )
-                 VALUES(    SEQ_PROJECT.NEXTVAL 
-                 		  , #{projectName}
-                 		  , #{content}
-                 		  , 0  )
-  </insert>
-  <select id = "selectSeqOfProjectTB" resultType="int">
-  	select max(NUM) from project_tbl
-  </select>
-  <update id="alterbnoFiletable" parameterType="int">
-  	update MP_FILE set BNO = #{seq} WHERE FILE_NO = (SELECT max(FILE_NO) FROM MP_FILE) OR BNO = 0 
-  </update>
-  <!--첨부파일 변경-->
-   <update id="updateFile" parameterType="hashMap">
+	<select id="selectSeqOfProjectTB" resultType="int">
+		select max(NUM)
+		from project_tbl
+	</select>
+
+	<update id="boardHit" parameterType="int">
+		UPDATE PROJECT_TBL SET VIEWCNT = VIEWCNT+1 WHERE NUM = #{NUM}
+	</update>
+	<update id="alterbnoFiletable" parameterType="int">
+		update MP_FILE set BNO = #{seq} WHERE FILE_NO = (SELECT max(FILE_NO) FROM
+		MP_FILE) OR BNO = 0
+	</update>
+	<!--첨부파일 변경 -->
+	<update id="updateFile" parameterType="hashMap">
 		UPDATE MP_FILE SET
 		DEL_GB = 'N' <!--Y시 보여주지 않는것으로 -->
 		WHERE FILE_NO = #{FILE_NO}
-    </update>
-
+	</update>
 	<update id="update" parameterType="web.ysk.vo.ProjectVO">
 		UPDATE PROJECT_TBL
 		SET
@@ -89,7 +73,35 @@
 		CONTENT = #{content}
 		WHERE num = #{num}
 	</update>
- 
+	
+	<!-- 첨부파일 load -->
+	<insert id="insertFile" parameterType="hashMap">
+		INSERT INTO MP_FILE(
+		FILE_NO,
+		BNO,
+		ORG_FILE_NAME,
+		STORED_FILE_NAME,
+		FILE_SIZE
+		)VALUES(
+		SEQ_MP_FILE_NO.NEXTVAL,
+		#{BNO},
+		#{ORG_FILE_NAME},
+		#{STORED_FILE_NAME},
+		#{FILE_SIZE}
+		)
+	</insert>
+	<!-- 게시판 글 작성 -->
+	<insert id="insert" parameterType="web.ysk.vo.ProjectVO">
+		INSERT INTO project_tbl( num
+		, PROJECTNAME
+		, CONTENT
+		, VIEWCNT )
+		VALUES( SEQ_PROJECT.NEXTVAL
+		, #{projectName}
+		, #{content}
+		, 0 )
+	</insert>
+
 	<delete id="delete" parameterType="int">
 		DELETE
 		FROM PROJECT_TBL
@@ -101,12 +113,12 @@
 		FROM MP_FILE
 		WHERE
 		bno = #{num}
-	</delete> 
+	</delete>
 	<delete id="deleteFilebycheck" parameterType="int">
 		DELETE
 		FROM MP_FILE
 		WHERE
 		file_no = #{num}
-	</delete> 
-	
+	</delete>
+
 </mapper>
