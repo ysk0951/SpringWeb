@@ -80,8 +80,9 @@ table {
 							<input type ="hidden"  name ="num" value="${num}">
 							<input type ="hidden"  name ="projectName" value="${vo.projectName}">
 							<input type ="hidden"  name ="forFileUpdate" value="${FILE_NO}" />
+							<input type ="button" value="수정취소" onclick="window.location='main/detail?num=${num}'"/>
 							<input type ="submit" value="수정(관리자A)" />
-					</td>
+					</td> 
 				</tr>
 			</tbody> 
 		</table>

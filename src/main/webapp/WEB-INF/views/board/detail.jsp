@@ -70,7 +70,7 @@ table {
 							&nbsp;
 						</c:otherwise>
 						</c:choose>
-					</td>
+					</td> 
 				</tr> 
 				<tr> 
 					<td colspan="4" width="500" height="500" style="text-align: left;">${vo.content}</td>
@@ -78,6 +78,7 @@ table {
 				<tr>
 					<td colspan="4" align="center">
 							<input type ="hidden"  name ="num" value="${num}">
+							<input type ="button" onclick="window.location='/main'" value="메인으로"/>
 							<input type ="submit" value="수정페이지로(관리자B)" />
 					</td>
 				</tr>
