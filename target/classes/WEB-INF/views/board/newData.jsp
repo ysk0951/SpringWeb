@@ -58,6 +58,7 @@ table {
 					<td colspan="4">
 						<input type="submit" value="등록">
 						<input type="reset" value="다시쓰기">
+						<input type="button" value="메인" onclick="window.location='/main'">&nbsp;
 					</td>
 				</tr>
 			</tbody> 

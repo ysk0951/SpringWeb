@@ -365,9 +365,10 @@ footer{
 									</select>
 									<input type="text" name = "search">&nbsp;
 									<input type="submit" value="검색" >&nbsp;
+									<input type="button" value="전체글" onclick="window.location='/main'">&nbsp;
 									<!-- onclick="window.open('../signup/signupForm.jsp') -->
 									<!-- <Input type="button" value="관리자 모드(쿠키/세션/SpringSecurity)" >&nbsp; -->
-									<Input type="button" value="새글" onclick="window.open('newData')">&nbsp;
+									<Input type="button" value="새글" onclick="window.location='newData'">&nbsp;
 									<Input type="submit" value="삭제" >&nbsp;
 							</td> 
 						</tr>  
