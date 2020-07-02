@@ -86,6 +86,8 @@ public class ProjectController {
 		PageVO pageData = null;
 		String search = null;
 		String select = null;
+		System.out.println("[main paramTest :"+request.getParameter("select")+"]");
+		System.out.println("[main paramTest :"+request.getParameter("search")+"]");
 		
 		try {
 			//DB접속해서 총게시물의 갯수를 가져옴
@@ -222,6 +224,8 @@ public class ProjectController {
 				service.delete(Integer.parseInt(delete[i]));
 			} 
 		}
+		System.out.println("Delete Throw");
+		
 		return "redirect:/main";
 	}
 	
