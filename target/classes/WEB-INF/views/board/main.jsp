@@ -361,15 +361,19 @@ footer{
 						<tr>
 							<td colspan="6" align="center" >
 								<form>
-									<input type="text" >&nbsp;
-									<input type="button" value="검색" onclick="window.location.href='main'">&nbsp;
+									<select name = "select">
+										<option value="프로젝트이름">프로젝트이름</option>
+										<option value="프로젝트구현내용">프로젝트구현내용</option>
+									</select>
+									<input type="text" name = "search">&nbsp;
+									<input type="submit" value="검색" >&nbsp;
 									<!-- onclick="window.open('../signup/signupForm.jsp') -->
-									<Input type="button" value="관리자 모드(쿠키/세션/SpringSecurity)" >&nbsp;
+									<!-- <Input type="button" value="관리자 모드(쿠키/세션/SpringSecurity)" >&nbsp; -->
+								</form>
 									<Input type="button" value="새글" onclick="window.open('newData')">&nbsp;
 									<Input type="submit" value="삭제" >&nbsp;
-								</form>
 							</td> 
-						</tr> 
+						</tr>  
 						<tr>
 							<td colspan="6" align="center" >		
 								<c:if test="${nowLevel>0}">

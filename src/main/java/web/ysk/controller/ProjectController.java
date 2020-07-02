@@ -217,9 +217,11 @@ public class ProjectController {
 	public String deletePro(HttpServletRequest reqeust,HttpServletResponse response) throws Exception {
 		
 		String[] delete = reqeust.getParameterValues("delete");
-		for(int i=0;i<delete.length;i++) {
-			service.delete(Integer.parseInt(delete[i]));
-		} 
+		if(delete!=null) {
+			for(int i=0;i<delete.length;i++) {
+				service.delete(Integer.parseInt(delete[i]));
+			} 
+		}
 		return "redirect:/main";
 	}
 	
