@@ -84,6 +84,9 @@ public class ProjectController {
 		//pager를 위한것
 		int rowCount =0;
 		PageVO pageData = null;
+		String search = null;
+		String select = null;
+		
 		try {
 			//DB접속해서 총게시물의 갯수를 가져옴
 			rowCount = service.selectRowCount();
@@ -92,6 +95,13 @@ public class ProjectController {
 			Pager pager = new Pager(rowCount);
 			pageData = pager.pageCal();
 			List<ProjectVO> list = service.listSearch();//
+			
+			//검색시
+			//rowCount = service.selectRowCount();
+			//Pager pager = new Pager(rowCount);
+			//pageData = pager.pageCal();
+			//List<ProjectVO> list = service.listSearch();//
+			
 			
 			model.addAttribute("list", list);
 			model.addAttribute("pageData",pageData);
