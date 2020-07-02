@@ -22,6 +22,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -75,8 +76,9 @@ public class ProjectController {
 		return "board/error";
 	} 
 	
-	@RequestMapping(value="/main", method=RequestMethod.GET)
-	public String projectList(Model model, HttpServletRequest request) {
+	@RequestMapping(value="/main", method= {RequestMethod.GET , RequestMethod.POST})
+	public String projectList(Model model, HttpServletRequest request,
+			@ModelAttribute("select")String select,@ModelAttribute("search")String search) throws Exception{
 		
 		//session - 관리자
 		//HttpSession httpSession = request.getSession();
@@ -84,11 +86,11 @@ public class ProjectController {
 		//pager를 위한것
 		int rowCount =0;
 		PageVO pageData = null;
-		String search = null;
-		String select = null;
-		System.out.println("[main paramTest :"+request.getParameter("select")+"]");
-		System.out.println("[main paramTest :"+request.getParameter("search")+"]");
 		
+		//검색일경우
+		System.out.println("[main modelAttribute :"+ search+"]");
+		System.out.println("[main modelAttribute :"+ select+"]");
+		 
 		try {
 			//DB접속해서 총게시물의 갯수를 가져옴
 			rowCount = service.selectRowCount();
@@ -216,7 +218,7 @@ public class ProjectController {
 	} 
 	
 	@RequestMapping(value="/deletePro" ,method=RequestMethod.POST)
-	public String deletePro(HttpServletRequest reqeust,HttpServletResponse response) throws Exception {
+	public String deletePro(HttpServletRequest reqeust,HttpServletResponse response,Model model) throws Exception {
 		
 		String[] delete = reqeust.getParameterValues("delete");
 		if(delete!=null) {
@@ -225,42 +227,19 @@ public class ProjectController {
 			} 
 		}
 		System.out.println("Delete Throw");
-		System.out.println("[main paramTest :"+reqeust.getParameter("select")+"]");
-		System.out.println("[main paramTest :"+reqeust.getParameter("search")+"]");
+		
+		System.out.println("[DeletePro paramTest :"+reqeust.getParameter("select")+"]");
+		System.out.println("[DeletePro paramTest :"+reqeust.getParameter("search")+"]");
+		String select = reqeust.getParameter("select");
+		String search = reqeust.getParameter("search");
+		
+		if(search!="") {
+			model.addAttribute("select",select);
+			model.addAttribute("search",search);
+			System.out.println("!null");
+		}else {
+			System.out.println("null");
+		}
 		return "redirect:/main";
 	}
-	
-//  다중파일로 변경시 적용
-//	게시판 수정 뷰
-//	@RequestMapping(value = "/updateView", method = RequestMethod.GET)
-//	public String updateView(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model)
-//			throws Exception {
-//		logger.info("updateView");
-//
-//		model.addAttribute("update", service.read(boardVO.getBno()));
-//		model.addAttribute("scri", scri);
-//
-//		List<Map<String, Object>> fileList = service.selectFileList(boardVO.getBno());
-//		model.addAttribute("file", fileList);
-//		return "board/updateView";
-//	}
-//
-//	// 게시판 수정
-//	@RequestMapping(value = "/update", method = RequestMethod.POST)
-//	public String update(BoardVO boardVO, 
-//						 @ModelAttribute("scri") SearchCriteria scri, 
-//						 RedirectAttributes rttr,
-//						 @RequestParam(value="fileNoDel[]") String[] files,
-//						 @RequestParam(value="fileNameDel[]") String[] fileNames,
-//						 MultipartHttpServletRequest mpRequest) throws Exception {
-//		logger.info("update");
-//		service.update(boardVO, files, fileNames, mpRequest);
-//
-//		rttr.addAttribute("page", scri.getPage());
-//		rttr.addAttribute("perPageNum", scri.getPerPageNum());
-//		rttr.addAttribute("searchType", scri.getSearchType());
-//		rttr.addAttribute("keyword", scri.getKeyword());
-//
-//		return "redirect:/board/list";
-//	}
 }
