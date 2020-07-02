@@ -55,7 +55,7 @@ public class ProjectDAOImpl implements ProjectDAO {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("select", select);
 		map.put("search",search);
-		return sqlSession.selectOne("boardMapper.selectRowCount",map);
+		return sqlSession.selectOne("boardMapper.selectRowCountSearch",map);
 	}
 	@Override
 	public void boardHit(int bno) throws Exception {
