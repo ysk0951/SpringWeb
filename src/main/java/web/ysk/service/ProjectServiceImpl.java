@@ -122,12 +122,14 @@ public class ProjectServiceImpl implements ProjectService{
 			int seq = dao.selectSeqOfProjectTB();
 			dao.alterbnoFiletable(seq);
 		}
-		
+		 
 		//삭제 박스값 받아 삭제처리
 		String[] deletebox = mpRequest.getParameterValues("delete");
-		for(int i = 0 ; i < deletebox.length;i++) {
-			System.out.println("VALUE : FileNO : "+deletebox[i]);
-			dao.deleteFiles(Integer.parseInt(deletebox[i]));
+		if(deletebox!=null) {
+			for(int i = 0 ; i < deletebox.length;i++) {
+				System.out.println("VALUE : FileNO : "+deletebox[i]);
+				dao.deleteFiles(Integer.parseInt(deletebox[i]));
+			}
 		}
 	}
 }

@@ -201,7 +201,7 @@ public class ProjectController {
 		response.getOutputStream().write(fileByte);
 		response.getOutputStream().flush();
 		response.getOutputStream().close();
-	}
+	} 
 	
 	@RequestMapping(value="/deletePro" ,method=RequestMethod.POST)
 	public String deletePro(HttpServletRequest reqeust,HttpServletResponse response) throws Exception {
