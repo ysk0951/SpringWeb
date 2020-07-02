@@ -110,10 +110,8 @@ public class ProjectController {
 				pageData = pager.pageCal();
 				list = service.listSearch();
 			}
-			
 			model.addAttribute("list", list);
 			model.addAttribute("pageData",pageData);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
