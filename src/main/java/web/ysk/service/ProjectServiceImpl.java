@@ -33,38 +33,16 @@ public class ProjectServiceImpl implements ProjectService{
 	@Autowired
 	private ProjectDAO projectdao;
 	
+	//create
 	@Override
-	public List<ProjectVO> listSearch() throws Exception{
-		return dao.listSearch();
+	public void create(ProjectVO vo) throws Exception {
+		dao.create(vo);
 	}
 	@Override
-	public List<ProjectVO> listSearch(String select,String search) throws Exception{
-		return dao.listSearch(select,search);
-	}
-	
-	//Detail읽을때마다 트랜잭션 처리
-	@Transactional(isolation = Isolation.READ_COMMITTED)
-	@Override
-	public ProjectVO listDetail(int no) throws Exception {
-					   //Transaciton
-					   dao.boardHit(no);
-		ProjectVO vo = dao.listDetail(no);
-		return vo;
-	}
-	@Override
-	public int selectRowCount() throws Exception{
+	public void alterbnoFiletable(int seq) throws Exception {
 		// TODO Auto-generated method stub
-		int selectRowCount = dao.selectRowCount();
-		return selectRowCount;
+		dao.alterbnoFiletable(seq);
 	}
-	
-	@Override
-	public int selectRowCount(String select,String search) throws Exception{
-		// TODO Auto-generated method stub
-		int selectRowCount = dao.selectRowCount(select,search);
-		return selectRowCount;
-	}
-	
 	@Override
 	public void submitNewData(ProjectVO vo, MultipartHttpServletRequest mpRequest) throws Exception {
 		dao.create(vo);
@@ -85,43 +63,15 @@ public class ProjectServiceImpl implements ProjectService{
 			System.out.println("파일 첫 추가시 bno 변경"+seq);
 		}
 	}
-	@Override
-	public void create(ProjectVO vo) throws Exception {
-		dao.create(vo);
-	}
-	@Override
-	public List<Map<String,Object>> selectFileList(int bno) throws Exception {
-		return dao.selectFileList(bno);
-	}
+	
+	//update
 	@Override
 	public void update(ProjectVO vo) throws Exception {
 		
 	}
 	@Override
-	public void delete(int num) throws Exception {
-		dao.delete(num);
-	}
-
-	@Override
-	public void alterbnoFiletable(int seq) throws Exception {
-		// TODO Auto-generated method stub
-		dao.alterbnoFiletable(seq);
-	}
-	
-	//첨부파일 다운로드
-	@Override
-	public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
-		return dao.selectFileInfo(map);
-	}
-
-	@Override
 	public void modifyData(ProjectVO vo,MultipartHttpServletRequest mpRequest) throws Exception {
-		
-		
 		dao.update(vo); //게시글을 업데이트 
-
-		
-		
 		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(vo,mpRequest);
 		Map<String,Object> tempMap = null;
 		int size = list.size(); 
@@ -142,5 +92,50 @@ public class ProjectServiceImpl implements ProjectService{
 				dao.deleteFiles(Integer.parseInt(deletebox[i]));
 			}
 		}
+	}
+	
+	//read
+	@Override
+	public int selectRowCount() throws Exception{
+		// TODO Auto-generated method stub
+		int selectRowCount = dao.selectRowCount();
+		return selectRowCount;
+	}
+	@Override
+	public int selectRowCount(String select,String search) throws Exception{
+		// TODO Auto-generated method stub
+		int selectRowCount = dao.selectRowCount(select,search);
+		return selectRowCount;
+	}
+	//Detail Transaction
+	@Transactional(isolation = Isolation.READ_COMMITTED)
+	@Override
+	public ProjectVO listDetail(int no) throws Exception {
+					   //Transaciton
+					   dao.boardHit(no);
+		ProjectVO vo = dao.listDetail(no);
+		return vo;
+	}
+	@Override
+	public List<ProjectVO> listSearch() throws Exception{
+		return dao.listSearch();
+	}
+	@Override
+	public List<ProjectVO> listSearch(String select,String search) throws Exception{
+		return dao.listSearch(select,search);
+	}
+	@Override
+	public List<Map<String,Object>> selectFileList(int bno) throws Exception {
+		return dao.selectFileList(bno);
+	}
+	//첨부파일다운로드
+	@Override
+	public Map<String, Object> selectFileInfo(Map<String, Object> map) throws Exception {
+		return dao.selectFileInfo(map);
+	}
+	//delete
+	@Override
+	public void delete(int num) throws Exception {
+		dao.delete(num);
 	}
 }

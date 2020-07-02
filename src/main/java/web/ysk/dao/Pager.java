@@ -3,6 +3,7 @@ package web.ysk.dao;
 import web.ysk.vo.PageVO;
 
 public class Pager {
+	
 	//pager
 	//한테이블당 게시물 갯수
 	private static final int displayRow = 7;
@@ -17,7 +18,6 @@ public class Pager {
 		//특정 ROW 기준으로하는 현재 페이지
 		// ex) 19/7 >>2 5/7 >> 3페이지의 위에서 5번째의 게시물이 되어야함
 		// 2.xxxx 올림 3
-		// 이게지금 문제
 		int currentPage = (int)Math.ceil((double)rowCount/displayRow);
 		
 		// 현재페이지에서의 게시물 시작위치
@@ -54,7 +54,5 @@ public class Pager {
 		pagerData.setOffset(offset);
 		pagerData.setIndexOfPage(indexOfPage);
 		return pagerData;
-		
-		//13/5
 	}
 }

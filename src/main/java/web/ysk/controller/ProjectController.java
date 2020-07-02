@@ -40,6 +40,7 @@ public class ProjectController {
 	@Inject 
 	ProjectService service;
 	
+	//profile
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -50,61 +51,26 @@ public class ProjectController {
 		return "board/home";
 	}
 	
-	@RequestMapping(value = "/submitNewData", method = {RequestMethod.GET ,RequestMethod.POST})
-	public String submitNewData(ProjectVO vo,MultipartHttpServletRequest mpRequest,HttpServletRequest request) throws Exception {
-		
-		logger.info("Submit newDataFile");
-		String projectname =(String) request.getParameter("prjectName");
-		String content = (String)request.getParameter("content");
-		vo.setProjectName(projectname);
-		vo.setContent(content);
-		service.submitNewData(vo,mpRequest);
-		return "redirect:/main";
-	}
-	
-	@RequestMapping(value = "/newData", method = {RequestMethod.GET ,RequestMethod.POST} )
-	public String newData(Locale locale, Model model,HttpServletRequest request) {
-		logger.info("newDataFile Format");
-		return "board/newData";
-	}
-	
-	@RequestMapping(value = "/error404", method = RequestMethod.GET)
-	public String error(HttpServletResponse response,Model model) {
-		response.setStatus(HttpServletResponse.SC_OK);
-		logger.warn("404 Error");
-		model.addAttribute("content", "1");
-		return "board/error";
-	} 
-	
+	//main [default/search]
 	@RequestMapping(value="/main", method= {RequestMethod.GET , RequestMethod.POST})
 	public String projectList(Model model, HttpServletRequest request,
 			@ModelAttribute("select")String select,@ModelAttribute("search")String search) throws Exception{
 		
-		//session - 관리자
-		//HttpSession httpSession = request.getSession();
-		
-		//pager를 위한 기본 데이터 선언
-		int rowCount =0; //DB접속해서 총게시물의 갯수를 가져옴
-		PageVO pageData = null; //총게시물의 갯수를 기준으로 Pager에 대한 데이터를 VO의 형태로 View에 전송
+		//pager data
+		int rowCount =0; //allcount
+		PageVO pageData = null; //pagerdata in VO
 		Pager pager = null;
 		List<ProjectVO> list = null;
-		
-		//검색일경우
-		System.out.println("[main modelAttribute select :"+ select+"]");
-		System.out.println("[main modelAttribute search :"+ search+"]");
 		 
 		try {
 			if(!search.equals("")) {
-				//검색시 
-				System.out.println("검색ON");
+				//search
 				rowCount = service.selectRowCount(select,search);
-				System.out.println("[Search Service RowCount Test :"+rowCount+"]");
 				pager = new Pager(rowCount);
 				pageData = pager.pageCal();
 				list = service.listSearch(select,search);
 			}else {
 				//Default
-				System.out.println("검색OFF");
 				rowCount = service.selectRowCount();
 				pager = new Pager(rowCount);
 				pageData = pager.pageCal();
@@ -117,84 +83,81 @@ public class ProjectController {
 		}
 		return "board/main";
 	}
-	
+
+	//content
 	@RequestMapping(value="/main/detail", method=RequestMethod.GET)
 	public String projectDetail(Model model, HttpServletRequest request) throws Exception {
-	
 			ProjectVO vo = null;
-
 			String num = request.getParameter("num");
-			vo = service.listDetail(Integer.parseInt(num));//NULLPOINT
+			vo = service.listDetail(Integer.parseInt(num));
 			List<Map<String,Object>> files = service.selectFileList(Integer.parseInt(num));
 			
-			if(files.size()>0) {
-				Map<String,Object> map = files.get(0);
-				for(Map.Entry<String,Object> entry :map.entrySet()) {
-					System.out.println("[KEY : "+entry.getKey()+"]"+"[Value : "+entry.getValue()+"]");
-				}
-			}
+			//View Model(VO/NUM/FILES)
 			model.addAttribute("vo", vo);
 			model.addAttribute("num", num);
 			model.addAttribute("files", files);
 			return "board/detail";
 	}
 	
+	//insertData Form
+	@RequestMapping(value = "/newData", method = {RequestMethod.GET ,RequestMethod.POST} )
+	public String newData(Locale locale, Model model,HttpServletRequest request) {
+		logger.info("newDataFile Format");
+		return "board/newData";
+	}
+	
+	//insertData
+	@RequestMapping(value = "/submitNewData", method = {RequestMethod.GET ,RequestMethod.POST})
+	public String submitNewData(ProjectVO vo,MultipartHttpServletRequest mpRequest,HttpServletRequest request) throws Exception {
+		logger.info("Submit newDataFile");
+		String projectname =(String) request.getParameter("prjectName");
+		String content = (String)request.getParameter("content");
+		vo.setProjectName(projectname);
+		vo.setContent(content);
+		service.submitNewData(vo,mpRequest);
+		return "redirect:/main";
+	}
+	
+	//error 404 page
+	@RequestMapping(value = "/error404", method = RequestMethod.GET)
+	public String error(HttpServletResponse response,Model model) {
+		response.setStatus(HttpServletResponse.SC_OK);
+		logger.warn("404 Error");
+		model.addAttribute("content", "1");
+		return "board/error";
+	} 
+	
+	//modifyForm
 	@RequestMapping(value = "/modifyForm" , method=RequestMethod.POST)
 	public String modifyForm(Model model, HttpServletRequest request) throws Exception{
 		
 		//Detail Source
 		ProjectVO vo = null;
-
 		String num = request.getParameter("num");
-		System.out.println("MODIFY TEST Param num: "+num);
-		
-		vo = service.listDetail(Integer.parseInt(num));//NULLPOINT
+		vo = service.listDetail(Integer.parseInt(num));
 		List<Map<String,Object>> files = service.selectFileList(Integer.parseInt(num));
-		System.out.println("MODIFY LOG NUM : "+num);
-		System.out.println("MODIFY LOG vo : "+vo);
-		System.out.println("MODIFY LOG files : "+files.size());
-		
-		if(files.size()>0) {
-			Map<String,Object> map = files.get(0);
-			for(Map.Entry<String,Object> entry :map.entrySet()) {
-				System.out.println(" MODIFY DETAIL LOG : [KEY : "+entry.getKey()+"]"+"[Value : "+entry.getValue()+"]");
-			}
-		}
 		model.addAttribute("vo", vo);
 		model.addAttribute("num", num);
+		
+		//fileSet
 		if(files.size()>0) {
 			model.addAttribute("files", files);
 		}
 		return "board/modifyForm";
 	} 
 	
-	/////////////////////////////////////////////////////////////////////////////////////
+	//modifyPro
 	@RequestMapping(value="modifyPro", method=RequestMethod.POST)
 	public String modifyPro(ProjectVO vo,HttpServletRequest request,
 			 MultipartHttpServletRequest mpRequest) throws Exception {
 	 
 		logger.info("modifyPro DataFile");
-		
-		
 		String projectname =(String) request.getParameter("projectName");
 		String content = (String)request.getParameter("content");
-		System.out.println("ModifyProDATA : "+projectname+content);
 		vo.setProjectName(projectname);
 		vo.setContent(content);
 		service.modifyData(vo,mpRequest);
-		
 		return "redirect:/main";
-	}
-	
-	//Mybatis Testing
-	@RequestMapping(value="/mainT", method=RequestMethod.GET)
-	public String projectListTest(Model model, HttpServletRequest request) throws Exception{
-		List<ProjectVO> list = service.listSearch();//
-		int count = service.selectRowCount();
-		model.addAttribute("list", list);
-		model.addAttribute("count", count);
-		
-		return "board/mainTest"; 
 	}
 	
 	//file DownLoad
@@ -204,12 +167,13 @@ public class ProjectController {
 		String storedFileName = (String) resultMap.get("STORED_FILE_NAME");
 		String originalFileName = (String) resultMap.get("ORG_FILE_NAME");
 		
+		//filepath at studyRoom
 		String path = "C:\\Program Files\\Git\\tmp\\";
+		//filepath at home
 		//String path = "D:\\web\\";
-		// 파일을 저장했던 위치에서 첨부파일을 읽어 byte[]형식으로 변환한다.
-		byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File(path+storedFileName));
 		
 		// downloadFileStream logic
+		byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File(path+storedFileName));
 		response.setContentType("application/octet-stream");
 		response.setContentLength(fileByte.length);
 		response.setHeader("Content-Disposition",  "attachment; fileName=\""+URLEncoder.encode(originalFileName, "UTF-8")+"\";");
@@ -217,7 +181,8 @@ public class ProjectController {
 		response.getOutputStream().flush();
 		response.getOutputStream().close();
 	} 
-	
+
+	//deletpro
 	@RequestMapping(value="/deletePro" ,method=RequestMethod.POST)
 	public String deletePro(HttpServletRequest reqeust,HttpServletResponse response,Model model) throws Exception {
 		
@@ -227,13 +192,11 @@ public class ProjectController {
 				service.delete(Integer.parseInt(delete[i]));
 			} 
 		}
-		System.out.println("Delete Throw");
 		
-		System.out.println("[DeletePro paramTest :"+reqeust.getParameter("select")+"]");
-		System.out.println("[DeletePro paramTest :"+reqeust.getParameter("search")+"]");
+		//one submit button >> mainSearch or delete
+		//case mainSearch
 		String select = reqeust.getParameter("select");
 		String search = reqeust.getParameter("search");
-		
 		if(search!="") {
 			model.addAttribute("select",select);
 			model.addAttribute("search",search);
