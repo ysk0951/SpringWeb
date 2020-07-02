@@ -155,17 +155,18 @@ public class ProjectController {
 	
 	/////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping(value="modifyPro", method=RequestMethod.POST)
-	public String modifyPro(ProjectVO vo,HttpServletRequest request, MultipartHttpServletRequest mpRequest) throws Exception {
-	
-		logger.info("modifyPro DataFile"); 
+	public String modifyPro(ProjectVO vo,HttpServletRequest request,
+			 MultipartHttpServletRequest mpRequest) throws Exception {
+	 
+		logger.info("modifyPro DataFile");
+		
+		
 		String projectname =(String) request.getParameter("projectName");
 		String content = (String)request.getParameter("content");
 		System.out.println("ModifyProDATA : "+projectname+content);
 		vo.setProjectName(projectname);
 		vo.setContent(content);
-		String[] files = null;
-		String[] fileNames = null; 
-		service.modifyData(vo,files,fileNames,mpRequest);
+		service.modifyData(vo,mpRequest);
 		
 		return "redirect:/main";
 	}
@@ -188,8 +189,8 @@ public class ProjectController {
 		String storedFileName = (String) resultMap.get("STORED_FILE_NAME");
 		String originalFileName = (String) resultMap.get("ORG_FILE_NAME");
 		
-		String path = "C:\\Program Files\\Git\\tmp\\";
-		//String path = AT HOME;
+		//String path = "C:\\Program Files\\Git\\tmp\\";
+		String path = "D:\\web\\";
 		// 파일을 저장했던 위치에서 첨부파일을 읽어 byte[]형식으로 변환한다.
 		byte fileByte[] = org.apache.commons.io.FileUtils.readFileToByteArray(new File(path+storedFileName));
 		
@@ -208,7 +209,7 @@ public class ProjectController {
 		String[] delete = reqeust.getParameterValues("delete");
 		for(int i=0;i<delete.length;i++) {
 			service.delete(Integer.parseInt(delete[i]));
-		}
+		} 
 		return "redirect:/main";
 	}
 	

@@ -104,28 +104,30 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
-	public void modifyData(ProjectVO vo, String[] files, String[] fileNames,MultipartHttpServletRequest mpRequest) throws Exception {
+	public void modifyData(ProjectVO vo,MultipartHttpServletRequest mpRequest) throws Exception {
 		
-		dao.update(vo); //게시글을 업데이트
 		
-		//*****
-		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(vo,files,fileNames,mpRequest);
+		dao.update(vo); //게시글을 업데이트 
+
+		
+		
+		List<Map<String,Object>> list = fileUtils.parseInsertFileInfo(vo,mpRequest);
 		Map<String,Object> tempMap = null;
-		int size = list.size();
+		int size = list.size(); 
 		System.out.println("===ModifyData List size Log : "+ size);
 		for(int i=0;i<size;i++) {
 			tempMap = list.get(i);
-			if(tempMap.get("IS_NEW").equals("Y")) {
-				System.out.println("===ModifyData Y Log : insertFile");
-//				DB상 일치하는지 확인
-				dao.insertFile(tempMap);
-				int seq = dao.selectSeqOfProjectTB();
-				dao.alterbnoFiletable(seq);
-				System.out.println("File추가시bno변경"+seq);
-			}else {
-				System.out.println("===ModifyData Y Log : updateFile");
-				dao.updateFile(tempMap);
-			}
+			System.out.println("===ModifyData Y Log : insertFile");
+			dao.insertFile(tempMap);
+			int seq = dao.selectSeqOfProjectTB();
+			dao.alterbnoFiletable(seq);
+		}
+		
+		//삭제 박스값 받아 삭제처리
+		String[] deletebox = mpRequest.getParameterValues("delete");
+		for(int i = 0 ; i < deletebox.length;i++) {
+			System.out.println("VALUE : FileNO : "+deletebox[i]);
+			dao.deleteFiles(Integer.parseInt(deletebox[i]));
 		}
 	}
 }

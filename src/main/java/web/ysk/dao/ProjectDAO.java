@@ -23,4 +23,5 @@ public interface ProjectDAO {
 	public List<Map<String, Object>> selectFileList(int bno) throws Exception;
 	public int selectSeqOfProjectTB() throws Exception;
 	public Map<String, Object> selectFileInfo(Map<String,Object> map)throws Exception;
+	public int deleteFiles(int fileno) throws Exception;
 }

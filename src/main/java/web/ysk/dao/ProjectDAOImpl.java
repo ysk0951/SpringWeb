@@ -77,6 +77,11 @@ public class ProjectDAOImpl implements ProjectDAO {
 	public void updateFile(Map<String, Object> map)throws Exception {
 		//MODIFY
 		sqlSession.update("boardMapper.updateFile", map);
-	}
+	} 
+	@Override
+	public int deleteFiles(int num) throws Exception {
+		sqlSession.delete("boardMapper.deleteFilebycheck",num);
+		return 0;
+	} 
 }  
  

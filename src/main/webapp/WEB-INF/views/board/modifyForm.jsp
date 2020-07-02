@@ -38,6 +38,7 @@ table {
 		document.forms[0].action = "/fileDown";
 		document.forms[0].submit();
 	}
+	 
 </script>
 </head> 
 <body> 
@@ -46,7 +47,7 @@ table {
 			<thead>
 				<td class="leftCell">NO</td>
 				<td class="leftCell">프로젝트제목</td>
-				<td class="leftCell">기간</td>
+				<td class="leftCell">등록일</td>
 				<td class="leftCell">첨부파일</td>
 			</thead> 
 			<tbody>
@@ -61,14 +62,14 @@ table {
 								<a href="#" onclick="fn_fileDown('${files.FILE_NO}'); return false;">${files.ORG_FILE_NAME}</a>
 								(${files.FILE_SIZE}kb)
 								<c:set var="FILE_NO" value="${files.FILE_NO}" />
+								<input type="checkbox" name = "delete" value="${files.FILE_NO}">삭제</br>
 							</c:forEach>
 								<input type="hidden" id="FILE_NO" name="FILE_NO" value="HIDDENTAG FILE NO">
 							</form>
-						</c:if>
-						 <input multiple="multiple" type="file" name="file" value="파일추가"/>
-						<button type="button">파일제거</button>
+						 </c:if>
+						 <input multiple="multiple" type="file" name="file" />
 					</td>
-				</tr> 
+				</tr>  
 				<tr> 
 					<td colspan="4" width="500" height="500" style="text-align: left;">
 					<textarea rows="30" cols="78" name = "content" style="resize: none;">${vo.content}</textarea>
