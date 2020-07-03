@@ -274,6 +274,7 @@ footer{
 			<div  style="height: 100vh">
 				<div class="skillHeader">Skills</div>
 				<div class="skillItems">Launage</div>
+				<!-- 508 601 -->
 				<div class="skillItemsButton"><img src="/resources/img/java.png" height="100%"></div>
 				<div class="skillItems">Web-Skill</div>
 				<div class="skillItemsButton">ImageContainerWillbehere</div>
