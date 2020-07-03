@@ -100,7 +100,7 @@ a:hover {
 	justify-content: center;
 	font-family: 'Lobster', cursive;
 	font-size: xx-large;
-	height: 20%;
+	height: 10%;
 	border: 1px solid black;
 }
 .skillItems {
@@ -109,7 +109,16 @@ a:hover {
 	justify-content: center;
 	font-family: 'Lobster', cursive;
 	font-size: medium;
-	height: 8%;
+	height: 6%;
+	border: 1px solid black;
+}
+.skillItemsButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Lobster', cursive;
+	font-size: medium;
+	height: 12%;
 	border: 1px solid black;
 }
 .tableView{
@@ -265,15 +274,15 @@ footer{
 			<div  style="height: 100vh">
 				<div class="skillHeader">Skills</div>
 				<div class="skillItems">Launage</div>
-				<div class="skillItems">ImageContainerWillbehere</div>
+				<div class="skillItemsButton"><img src="/resources/img/java.png" height="100%"></div>
 				<div class="skillItems">Web-Skill</div>
-				<div class="skillItems">ImageContainerWillbehere</div>
+				<div class="skillItemsButton">ImageContainerWillbehere</div>
 				<div class="skillItems">FrameWork</div>
-				<div class="skillItems">ImageContainerWillbehere</div>
+				<div class="skillItemsButton">ImageContainerWillbehere</div>
 				<div class="skillItems">DataBase</div>
-				<div class="skillItems">ImageContainerWillbehere</div>
+				<div class="skillItemsButton">ImageContainerWillbehere</div>
 				<div class="skillItems">ETC</div>
-				<div class="skillItems">ImageContainerWillbehere</div>
+				<div class="skillItemsButton">ImageContainerWillbehere</div>
 			</div>
 		</div>
 		<div class="row" align="center" id="two" >
