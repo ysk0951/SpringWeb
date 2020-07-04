@@ -19,42 +19,7 @@
 <link href="/resources/css/homeNavigator.css"" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript"> 
-	$(function() {
-		var link = $('#navbar a.dot');
-		link.on('click', function(e) {
-			//href 속성을 통해, section id 타겟을 잡음
-			var target = $($(this).attr('href'));
-			//target section의 좌표를 통해 꼭대기로 이동
-			$('html, body').animate({
-				scrollTop : target.offset().top
-			}, 600);
-			//active 클래스 부여
-			$(this).addClass('active');
-			//앵커를 통해 이동할때, URL에 #id가 붙지 않도록 함.
-			e.preventDefault();
-		});
-		$(window).on('scroll', function() {
-			findPosition();
-		});
-		function findPosition() {
-			$('section')
-					.each(
-							function() {
-								if (($(this).offset().top - $(window)
-										.scrollTop()) < 20) {
-									link.removeClass('active');
-									$('#navbar')
-											.find(
-													'[data-scroll="'
-															+ $(this)
-																	.attr('id')
-															+ '"]').addClass(
-													'active');
-								}
-							});
-		}
-		findPosition();
-	});
+
 </script>
 <!--BootStrap/Font externalbyURL-->
 <title>Main</title>
@@ -62,58 +27,44 @@
 <%-------------------------------------------------[ToDo List]----------------------------------------------------%>
 <body>
 	<form action="deletePro" method="post">
-		<!--ScrollSPY구현
-	https://kutar37.tistory.com/entry/%EC%8A%A4%ED%81%AC%EB%A1%A4%EC%8A%A4%ED%8C%8C%EC%9D%B4scrollspy-%EA%B5%AC%ED%98%84 
-	-->
-		<nav id="navbar" class="navbar">
-			<ul class="nav-menu">
-				<li><a data-scroll="home" href="#home" class="dot active">
-						<span>Home</span>
-				</a></li>
-				<li><a data-scroll="one" href="#one" class="dot"> <span>Skills</span></a></li>
-				<li><a data-scroll="two" href="#two" class="dot"> <span>Project</span></a></li>
-				<li><a data-scroll="three" href="#three" class="dot"> <span>contect</span></a></li>
-			</ul>
-		</nav>
 		<%-- -------------------------------[Remote]------------------------------------------ --%>
-		<div class="	">
-			<div class="row align-items-center" id="home">
+		<div>
+			<div class="row align-items-center" >
 				<!--수정  style="height: 100%;" -->
 				<img src="/resources/img/homeIndex.jpg" class="img-fluid"
 					style="height: 100vh; width: 100vw" />
 			</div>
-			<div class="align-items-center" id="one">
-				<div style="height: 100vh; background-color: #1a1c2b">
-					<div class="skillHeader">Skills</div>
-					<div class="skillItems">Launage</div>
-					<!-- 508 601 -->
-					<div class="skillItemsButton">
-						<img src="/resources/img/java.png" class="imgButton">&nbsp;&nbsp;&nbsp;
-						<img src="/resources/img/javascript.png" class="imgButton">
-					</div>
-					<div class="skillItems">Web-Skill</div>
-					<div class="skillItemsButton">
-						<img src="/resources/img/css.png" class="imgButton">&nbsp;&nbsp;&nbsp;
-						<img src="/resources/img/html.png" class="imgButton">&nbsp;&nbsp;&nbsp;
-						<img src="/resources/img/javascript.png" class="imgButton">&nbsp;&nbsp;&nbsp;
-						<img src="/resources/img/boot.png" class="imgButton">
-					</div>
-					<div class="skillItems">FrameWork</div>
-					<div class="skillItemsButton">
-						<img src="/resources/img/spring.png" class="imgButton">
-					</div>
-					<div class="skillItems">DataBase</div>
-					<div class="skillItemsButton">
-						<img src="/resources/img/oracle.png" class="imgButton">
-						<img src="/resources/img/dbeaver.png" class="imgButton">
-					</div>
-					<div class="skillItems">ETC</div>
-					<div class="skillItemsButton">
-						<img src="/resources/img/git.png" class="imgButton">
-					</div>
+			<div style="height: 100vh; background-color: #1a1c2b">
+				<div class="skillHeader">Skills</div>
+				<div class="skillItems">Launage</div>
+				<!-- 508 601 -->
+				<div class="skillItemsButton">
+					<img src="/resources/img/java.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/javascript.png" class="imgButton">
+				</div>
+				<div class="skillItems">Web-Skill</div>
+				<div class="skillItemsButton">
+					<img src="/resources/img/css.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/html.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/javascript.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/boot.png" class="imgButton">
+				</div>
+				<div class="skillItems">FrameWork</div>
+				<div class="skillItemsButton">
+					<img src="/resources/img/spring.png" class="imgButton">
+				</div>
+				<div class="skillItems">DataBase</div>
+				<div class="skillItemsButton">
+					<img src="/resources/img/oracle.png" class="imgButton">
+					<img src="/resources/img/dbeaver.png" class="imgButton">
+				</div>
+				<div class="skillItems">ETC</div>
+				<div class="skillItemsButton">
+					<img src="/resources/img/git.png" class="imgButton">
 				</div>
 			</div>
-			<div class="row" align="center" id="two">
+			</div>
+			<div class="row" align="center" >
 				<%--pageIndex 설정--%>
 				<c:set value="${pageData.indexOfPage}" var="pageIndex" />
 				<%--nowLevel 설정--%>
@@ -150,7 +101,7 @@
 								<th>NO</th>
 								<th>프로젝트 이름</th>
 								<th>프로젝트 구현 내용</th>
-								<th>등록일</th>
+								<th>등록일</th> 
 								<th>조회수</th>
 								<th>삭제</th>
 							</tr>
@@ -249,7 +200,7 @@
 					</table>
 				</div>
 			</div>
-			<div class="row" align="center" id="three">
+			<div class="row" align="center" >
 				<div class="contact">
 					<div class="contect">[ Contact ]</div>
 					<div class="contect">[ yskimweb@google.com ]</div>
