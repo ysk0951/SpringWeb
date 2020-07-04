@@ -3,7 +3,7 @@ SpringWebportpolio
 
 ## SPRING 개인 PROJECT
 ## PROJECT CONTAINER
-## Since 20200520~~~~
+## 20200617~20200704
 
 ##SKILL
 BACK
@@ -21,3 +21,7 @@ BACK
   CSS(BOOTSTRAP)
   JAVASCRIPT
 ###
+
+DB를 빼고 Hosting Page로 사용할 예정입니다.
+DB를 빼기전 main : main.jsp
+DB를 빼고난 이후 main : mainHosting.jsp
