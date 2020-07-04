@@ -79,34 +79,46 @@ html, body {
 	text-align: 0;
 }
 
-.table>tbody>tr>td {
+table>tbody>tr>td {
 	vertical-align: middle;
 	height: 10%;
+	border: 3px solid #559AFC;
+	padding: 2px;
+	font-size:12pt; color:#559AFC;	
 }
 
-.table>thead>tr>th {
+table>thead>tr>th {
 	vertical-align: middle;
 	height: 10%;
+	border: 3px solid #559AFC;
+	font-size:15pt; color:#ffff;
+	FONT-FAMILY: 맑은 고딕,verdana,tahoma;	 
 }
-
+a{
+	padding: 20px;
+	font-size:10pt; 
+	color:#ffff;
+	FONT-FAMILY: 맑은 고딕,verdana,tahoma;
+		
+}
 a:link {
 	text-decoration: none;
-	color: black;
+	color:#ffff;
 }
 
 a:visited {
 	text-decoration: none;
-	color: black;
+	color:#ffff;
 }
 
 a:active {
 	text-decoration: none;
-	color: black;
+	color:#ffff;
 }
 
 a:hover {
 	text-decoration: underline;
-	color: blue;
+	color:#559AFC;
 }
 
 .skillHeader {
@@ -364,8 +376,11 @@ footer {
 				</c:choose>
 				<div class="tableView">
 					<!-- 가로를 줄이면 깨짐 수정필요 -->
-					<table border="1px solid"  style="height: 90%; width: 90%; border-color: white;
-					background-color: white; text-align: center; margin-left: auto; margin-right: auto;">
+					<table  
+					style=" border:3px solid #559AFC;
+					height: 90%; width: 90%; 
+					text-align: center; margin-left: auto;
+					margin-right: auto;">
 						<thead>
 							<tr>
 								<th>NO</th>
