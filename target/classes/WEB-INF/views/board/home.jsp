@@ -19,7 +19,8 @@
 		<h2>[ yskimweb@google.com ]</h2>
 		<hr>
 		<h2>The time on the server is ${serverTime}.</h2><hr>
-		<h2>TODO LIST Home		: VIEW/JQUERY(SCROLLSPY)/viewImg/hosting
+		<h2>JQUERY(SCROLLSPY)
+		portfolio ppt/hosting예정
 </body> 
 </html>
  
