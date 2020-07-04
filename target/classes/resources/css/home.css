@@ -1,5 +1,6 @@
 @charset "UTF-8";
 html, body {
+	scroll-behavior: smooth;
 	margin: 0;
 	height: 100%;
 	overflow: auto;
