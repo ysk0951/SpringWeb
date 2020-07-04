@@ -251,7 +251,7 @@
 			</div>
 			<div class="row" align="center" id="three">
 				<div class="contact">
-					<div class="contect">[ Contect ]</div>
+					<div class="contect">[ Contact ]</div>
 					<div class="contect">[ yskimweb@google.com ]</div>
 				</div>
 			</div>
