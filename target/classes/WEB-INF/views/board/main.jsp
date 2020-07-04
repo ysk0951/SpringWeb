@@ -28,10 +28,12 @@
 <body>
 	<form action="deletePro" method="post">
 			<nav>
-			  <a href="#homeForNavigator" >HOME</a>
-			  <a href="#skillForNavigator" >SKILLS</a>
-			  <a href="#projectForNavigator" >PROJECT</a>
-			  <a href="#contactForNavigator" >CONTACT</a>
+				<div class="background">
+					<a href="#homeForNavigator" >HOME</a>
+					<a href="#skillForNavigator" >SKILLS</a>
+					<a href="#projectForNavigator" >PROJECT</a>
+					<a href="#contactForNavigator" >CONTACT</a>
+			  	</div>
 			</nav> 	
 			<div class="row align-items-center" id="homeForNavigator">
 				<!--수정  style="height: 100%;" -->
