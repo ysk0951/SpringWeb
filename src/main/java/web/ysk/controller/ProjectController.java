@@ -206,4 +206,11 @@ public class ProjectController {
 		}
 		return "redirect:/main";
 	}
-}
+	
+	//test
+	@RequestMapping(value="/test" ,method= {RequestMethod.POST,RequestMethod.GET})
+	public String test(HttpServletRequest reqeust,HttpServletResponse response,Model model) throws Exception {
+		
+		return "board/test";
+	}
+} 

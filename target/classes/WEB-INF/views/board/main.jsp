@@ -18,9 +18,6 @@
 <link href="/resources/css/home.css"" rel="stylesheet" type="text/css">
 <link href="/resources/css/homeNavigator.css"" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery.min.js"></script>
-<script type="text/javascript"> 
-
-</script>
 <!--BootStrap/Font externalbyURL-->
 <title>Main</title>
 </head>
@@ -28,13 +25,12 @@
 <body>
 	<form action="deletePro" method="post">
 		<%-- -------------------------------[Remote]------------------------------------------ --%>
-		<div>
-			<div class="row align-items-center" >
+			<div class="row align-items-center" id="homeForNavigator">
 				<!--수정  style="height: 100%;" -->
 				<img src="/resources/img/homeIndex.jpg" class="img-fluid"
 					style="height: 100vh; width: 100vw" />
 			</div>
-			<div style="height: 100vh; background-color: #1a1c2b">
+			<div style="height: 100vh; background-color: #1a1c2b" id="skillForNavigator">
 				<div class="skillHeader">Skills</div>
 				<div class="skillItems">Launage</div>
 				<!-- 508 601 -->
@@ -63,7 +59,6 @@
 					<img src="/resources/img/git.png" class="imgButton">
 				</div>
 			</div>
-			</div>
 			<div class="row" align="center" >
 				<%--pageIndex 설정--%>
 				<c:set value="${pageData.indexOfPage}" var="pageIndex" />
@@ -89,7 +84,7 @@
 						<c:set var="end" value="${((nowLevel+1)*pageData.pageCount)}" />
 					</c:when>
 				</c:choose>
-				<div class="tableView">
+				<div class="tableView" id="projectForNavigator">
 					<!-- 가로를 줄이면 깨짐 수정필요 -->
 					<table  
 					style=" border:3px solid #559AFC;
@@ -201,12 +196,11 @@
 				</div>
 			</div>
 			<div class="row" align="center" >
-				<div class="contact">
+				<div class="contactBlock" id="contactForNavigator"> 
 					<div class="contect">[ Contact ]</div>
 					<div class="contect">[ yskimweb@google.com ]</div>
-				</div>
+				</div>  
 			</div>
-		</div>
 	</form>
 </body>
 </html>
