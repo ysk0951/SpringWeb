@@ -1,0 +1,138 @@
+@charset "UTF-8";
+html, body {
+	margin: 0;
+	height: 100%;
+	overflow: auto;
+}
+.col-sm-12 {
+	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
+	flex: 0, 1, 90%;
+}
+
+.row {
+	display: table;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0 auto;
+	text-align: 0;
+}
+
+table>tbody>tr>td {
+	vertical-align: middle;
+	height: 10%;
+	border: 3px solid #559AFC;
+	padding: 2px;
+	font-size:12pt; color:#559AFC;	
+}
+
+table>thead>tr>th {
+	vertical-align: middle;
+	height: 10%;
+	border: 3px solid #559AFC;
+	font-size:15pt; color:#ffff;
+	FONT-FAMILY: 맑은 고딕,verdana,tahoma;	 
+}
+a{
+	padding: 20px;
+	font-size:10pt; 
+	color:#ffff;
+	FONT-FAMILY: 맑은 고딕,verdana,tahoma;
+		
+}
+a:link {
+	text-decoration: none;
+	color:#ffff;
+}
+
+a:visited {
+	text-decoration: none;
+	color:#ffff;
+}
+
+a:active {
+	text-decoration: none;
+	color:#ffff;
+}
+
+a:hover {
+	text-decoration: underline;
+	color:#559AFC;
+}
+
+.skillHeader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Lobster', cursive;
+	font-size: xx-large;
+	color : #559AFC;
+	height: 10%;
+}
+
+.skillItems {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Lobster', cursive;
+	font-size: medium;
+	height: 6%;
+	color : #559AFC;
+}
+
+.skillItemsButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Lobster', cursive;
+	font-size: medium;
+	height: 12%;
+}
+
+.tableView {
+	width: 100vw;
+	height: 100vh;
+	display: table-cell;
+	padding: 10px;
+	vertical-align: middle;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #1a1c2b;
+}
+
+.contact {
+	height: 100vh;
+	width: 100vw;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #1a1c2b;
+}
+
+/* End Nav Styles */
+footer {
+	width: 100%;
+	height: 300px;
+	background-color: #181818;
+	color: white;
+	font-size: 50px;
+	text-align: center;
+	line-height: 300px;
+}
+
+.imgButton {
+	border-radius: 30px 30px;
+	height: 100%;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, .2), 0 3px 6px rgba(0, 0, 0, .2);
+}
+
+.contect {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Lobster', cursive;
+	font-size: 250%;
+	color : #559AFC;
+	height: 25%;
+}
