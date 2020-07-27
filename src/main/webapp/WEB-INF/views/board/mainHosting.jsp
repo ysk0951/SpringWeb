@@ -20,6 +20,16 @@
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <!--BootStrap/Font externalbyURL-->
 <title>Main</title>
+<style>
+.hostingTableFont >td>a{
+	padding: 0px;
+	font-size:calc(12px + 1.5vw);
+}
+.hostingThFont >th{
+	padding: 0px;
+	font-size:calc(12px + 1.5vw);
+}
+</style>
 </head>
 <script type="text/javascript">
 
@@ -100,14 +110,13 @@
 					style=" border:3px solid #559AFC;
 					height: 90%; width: 90%; 
 					text-align: center; margin-left: auto;
-					margin-right: auto;">
-						
-						<thead>
-							<tr>
-								<th>NO</th>
-								<th>프로젝트 이름</th>
-								<th>프로젝트 구현 내용</th>
-								<th>등록일</th> 
+					margin-right: auto;"> 
+						<thead> 
+							<tr class="hostingThFont">
+								<th style="width: 10%">NO</th>
+								<th style="width: 40%">프로젝트 이름</th>
+								<th style="width: 40%">프로젝트 구현 내용</th>
+								<th style="width: 10%">등록일</th> 
 							</tr>
 						</thead>
 						
@@ -136,26 +145,26 @@
 								<c:set var="endTd" value="0" />
 							</c:if>
 							
-							<%--TD zone FOR HOSTING--%>
-								<tr>
-									<td><a href="https://github.com/ysk0951/youtubeLectureContainer">3</a></td>
+							<%--TD zone FOR HOSTING--%> 
+								<tr class="hostingTableFont">
+									<td><a href="https://github.com/ysk0951/youtubeLectureContainer">4</a></td>
 									<td><a href="https://github.com/ysk0951/youtubeLectureContainer">YOUTUBE LECTURE CONTAINER</a></td>
 									<td><a href="https://github.com/ysk0951/youtubeLectureContainer">SpringMVC2,Mybatis,Google API(Oauth2.0,etc)</a></td>
 									<td><a href="https://github.com/ysk0951/youtubeLectureContainer">2020.08</a></td>
 								</tr>
-								<tr>
+								<tr class="hostingTableFont">
 									<td><a href="https://github.com/ysk0951/SpringWeb">3</a></td>
 									<td><a href="https://github.com/ysk0951/SpringWeb">Spring PROJECT CONTAINER</a></td>
 									<td><a href="https://github.com/ysk0951/SpringWeb">SpringMVC2,Mybatis</a></td>
 									<td><a href="https://github.com/ysk0951/SpringWeb">2020.07</a></td>
 								</tr>
-								<tr>
+								<tr class="hostingTableFont">
 									<td><a href="https://github.com/ysk0951/codinnnnng">2</a></td>
 									<td><a href="https://github.com/ysk0951/codinnnnng">BeginVegan</a></td>
 									<td><a href="https://github.com/ysk0951/codinnnnng">JSP MODEL1 Project</a></td>
 									<td><a href="https://github.com/ysk0951/codinnnnng">2020.07</a></td>
 								</tr>
-								<tr>
+								<tr class="hostingTableFont">
 									<td><a href="https://github.com/ysk0951/NcsStudy">1</a></td>
 									<td><a href="https://github.com/ysk0951/NcsStudy">NCS STUDY</a></td>
 									<td><a href="https://github.com/ysk0951/NcsStudy">NCS국가직무교육 교육소스</a></td>
