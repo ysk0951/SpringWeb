@@ -23,8 +23,8 @@
 <style>
 .hostingTableFont >td>a{
 	padding: 0px;
-	font-size:calc(12px + 1.5vw);
-}
+	font-size:calc(8px + 1.5vw);
+} 
 .hostingThFont >th{
 	padding: 0px;
 	font-size:calc(12px + 1.5vw);
@@ -119,7 +119,6 @@
 								<th style="width: 10%">등록일</th> 
 							</tr>
 						</thead>
-						
 						<tbody>
 							<%--첫메인값 예외처리 --%>
 							
