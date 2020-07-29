@@ -80,30 +80,9 @@
 				</div>
 			</div>
 			<div class="row" align="center" >
-				<%--pageIndex 설정--%>
-				<c:set value="${pageData.indexOfPage}" var="pageIndex" />
-				<%--nowLevel 설정--%>
-				<c:set var="nowLevel" value="0" />
-				<%--이전/다음버튼관련 param값으로 nowLevel 재할당--%>
-				<c:choose>
-					<c:when test="${empty param.nowLevel}">
-						<c:set var="nowLevel" value="0" />
-					</c:when>
-					<c:when test="${!empty param.nowLevel}">
-						<c:set var="nowLevel" value="${param.nowLevel}" />
-					</c:when>
-				</c:choose>
-				<%--End변수 설정--%>
-				<c:choose>
-					<c:when
-						test="${((nowLevel+1)*pageData.pageCount)>pageData.lastPage}">
-						<c:set var="end" value="${pageData.lastPage}" />
-					</c:when>
-					<c:when
-						test="${((nowLevel+1)*pageData.pageCount)<pageData.lastPage}">
-						<c:set var="end" value="${((nowLevel+1)*pageData.pageCount)}" />
-					</c:when>
-				</c:choose>
+				
+				
+				
 				<div class="tableView" id="projectForNavigator">
 					<!-- 가로를 줄이면 깨짐 수정필요 -->
 					<table  
@@ -120,36 +99,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							<%--첫메인값 예외처리 --%>
-							
-							<c:choose>
-								<c:when test="${empty param.currentPage}">
-									<c:set var="beginTd" value="0" />
-									<c:set var="endTd" value="${pageData.displayRow-1}" />
-								</c:when>
-								<c:when test="${!empty param.currentPage}">
-									<c:set var="beginTd"
-										value="${(param.currentPage-1)*pageData.displayRow}" />
-									<c:set var="endTd"
-										value="${(param.currentPage*pageData.displayRow)-1}" />
-								</c:when>
-							</c:choose>
-							
-							<c:if test="${endTd ge (pageData.rowCount-1)}">
-								<c:set var="endTd" value="${pageData.rowCount-1}" />
-							</c:if>
-
-							<%-- noData cover --%>
-							<c:if test="${beginTd ==0 and endTd < 0 }">
-								<c:set var="endTd" value="0" />
-							</c:if>
-							
 							<%--TD zone FOR HOSTING--%> 
 								<tr class="hostingTableFont">
-									<td><a href="https://github.com/ysk0951/youtubeLectureContainer">4</a></td>
-									<td><a href="https://github.com/ysk0951/youtubeLectureContainer">YOUTUBE LECTURE CONTAINER</a></td>
-									<td><a href="https://github.com/ysk0951/youtubeLectureContainer">SpringMVC2,Mybatis,Google API(Oauth2.0,etc)</a></td>
-									<td><a href="https://github.com/ysk0951/youtubeLectureContainer">2020.08</a></td>
+									<td><a href="https://ysk0951.github.io/SpringWeb">4</a></td>
+									<td><a href="https://ysk0951.github.io/SpringWeb">YOUTUBE LECTURE CONTAINER</a></td>
+									<td><a href="https://ysk0951.github.io/SpringWeb">SpringBoot,Mybatis,Google API(Oauth2.0,etc)</a></td>
+									<td><a href="https://ysk0951.github.io/SpringWeb">2020.08</a></td>
 								</tr>
 								<tr class="hostingTableFont">
 									<td><a href="https://ysk0951.github.io/SpringWeb">3</a></td>
@@ -170,7 +125,6 @@
 									<td><a href="https://github.com/ysk0951/NcsStudy">2020.05</a></td>
 								</tr>
 							<!--  -->
-							
 						</tbody>
 					</table>
 				</div>
