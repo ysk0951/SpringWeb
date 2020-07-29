@@ -152,10 +152,10 @@
 									<td><a href="https://github.com/ysk0951/youtubeLectureContainer">2020.08</a></td>
 								</tr>
 								<tr class="hostingTableFont">
-									<td><a href="https://github.com/ysk0951/SpringWeb">3</a></td>
-									<td><a href="https://github.com/ysk0951/SpringWeb">Spring PROJECT CONTAINER</a></td>
-									<td><a href="https://github.com/ysk0951/SpringWeb">SpringMVC2,Mybatis</a></td>
-									<td><a href="https://github.com/ysk0951/SpringWeb">2020.07</a></td>
+									<td><a href="https://ysk0951.github.io/SpringWeb">3</a></td>
+									<td><a href="https://ysk0951.github.io/SpringWeb/">Spring PROJECT CONTAINER</a></td>
+									<td><a href="https://ysk0951.github.io/SpringWeb/">SpringMVC2,Mybatis</a></td>
+									<td><a href="https://ysk0951.github.io/SpringWeb/">2020.07</a></td>
 								</tr>
 								<tr class="hostingTableFont">
 									<td><a href="https://github.com/ysk0951/codinnnnng">2</a></td>

@@ -16,7 +16,7 @@
 	href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
 	rel="stylesheet">
 <link href="/resources/css/home.css"" rel="stylesheet" type="text/css">
-<link href="/resources/css/homeNavigator.css"" rel="stylesheet" type="text/css">
+<link href="/resources/css/homeNavigator.css" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <!--BootStrap/Font externalbyURL-->
 <title>Main</title>
