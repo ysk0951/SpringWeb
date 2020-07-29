@@ -14,6 +14,8 @@
 <title>ERROR</title>
 </head>
 <body>
-	<img src="/resources/img/404Error.png" class="img-fluid" style="max-height: 100%; min-width: 100%">
+	<a href="/">
+		<img src="/resources/img/404.png" class="img-fluid" style="max-height: 100%; min-width: 100%">
+	</a>
 </body>
 </html>
