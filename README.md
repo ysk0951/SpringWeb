@@ -6,20 +6,19 @@ SpringWebportpolio
 ## 20200617~20200704
 
 ##SKILL
-BACK
-  SpringCRUD
-	paging
-	Errorpage
-	Mybatis
-	ConnectionPool
-	Transaction 
-	Security
-	FILE upload/download
- 
- FRONT
-  HTML
-  CSS(BOOTSTRAP)
-  JAVASCRIPT
+BACK  
+SpringCRUD  
+paging  
+Errorpage  
+Mybatis  
+ConnectionPool  
+Transaction   
+Security  
+FILE upload/download  
+FRONT  
+HTML  
+CSS(BOOTSTRAP)  
+JAVASCRIPT  
 ###
 
 DB를 빼고 Hosting Page로 사용할 예정입니다.
