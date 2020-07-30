@@ -101,10 +101,10 @@
 						<tbody>
 							<%--TD zone FOR HOSTING--%> 
 								<tr class="hostingTableFont">
-									<td><a href="https://ysk0951.github.io/SpringWeb">4</a></td>
-									<td><a href="https://ysk0951.github.io/SpringWeb">YOUTUBE LECTURE CONTAINER</a></td>
-									<td><a href="https://ysk0951.github.io/SpringWeb">SpringBoot,Mybatis,Google API(Oauth2.0,etc)</a></td>
-									<td><a href="https://ysk0951.github.io/SpringWeb">2020.08</a></td>
+									<td><a href="https://ysk0951.github.io/YLCB/">4</a></td>
+									<td><a href="https://ysk0951.github.io/YLCB/">YOUTUBE LECTURE CONTAINER</a></td>
+									<td><a href="https://ysk0951.github.io/YLCB/">SpringBoot,Mybatis,Google API(Oauth2.0,etc)</a></td>
+									<td><a href="https://ysk0951.github.io/YLCB/">2020.08</a></td>
 								</tr>
 								<tr class="hostingTableFont">
 									<td><a href="https://ysk0951.github.io/SpringWeb">3</a></td>
