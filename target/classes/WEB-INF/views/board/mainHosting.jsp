@@ -113,10 +113,10 @@
 									<td><a href="https://ysk0951.github.io/SpringWeb/">2020.07</a></td>
 								</tr>
 								<tr class="hostingTableFont">
-									<td><a href="https://github.com/ysk0951/codinnnnng">2</a></td>
-									<td><a href="https://github.com/ysk0951/codinnnnng">BeginVegan</a></td>
-									<td><a href="https://github.com/ysk0951/codinnnnng">JSP MODEL1 Project</a></td>
-									<td><a href="https://github.com/ysk0951/codinnnnng">2020.07</a></td>
+									<td><a href="https://ysk0951.github.io/BeginVegan/">2</a></td>
+									<td><a href="https://ysk0951.github.io/BeginVegan/">BeginVegan</a></td>
+									<td><a href="https://ysk0951.github.io/BeginVegan/">JSP MODEL1 Project</a></td>
+									<td><a href="https://ysk0951.github.io/BeginVegan/">2020.07</a></td>
 								</tr>
 								<tr class="hostingTableFont">
 									<td><a href="https://github.com/ysk0951/NcsStudy">1</a></td>
