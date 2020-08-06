@@ -64,14 +64,18 @@
 					<img src="/resources/img/html.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 					<img src="/resources/img/javascript.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 					<img src="/resources/img/boot.png" class="imgButton">
+					<img src="/resources/img/angular.png" class="imgButton">
 				</div>
 				<div class="skillItems">FrameWork</div>
 				<div class="skillItemsButton">
 					<img src="/resources/img/spring.png" class="imgButton">
+					<img src="/resources/img/express.png" class="imgButton">
+					<img src="/resources/img/node.png" class="imgButton">
 				</div>
 				<div class="skillItems">DataBase</div>
 				<div class="skillItemsButton">
 					<img src="/resources/img/oracle.png" class="imgButton">
+					<img src="/resources/img/mongo.png" class="imgButton">
 					<img src="/resources/img/dbeaver.png" class="imgButton">
 				</div>
 				<div class="skillItems">ETC</div>
