@@ -63,24 +63,23 @@
 					<img src="/resources/img/css.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 					<img src="/resources/img/html.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 					<img src="/resources/img/javascript.png" class="imgButton">&nbsp;&nbsp;&nbsp;
-					<img src="/resources/img/boot.png" class="imgButton">
-					<img src="/resources/img/angular.png" class="imgButton">
+					<img src="/resources/img/boot.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/angular.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="skillItems">FrameWork</div>
 				<div class="skillItemsButton">
-					<img src="/resources/img/spring.png" class="imgButton">
-					<img src="/resources/img/express.png" class="imgButton">
-					<img src="/resources/img/node.png" class="imgButton">
+					<img src="/resources/img/spring.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/express.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/node.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="skillItems">DataBase</div>
 				<div class="skillItemsButton">
-					<img src="/resources/img/oracle.png" class="imgButton">
-					<img src="/resources/img/mongo.png" class="imgButton">
-					<img src="/resources/img/dbeaver.png" class="imgButton">
+					<img src="/resources/img/oracle.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/mongo.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="skillItems">ETC</div>
 				<div class="skillItemsButton">
-					<img src="/resources/img/git.png" class="imgButton">
+					<img src="/resources/img/git.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 				</div>
 			</div>
 			<div class="row" align="center" >
