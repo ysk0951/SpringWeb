@@ -13,14 +13,14 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<!-- 데이터베이스 연결 -->
-	 
+	<!--
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@nullmaster.iptime.org:3000:ORCL" />
 		<property name="username" value="java06" />
 		<property name="password" value="java06" />
 	</bean> 
-	 
+	--> 
 	<!-- 
 	집URL 오라클에선 연결/mybatisURL부적합에러
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" >
