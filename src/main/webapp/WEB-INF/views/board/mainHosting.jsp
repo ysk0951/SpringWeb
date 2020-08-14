@@ -47,6 +47,7 @@
 			</nav> 	
 			<div class="row align-items-center" id="homeForNavigator">
 				<!--수정  style="height: 100%;" -->
+				<!-- 508 601  -->
 				<img src="/resources/img/homeIndex.jpg" class="img-fluid"
 					style="height: 100vh; width: 100vw" />
 			</div>
@@ -64,7 +65,7 @@
 					<img src="/resources/img/html.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 					<img src="/resources/img/javascript.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 					<img src="/resources/img/boot.png" class="imgButton">&nbsp;&nbsp;&nbsp;
-					<img src="/resources/img/angular.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/react.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="skillItems">FrameWork</div>
 				<div class="skillItemsButton">
@@ -106,7 +107,7 @@
 								<tr class="hostingTableFont">
 									<td><a href="https://ysk0951.github.io/NodeApp/">5</a></td>
 									<td><a href="https://ysk0951.github.io/NodeApp/">Node Developer App</a></td>
-									<td><a href="https://ysk0951.github.io/NodeApp/">Node,Express,Angular,MongoDB,Oauth2.0,etc</a></td>
+									<td><a href="https://ysk0951.github.io/NodeApp/">Node,Express,React,MongoDB,Oauth2.0,etc</a></td>
 									<td><a href="https://ysk0951.github.io/NodeApp/">2020.08</a></td>
 								</tr>
 								<tr class="hostingTableFont">

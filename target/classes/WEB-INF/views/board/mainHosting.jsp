@@ -47,6 +47,7 @@
 			</nav> 	
 			<div class="row align-items-center" id="homeForNavigator">
 				<!--수정  style="height: 100%;" -->
+				<!-- 508 601  -->
 				<img src="/resources/img/homeIndex.jpg" class="img-fluid"
 					style="height: 100vh; width: 100vw" />
 			</div>
@@ -63,20 +64,23 @@
 					<img src="/resources/img/css.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 					<img src="/resources/img/html.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 					<img src="/resources/img/javascript.png" class="imgButton">&nbsp;&nbsp;&nbsp;
-					<img src="/resources/img/boot.png" class="imgButton">
+					<img src="/resources/img/boot.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/react.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="skillItems">FrameWork</div>
 				<div class="skillItemsButton">
-					<img src="/resources/img/spring.png" class="imgButton">
+					<img src="/resources/img/spring.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/express.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/node.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="skillItems">DataBase</div>
 				<div class="skillItemsButton">
-					<img src="/resources/img/oracle.png" class="imgButton">
-					<img src="/resources/img/dbeaver.png" class="imgButton">
+					<img src="/resources/img/oracle.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/mongo.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 				</div>
 				<div class="skillItems">ETC</div>
 				<div class="skillItemsButton">
-					<img src="/resources/img/git.png" class="imgButton">
+					<img src="/resources/img/git.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 				</div>
 			</div>
 			<div class="row" align="center" >
@@ -101,6 +105,12 @@
 						<tbody>
 							<%--TD zone FOR HOSTING--%> 
 								<tr class="hostingTableFont">
+									<td><a href="https://ysk0951.github.io/NodeApp/">5</a></td>
+									<td><a href="https://ysk0951.github.io/NodeApp/">Node Developer App</a></td>
+									<td><a href="https://ysk0951.github.io/NodeApp/">Node,Express,React,MongoDB,Oauth2.0,etc</a></td>
+									<td><a href="https://ysk0951.github.io/NodeApp/">2020.08</a></td>
+								</tr>
+								<tr class="hostingTableFont">
 									<td><a href="https://ysk0951.github.io/YLCB/">4</a></td>
 									<td><a href="https://ysk0951.github.io/YLCB/">YOUTUBE LECTURE CONTAINER</a></td>
 									<td><a href="https://ysk0951.github.io/YLCB/">SpringBoot,Mybatis,Google API(Oauth2.0,etc)</a></td>
@@ -119,10 +129,10 @@
 									<td><a href="https://ysk0951.github.io/BeginVegan/">2020.07</a></td>
 								</tr>
 								<tr class="hostingTableFont">
-									<td><a href="https://github.com/ysk0951/NcsStudy">1</a></td>
-									<td><a href="https://github.com/ysk0951/NcsStudy">NCS STUDY</a></td>
-									<td><a href="https://github.com/ysk0951/NcsStudy">NCS국가직무교육 교육소스</a></td>
-									<td><a href="https://github.com/ysk0951/NcsStudy">2020.05</a></td>
+									<td><a href="https://ysk0951.github.io/NcsStudy/">1</a></td>
+									<td><a href="https://ysk0951.github.io/NcsStudy/">NCS STUDY</a></td>
+									<td><a href="https://ysk0951.github.io/NcsStudy/">NCS국가직무교육 교육소스</a></td>
+									<td><a href="https://ysk0951.github.io/NcsStudy/">2020.05</a></td>
 								</tr>
 							<!--  -->
 						</tbody>
