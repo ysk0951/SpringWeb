@@ -105,16 +105,10 @@
 						<tbody>
 							<%--TD zone FOR HOSTING--%> 
 								<tr class="hostingTableFont">
-									<td><a href="https://ysk0951.github.io/NodeApp/">5</a></td>
-									<td><a href="https://ysk0951.github.io/NodeApp/">Node Developer App</a></td>
-									<td><a href="https://ysk0951.github.io/NodeApp/">Node,Express,React,MongoDB,Oauth2.0,etc</a></td>
-									<td><a href="https://ysk0951.github.io/NodeApp/">2020.08</a></td>
-								</tr>
-								<tr class="hostingTableFont">
-									<td><a href="https://ysk0951.github.io/YLCB/">4</a></td>
-									<td><a href="https://ysk0951.github.io/YLCB/">YOUTUBE LECTURE CONTAINER</a></td>
-									<td><a href="https://ysk0951.github.io/YLCB/">SpringBoot,Mybatis,Google API(Oauth2.0,etc)</a></td>
-									<td><a href="https://ysk0951.github.io/YLCB/">2020.08</a></td>
+									<td><a href="https://ysk0951.github.io/SpringMVC/">4</a></td>
+									<td><a href="https://ysk0951.github.io/SpringMVC/">SpringMVC</a></td>
+									<td><a href="https://ysk0951.github.io/SpringMVC/">Spring,Mybatis,Google API(Oauth2.0,etc)</a></td>
+									<td><a href="https://ysk0951.github.io/SpringMVC/">2020.09</a></td>
 								</tr>
 								<tr class="hostingTableFont">
 									<td><a href="https://ysk0951.github.io/SpringWeb">3</a></td>
