@@ -57,7 +57,8 @@
 				<!-- 508 601 -->
 				<div class="skillItemsButton">
 					<img src="/resources/img/java.png" class="imgButton">&nbsp;&nbsp;&nbsp;
-					<img src="/resources/img/javascript.png" class="imgButton">
+					<img src="/resources/img/javascript.png" class="imgButton">&nbsp;&nbsp;&nbsp;
+					<img src="/resources/img/python.png" class="imgButton">
 				</div>
 				<div class="skillItems">Web-Skill</div>
 				<div class="skillItemsButton">
@@ -106,9 +107,9 @@
 							<%--TD zone FOR HOSTING--%> 
 								<tr class="hostingTableFont">
 									<td><a href="https://ysk0951.github.io/SpringMVC/">4</a></td>
-									<td><a href="https://ysk0951.github.io/SpringMVC/">SpringMVC</a></td>
-									<td><a href="https://ysk0951.github.io/SpringMVC/">Spring,Mybatis,Google API(Oauth2.0,etc)</a></td>
-									<td><a href="https://ysk0951.github.io/SpringMVC/">2020.09</a></td>
+									<td><a href="https://ysk0951.github.io/SpringMVC/">마시는녀석들</a></td>
+									<td><a href="https://ysk0951.github.io/SpringMVC/">Spring,Mybatis,KakaoAPI(Oauth2.0,etc),tiles</a></td>
+									<td><a href="https://ysk0951.github.io/SpringMVC/">2020.10</a></td>
 								</tr>
 								<tr class="hostingTableFont">
 									<td><a href="https://ysk0951.github.io/SpringWeb">3</a></td>
