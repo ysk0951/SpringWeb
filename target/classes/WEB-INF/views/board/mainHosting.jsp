@@ -48,12 +48,14 @@
 			<div class="row align-items-center" id="homeForNavigator">
 				<!--수정  style="height: 100%;" -->
 				<!-- 508 601  -->
-				<div style="height: 100vh; width: 100vw; background-color: #1a1c2b;">
+			<div style="display: flex; align-items: center; vertical-align: middle; height: 100vh; width: 100vw;
+			background: linear-gradient(#0c0d16 50%,#1a1c2b 50%); ">
 				<img src="/resources/img/homeIndex.jpg" class="img-fluid"
 					style="width: 100vw" />
-				</div>
 			</div>
-			<div style="height: 100vh; background-color: #1a1c2b" id="skillForNavigator">
+		</div>
+		<div style="height: 100vh; display: flex; align-items: center; background-color: #1a1c2b; flex-direction: column;" id="skillForNavigator">
+			<div style="height: 80%;">
 				<div class="skillHeader">Skills</div>
 				<div class="skillItems">Launage</div>
 				<!-- 508 601 -->
@@ -86,7 +88,8 @@
 					<img src="/resources/img/git.png" class="imgButton">&nbsp;&nbsp;&nbsp;
 				</div>
 			</div>
-			<div class="row" align="center" >
+		</div>
+		<div class="row" align="center" >
 				<div class="tableView" id="projectForNavigator">
 					<!-- 가로를 줄이면 깨짐 수정필요 -->
 					<table  
