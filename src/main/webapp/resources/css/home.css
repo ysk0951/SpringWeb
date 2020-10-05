@@ -24,7 +24,7 @@ table>tbody>tr>td {
 	vertical-align: middle;
 	height: 10%;
 	border: 3px solid #559AFC;
-	padding: 2px;
+	padding: 10px;
 	font-size:12pt; color:#559AFC;	
 }
 
@@ -95,7 +95,6 @@ a:hover {
 	width: 100vw;
 	height: 100vh;
 	display: table-cell;
-	padding: 10px;
 	vertical-align: middle;
 	margin: 0 auto;
 	text-align: center;

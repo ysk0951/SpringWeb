@@ -23,11 +23,11 @@
 <style>
 .hostingTableFont >td>a{
 	padding: 0px;
-	font-size:calc(8px + 1.5vw);
+	font-size:calc(5px + 1.3vw);
 } 
 .hostingThFont >th{
 	padding: 0px;
-	font-size:calc(12px + 1.5vw);
+	font-size:calc(10px + 1.5vw);
 }
 </style>
 </head>
@@ -48,8 +48,10 @@
 			<div class="row align-items-center" id="homeForNavigator">
 				<!--수정  style="height: 100%;" -->
 				<!-- 508 601  -->
+				<div style="height: 100vh; width: 100vw; background-color: #1a1c2b;">
 				<img src="/resources/img/homeIndex.jpg" class="img-fluid"
-					style="height: 100vh; width: 100vw" />
+					style="width: 100vw" />
+				</div>
 			</div>
 			<div style="height: 100vh; background-color: #1a1c2b" id="skillForNavigator">
 				<div class="skillHeader">Skills</div>
@@ -85,14 +87,11 @@
 				</div>
 			</div>
 			<div class="row" align="center" >
-				
-				
-				
 				<div class="tableView" id="projectForNavigator">
 					<!-- 가로를 줄이면 깨짐 수정필요 -->
 					<table  
 					style=" border:3px solid #559AFC;
-					height: 90%; width: 90%; 
+					width: 90vw; 
 					text-align: center; margin-left: auto;
 					margin-right: auto;"> 
 						<thead> 
@@ -108,7 +107,7 @@
 								<tr class="hostingTableFont">
 									<td><a href="https://ysk0951.github.io/SpringMVC/">4</a></td>
 									<td><a href="https://ysk0951.github.io/SpringMVC/">마시는녀석들</a></td>
-									<td><a href="https://ysk0951.github.io/SpringMVC/">Spring,Mybatis,KakaoAPI(Oauth2.0,etc),tiles</a></td>
+									<td><a href="https://ysk0951.github.io/SpringMVC/">Mybatis,Oauth2.0,AOP,tiles,Mobile</a></td>
 									<td><a href="https://ysk0951.github.io/SpringMVC/">2020.10</a></td>
 								</tr>
 								<tr class="hostingTableFont">
